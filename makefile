@@ -13,7 +13,7 @@ endif
 
 
 .PHONY: clall
-clall: clbin cldata cldoc
+clall: clbin cldoc cldata 
 
 .PHONY: clbin
 clbin:
