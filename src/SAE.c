@@ -15,16 +15,22 @@ int fajoutadherent(int *nombreAdherent,int nbC){
     if(numero==0)
         {
         numero=1000;//si aucun adhérent présent : on initialise le premier au numéro 1001;
-        fprintf(fadherent,"%d %d %d\n",numero+1,1,nbC);
+        //fprintf(fadherent,"%d\t%d\t%d\n",numero+1,1,nbC);
         }
-    else{
-        fprintf(fadherent,"%d %d %d\n",numero+1,1,nbC);}             
+    
+    fprintf(fadherent,"%d\t%d\t%d\n",numero+1,1,nbC);       
             // quand on crée un adhérent, on active forcément sa carte et on la crédit de nbC
     
      // le nombre d'adhérent est égal a
     fclose(fadherent);
     *nombreAdherent=i+1;
-    return numero+1;
+
+    FILE *fe;
+    fe=fopen("data/nbradherents.txt","w");
+    if (fe==NULL)return -1;//pb ouverture fichier : return -1
+    fprintf(fe,"%d",*nombreAdherent);
+    fclose(fe);
+    return numero+1;// on stocke le nombre d'adhérents dans un fichier à part
 
 }
 
@@ -82,12 +88,21 @@ int fsuppressionadherent(int num_adherent,int nbr_adherent)
     fclose(fichier);
     printf("Adhérent Et Carte N°%d Supprimés Avec Succès\n",num_adherent);
     printf("Il y'a à présent %d adhérents dans le club\n",nbr_adherent-1);
+    FILE *fe;
+    fe=fopen("data/nbradherents.txt","w");
+    if (fe==NULL)return -1;//pb ouverture fichier : return -1
+    fprintf(fe,"%d",nbr_adherent-1);
+    fclose(fe);
     return nbr_adherent-1;
 
 }
 
-void fsupp(int nbrAdherent){  
-    int numero;  
+void fsupp(void){  
+    int numero,nbrAdherent;
+    FILE *fe;
+    fe=fopen("data/nbradherents.txt","r");
+    if (fe==NULL){printf("Erreur !!! Aucun Adhérent Dans La Base, Impossible de Supprimer Un Adhérent\n"); return;}// il n'y a aucun adhérents on ne peut donc pas en supprimer ! 
+    fscanf(fe,"%d",&nbrAdherent);// le fichier nbradherents.txt contient le nombre d'adhérents du centre. 
     printf("Entrez Le Numéro D'adhérent à supprimer : ");
     scanf("%d",&numero);
     nbrAdherent=fsuppressionadherent(numero,nbrAdherent);  
@@ -109,7 +124,15 @@ int ajoutadher(void)
     printf("il y'a à présent %d Adhérents Dans Le Club.\n",nbrAdherent);// le numéro de carte est égale au au numéro de la derniere carte -1000
     return 0;
 }
-   
+
+
+
+int main(void)
+{
+    ajoutadher();
+    fsupp();
+    return 0;
+}
 // ---------------------------------- WORKS ^^ -----------------------------------------//
 //-----------------------------------       ||  ---------------------------------------//
 
@@ -160,7 +183,7 @@ void fonctiongenerale(void){
 
 
 
-/*
+
 int recherchCarte(int numadherent)
 {
     int numeroadherent,i,pos;

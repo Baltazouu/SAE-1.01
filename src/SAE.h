@@ -18,7 +18,7 @@ int fsuppressionadherent(int num_adherent,int nbr_adherent);/*
 supprime un adhérent et ses informations en fonction du nombre d'adhére et du numéro
 */
 
-void fsupp(int nbrAdherent);
+void fsupp();// va chercher le nombere d'adhérents dans le fichier adhérents .txt
 //  fonction de saisie du numéro d'adhérent a supprimer et nécéssite
 // le nombre d'adhérents
 
