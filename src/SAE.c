@@ -1,6 +1,19 @@
 #include<stdio.h>
 #include"SAE.h"
 
+
+int fnbr_adherents(void){
+
+    int nbr_adherents;
+    FILE *fe;
+    fe=fopen("data/nbradherents.txt","r");
+    if (fe==NULL){return -1;}
+    fscanf(fe,"%d",&nbr_adherents);
+    fclose(fe);
+    return nbr_adherents;
+}
+
+
 int fajoutadherent(int *nombreAdherent,int nbC){
     int numero,active_carte,nbr_credit,i=0;
     FILE *fadherent;
@@ -69,7 +82,7 @@ int fsuppressionadherent(int num_adherent,int nbr_adherent)
     }
     fclose(fadherent);
     pos=rechercheNombre(num_adherent,tAdherent,nbr_adherent);
-    if (pos==-1){printf("Erreur ! Carte Non Présente Dans La Base...\n");return -1;}
+    if (pos==-1){printf("Erreur ! N° De Carte Non Présente Dans La Base...\n");return -1;}
     
     for(x=pos;x<nbr_adherent-1;x++)
     {   
@@ -99,14 +112,14 @@ int fsuppressionadherent(int num_adherent,int nbr_adherent)
 
 void fsupp(void){  
     int numero,nbrAdherent;
-    FILE *fe;
-    fe=fopen("data/nbradherents.txt","r");
-    if (fe==NULL){printf("Erreur !!! Aucun Adhérent Dans La Base, Impossible de Supprimer Un Adhérent\n"); return;}// il n'y a aucun adhérents on ne peut donc pas en supprimer ! 
-    fscanf(fe,"%d",&nbrAdherent);// le fichier nbradherents.txt contient le nombre d'adhérents du centre. 
+    nbrAdherent=fnbr_adherents();// la fonction va chercher le nombre d'adhérents dans le fichier nnbr_adhérents
+    if (nbrAdherent==-1){printf("Erreur Ouverture Fichier ! :/");return;}
     printf("Entrez Le Numéro D'adhérent à supprimer : ");
     scanf("%d",&numero);
     nbrAdherent=fsuppressionadherent(numero,nbrAdherent);  
 }
+
+
 
 int ajoutadher(void)
 {   
@@ -126,17 +139,15 @@ int ajoutadher(void)
 }
 
 
-
-int main(void)
-{
-    ajoutadher();
-    fsupp();
-    return 0;
+void falim(void){
+    int nbr_credits;
+    printf("Entrez Le Numéro de Carte à allouer");
+    scanf("%d",&nbr_credits);
 }
+
 // ---------------------------------- WORKS ^^ -----------------------------------------//
 //-----------------------------------       ||  ---------------------------------------//
 
-/*
 void fonctiongenerale(void){
 
     int choix;
@@ -161,52 +172,30 @@ void fonctiongenerale(void){
     printf("\t\tQuitter La Gestion du Centre : 7\n");
     
     printf("Entrez Votre Choix : ");
-    fscanf("%d",&choix);
-    while (choix!=7)
-    {
+    scanf("%d",&choix);
+    //while (choix!=7)
+    //{
         if (choix==1)   {ajoutadher();}
 
         if (choix==2)   {fsupp();}
 
-        if (choix==3){}
+        if (choix==3){return; }
 
-        if (choix==4){}
+        if (choix==4){return;}
 
-        if (choix==5){}
+        if (choix==5){return;}
 
-        if (choix==6){}
-
-
-        
-    }
+        if (choix==6){return;}
+        //printf("Entrez Le Choix Correspondant : ")
+        //fscanf("%d",&choix);
+    //}
     return;
 
-
-
-
-int recherchCarte(int numadherent)
-{
-    int numeroadherent,i,pos;
-    FILE *fe;
-    fe=fopen("../data/cartes.txt","r");
-    if (fe==NULL){return -1;}// pb ouverture fichier !!
-    fscanf(fe,"%d\n",&numeroadherent);
-    while (!feof(fe))
-    {
-        if(numadherent==numeroadherent)
-        {
-            pos=i;
-            return pos;
-        }
-
-        i++;
-        fscanf(fe,"%d\n",&numadherent);
-    }
 }
 
-int falimcarte(int numadherent,int nbpoints)
+
+int main(void)
 {
-
-
+    fonctiongenerale();
+    return 0;
 }
-*/
