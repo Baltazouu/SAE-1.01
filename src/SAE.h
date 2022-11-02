@@ -7,6 +7,8 @@
            création et alimentation carte
 */
 
+int fnbr_adherents(void);// fonction qui recherche le nombre d'adhérents dans la base stocké dans un fichier nbradherents.txt
+
 int fajoutadherent(int *nombreAdherent,int nbC);
 /* Ajoute un numéro d'adhérent dans le fichier et lui insère le nombre de crédits
 la fonction retourne le numéro du nouvel adhérent */
@@ -25,3 +27,5 @@ void fsupp();// va chercher le nombere d'adhérents dans le fichier adhérents .
 int ajoutadher(void);
 //fonction de saisie du nombre de crédits à ajouter pour la création
 // d'un nouvel adhérent.
+
+void fonctiongenerale(void);//fonction de menu.
