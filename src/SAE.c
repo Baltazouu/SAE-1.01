@@ -309,6 +309,42 @@ void fdesactivercarte(void)
     
 }
 
+void falimcarte(void)
+{   
+    int points,numero,nbadherents,i,presence=0;
+    printf("Entrez Le Numéro de Carte à Alimenter : ");
+    scanf("%d",&numero);
+    printf("Entrez Le Nombre De Points à Ajouter : ");
+    scanf("%d",&points);
+    nbadherents=fnbr_adherents();
+    int Tnum[nbadherents],Tactive[nbadherents],Tnbpoints[nbadherents];
+    fchargement(Tnum,Tactive,Tnbpoints,nbadherents);
+    for (i=0;i<nbadherents;i++)
+    {
+        if (Tnum[i]==numero)
+        {   
+            presence=1;
+            if(Tactive[i]==0)
+            {
+                printf("Erreur !! Carte Désactivée, Alimentation Impossible !\n");
+                return;
+            }
+            Tnbpoints[i]+=points;
+        }
+    }
+    if (presence==0){printf("Erreur !! Le Numéro de Carte N'est Pas Présent Dans La Base !!\n");return;}
+    FILE *fe;
+    fe=fopen("data/adherents.txt","w");
+    if (fe==NULL){printf("Erreur Ouverture Fichier !!\n");return;}
+    for (i=0;i<nbadherents;i++)
+    {
+        fprintf(fe,"%d\t%d\t%d\n",Tnum[i],Tactive[i],Tnbpoints[i]);
+    }
+    fclose(fe);
+    printf("Carte N°%d Alimentée de %d Points Avec Succès !\n",numero,points);
+    
+    
+}
 // ---------------------------------- WORKS ^^ -----------------------------------------//
 //-----------------------------------       ||  ---------------------------------------//
 
@@ -345,7 +381,7 @@ void fonctiongenerale(void){
 
         if (choix==2)   {fsupp();}
 
-        if (choix==3){return; }
+        if (choix==3){falimcarte(); return; }
 
         if (choix==4){ factivercarte(); return;}
 
