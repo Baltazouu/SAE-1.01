@@ -28,4 +28,8 @@ int ajoutadher(void);
 //fonction de saisie du nombre de crédits à ajouter pour la création
 // d'un nouvel adhérent.
 
+void fafficha1derent(void);//affiche les informations d'un adhérent.
+
+void faffichtousadherent (void);// affiche les informations de tous les adhérents.
+
 void fonctiongenerale(void);//fonction de menu.

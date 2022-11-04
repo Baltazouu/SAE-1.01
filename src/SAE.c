@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include"SAE.h"
 
-
 int fnbr_adherents(void){
 
     int nbr_adherents;
@@ -145,6 +144,50 @@ void falim(void){
     scanf("%d",&nbr_credits);
 }
 
+void fafficha1derent(void){
+
+    int numadherent;
+    int num,active,nbpoints;
+    printf("Entrez Le Numéro D'adhérent à afficher : ");
+    scanf("%d",&numadherent);
+    FILE *fe;
+    fe=fopen("data/adherents.txt","r");
+    if (fe==NULL){printf("Erreur Ouverture Fichier !!");return;}
+    fscanf(fe,"%d %d %d",&num,&active,&nbpoints);
+    while(!feof(fe))
+    {   
+        //printf("numero : %d",num);
+        if (num==numadherent)
+        {
+            printf("Numéro\tEtat Carte\tNombre de Points :\n");
+            printf("%d\t\t%d\t\t%d\n",num,active,nbpoints);
+            return;
+        }
+        fscanf(fe,"%d %d %d",&num,&active,&nbpoints);
+    }
+    printf("Erreur, Le Numéro Spécifié N'est pas dans la base !!\n");
+    fclose(fe);
+
+}
+
+
+void faffichtousadherent (void)
+{
+    int numero,carteactive,nbpoints;
+    FILE *fe;
+    fe=fopen("data/adherents.txt","r");
+    if (fe==NULL){printf("Erreur Ouverture Fichier\n"); return;}
+    printf("Numéro\tEtat Carte\tNombre de Points :\n");
+    fscanf(fe,"%d %d %d",&numero,&carteactive,&nbpoints);
+    while(!feof(fe))
+    {
+        printf("%d\t\t%d\t\t%d\n",numero,carteactive,nbpoints);
+        fscanf(fe,"%d %d %d",&numero,&carteactive,&nbpoints);
+    }
+    fclose(fe);
+    return;
+
+}
 // ---------------------------------- WORKS ^^ -----------------------------------------//
 //-----------------------------------       ||  ---------------------------------------//
 
@@ -166,12 +209,14 @@ void fonctiongenerale(void){
     printf("\t\t# Désactiver Une Carte : 5\n");
     
     printf("\t\t# Afficher Les informations d'un adhérent : 6\n");
+
+    printf("\t\t# Afficher Les informations de tous les adhérent : 7\n");
     
-    printf("\t\t# Afficher le nombre d'entrées par activité dans la journée : 6\n");
+    printf("\t\t# Afficher le nombre d'entrées par activité dans la journée : 8\n");
     
-    printf("\t\tQuitter La Gestion du Centre : 7\n");
+    printf("\t\tQuitter La Gestion du Centre : 9\n");
     
-    printf("Entrez Votre Choix : ");
+    printf("\nEntrez Votre Choix : ");
     scanf("%d",&choix);
     //while (choix!=7)
     //{
@@ -185,7 +230,9 @@ void fonctiongenerale(void){
 
         if (choix==5){return;}
 
-        if (choix==6){return;}
+        if (choix==6){ fafficha1derent(); return;}
+
+        if (choix==7){ faffichtousadherent(); return;}
         //printf("Entrez Le Choix Correspondant : ")
         //fscanf("%d",&choix);
     //}
