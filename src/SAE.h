@@ -32,4 +32,12 @@ void fafficha1derent(void);//affiche les informations d'un adhérent.
 
 void faffichtousadherent (void);// affiche les informations de tous les adhérents.
 
+void fchargement(int Tnum[],int Tactive[],int Tnbpoints[],int nbradherents);// charge les données du fichier adherents.txt dans trois tableaux
+// utile pour les fonctions désactiver et activer cartes.
+
+void factivercarte(void);// désactive la carte d'un adhérent
+
+void fdesactivercarte(void);// active la carte d'un adhérent.
+
 void fonctiongenerale(void);//fonction de menu.
+

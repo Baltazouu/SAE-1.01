@@ -188,6 +188,127 @@ void faffichtousadherent (void)
     return;
 
 }
+
+///////////////////////////////////// fonction chargement tables : 
+
+void fchargement(int Tnum[],int Tactive[],int Tnbpoints[],int nbradherents)
+{   
+    int numero,etatcarte,nbp;
+    int i=0;
+    FILE *fl;
+    fl=fopen("data/adherents.txt","r");
+    if (fl==NULL){printf("Erreur Ouverture Fichier !!!\n");return ;}
+    
+    fscanf(fl,"%d %d %d",&numero,&etatcarte,&nbp);
+    while (!feof(fl))
+    {   
+        Tnum[i]=numero;
+        Tactive[i]=etatcarte;
+        Tnbpoints[i]=nbp;
+        fscanf(fl,"%d %d %d",&numero,&etatcarte,&nbp);
+        i++;
+    }
+    fclose(fl);
+}
+
+
+void factivercarte(void)
+{   
+    int nbr_adherent;
+    nbr_adherent=fnbr_adherents();
+    int Tnum[nbr_adherent],Tactive[nbr_adherent],Tnbpoints[nbr_adherent];
+    fchargement(Tnum,Tactive,Tnbpoints,nbr_adherent);
+    printf("Entrez Le Numéro De Carte à activer : ");
+    int i, numero_enable;
+    scanf("%d",&numero_enable);
+    int presente=0;
+    
+    for (i=0;i<nbr_adherent;i++)
+    {
+        if (Tnum[i]==numero_enable)
+        
+        {   
+            presente=1;
+            if (Tactive[i]==1)
+            {
+                printf("La Carte %d Est Déjà Activée\n",numero_enable);
+                return;
+                
+            }
+            else 
+            {
+            Tactive[i]=1;
+            
+            }
+        }
+    }
+    if (presente==0)
+    {   
+        printf("Erreur, Le N°%d N'est Pas Présent Dans La Base !!\n",numero_enable);
+        return;
+    }
+    FILE *fe;
+    fe=fopen("data/adherents.txt","w");
+    for (i=0;i<nbr_adherent;i++)
+    {
+        fprintf(fe,"%d\t%d\t%d\n",Tnum[i],Tactive[i],Tnbpoints[i]);
+    }
+    fclose(fe);
+    printf("La Carte N°%d à été Activée avec succès !\n",numero_enable);
+    
+
+}
+
+void fdesactivercarte(void)
+{   
+    
+    int nbr_adherent;
+    int numero_disable;
+    int i=0;
+    nbr_adherent=fnbr_adherents();
+    int Tnum[nbr_adherent],Tactive[nbr_adherent],Tnbpoints[nbr_adherent];
+    fchargement(Tnum,Tactive,Tnbpoints,nbr_adherent);
+
+    printf("Entrez Le Numéro De Carte à désactiver : ");
+    scanf("%d",&numero_disable);
+    int presente=0;
+    
+    for (i=0;i<nbr_adherent;i++)
+    {
+        if (Tnum[i]==numero_disable)
+        
+        {   
+            presente=1;
+            if (Tactive[i]==0)
+            {
+                printf("La Carte %d Est Déjà Désactivée\n",numero_disable);
+                return;
+                
+            }
+            else 
+            {
+            Tactive[i]=0;
+            
+            }
+        }
+    }
+    if (presente==0)
+    {   
+        printf("Erreur, Le N°%d N'est Pas Présent Dans La Base !!\n",numero_disable);
+        return;
+    }
+    FILE *fe;
+    fe=fopen("data/adherents.txt","w");
+    for (i=0;i<nbr_adherent;i++)
+    {
+        fprintf(fe,"%d\t%d\t%d\n",Tnum[i],Tactive[i],Tnbpoints[i]);
+    }
+    fclose(fe);
+    printf("La Carte N°%d à été désactivée avec succès !\n",numero_disable);
+    
+    
+}
+
 // ---------------------------------- WORKS ^^ -----------------------------------------//
 //-----------------------------------       ||  ---------------------------------------//
 
@@ -226,9 +347,9 @@ void fonctiongenerale(void){
 
         if (choix==3){return; }
 
-        if (choix==4){return;}
+        if (choix==4){ factivercarte(); return;}
 
-        if (choix==5){return;}
+        if (choix==5){ fdesactivercarte(); return;}
 
         if (choix==6){ fafficha1derent(); return;}
 
