@@ -22,7 +22,6 @@ int globale(void)
     int val;
 
     nbAdhe = chargement(Tnum, Tetat, TnbPoints, TMAX);
-    printf("nbAdhe -> %d", nbAdhe);
 
     affMenu();
     saisieChoix(&commande);
@@ -90,5 +89,5 @@ int globale(void)
 
 int main(void)
 {
-    globale();
+    return globale();
 }
