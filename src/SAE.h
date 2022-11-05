@@ -1,0 +1,43 @@
+/* sae.h 
+//author : Baptiste Dudonné
+//date : Nov 1st.
+ file : tp5.h
+
+    brief: fonctions ajout / suppression d'un adhérent 
+           création et alimentation carte
+*/
+
+int fnbr_adherents(void);// fonction qui recherche le nombre d'adhérents dans la base stocké dans un fichier nbradherents.txt
+
+int fajoutadherent(int *nombreAdherent,int nbC);
+/* Ajoute un numéro d'adhérent dans le fichier et lui insère le nombre de crédits
+la fonction retourne le numéro du nouvel adhérent */
+
+int rechercheNombre(int nbr,int Table[],int len_table);
+// recherche un nombre dans une table et renvoie sa position
+
+int fsuppressionadherent(int num_adherent,int nbr_adherent);/*
+supprime un adhérent et ses informations en fonction du nombre d'adhére et du numéro
+*/
+
+void fsupp();// va chercher le nombere d'adhérents dans le fichier adhérents .txt
+//  fonction de saisie du numéro d'adhérent a supprimer et nécéssite
+// le nombre d'adhérents
+
+int ajoutadher(void);
+//fonction de saisie du nombre de crédits à ajouter pour la création
+// d'un nouvel adhérent.
+
+void fafficha1derent(void);//affiche les informations d'un adhérent.
+
+void faffichtousadherent (void);// affiche les informations de tous les adhérents.
+
+void fchargement(int Tnum[],int Tactive[],int Tnbpoints[],int nbradherents);// charge les données du fichier adherents.txt dans trois tableaux
+// utile pour les fonctions désactiver et activer cartes.
+
+void factivercarte(void);// désactive la carte d'un adhérent
+
+void fdesactivercarte(void);// active la carte d'un adhérent.
+
+void fonctiongenerale(void);//fonction de menu.
+
