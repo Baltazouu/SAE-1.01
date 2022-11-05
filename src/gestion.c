@@ -20,7 +20,7 @@ int ajoutAdher(int *nbAdher, int nbCredits,
     insertionNombre(1, ins, Tetat, *nbAdher, tmax);
     insertionNombre(nbCredits, ins, TnbPoints, *nbAdher, tmax);
 
-    *nbAdher -= 1;
+    *nbAdher += 1;
     return val;
 }
 

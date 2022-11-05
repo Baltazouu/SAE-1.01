@@ -43,5 +43,6 @@ int sauvegarde(int Tnum[], int Tetat[], int TnbPoints[], int nbAdhe)
         fprintf(fl, "%d\t%d\t%d\n", Tnum[i], Tetat[i], TnbPoints[i]);
     }
 
+    fclose(fl);
     return 0;
 }

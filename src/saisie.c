@@ -20,7 +20,7 @@ void saisieSuppAdhe(int *numAdhe)
 
 void saisieAlimCarte(int *numAdhe, int *points)
 {
-    printf("[alimCarte] Saisir le numéro Adherent :\t");
+    printf("[alimCarte] Saisir le numéro Adherent :\t\t");
     scanf("%d", numAdhe);
     printf("[alimCarte] Saisir le nombre de points :\t");
     scanf("%d", points);

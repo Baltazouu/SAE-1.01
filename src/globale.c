@@ -19,10 +19,12 @@ int globale(void)
     int Tnum[TMAX], Tetat[TMAX], TnbPoints[TMAX];
 
     int numAdhe, nbAdhe, points;
-    int val, presence;
+    int val;
 
     nbAdhe = chargement(Tnum, Tetat, TnbPoints, TMAX);
+    printf("nbAdhe -> %d", nbAdhe);
 
+    affMenu();
     saisieChoix(&commande);
     while (!sortie) {
 
@@ -71,13 +73,16 @@ int globale(void)
             printf("\n");
             sortie = 1;
             if (!sauvegarde(Tnum, Tetat, TnbPoints, nbAdhe))
-                printf("[ajoutAdher] succes: %d adherents sauvegardé.\n",
+                printf("[sauvegarde] succes: %d adherents sauvegardé.\n",
                        nbAdhe);
         } else {
             printf("[gestion] erreur: commande inconnue\n");
         }
 
-    saisieChoix(&commande);
+        if (!sortie) {
+            affMenu();
+            saisieChoix(&commande);
+        }
     }
 
     return 0;
