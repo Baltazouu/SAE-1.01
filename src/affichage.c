@@ -1,12 +1,17 @@
 /*
 * \file affichage.c
 * \brief fonctions d'affichages
+*
+*   SAE 1.01
 */
 
 #include <stdio.h>
-
 #include "utilitaire.h"
 
+
+/**
+* Affiche les numéros des fonctions.
+*/
 void affMenu(void)
 {
     printf("\n[Gestion d'un complexe sportif]\n\n");
@@ -25,6 +30,10 @@ void affMenu(void)
     printf("\n");
 }
 
+/**
+* Recherche l'adherent grace à la fonciton recherche, test si il existe et si
+* c'est le cas, affiche les information le concernant.
+*/
 void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int nbAdhe)
 {
     int presence;
@@ -40,6 +49,10 @@ void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int nbAd
     printf("[affInfoAdhe] Nombre de points :\t%d\n", TnbPoints[ins]);
 }
 
+/**
+* Affiche sous forme de tableau tous les adhérents du club et les information
+* les concernants.
+*/
 void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int nbAdhe)
 {
     printf("[affInfoTous] informations générales : ----------------------------\n\n");
