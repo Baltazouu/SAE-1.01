@@ -1,11 +1,22 @@
-/*
+/**
 * \file gestion.c
 * \brief fonctions de gestions des adherents
+*
+*   SAE 1.01
 */
 
 #include <stdio.h>
 #include "utilitaire.h"
 
+
+/**
+* Utilise la fonction de recherche de la première occurence d'un nombre pas ou
+* plus utilisé et l'utilise comme nouvel id.
+* Met à jour les trois tableau en insérant dans l'ordre croissant des numéros
+* d'adherents le nouvel id, état et nombre de points. (utilisation de la
+* fonction d'insertion)
+* Met à jour la taille logique du tableau.
+*/
 int ajoutAdher(int *nbAdher, int nbCredits,
                int Tnum[], int Tetat[], int TnbPoints[], int tmax)
 {
@@ -24,6 +35,13 @@ int ajoutAdher(int *nbAdher, int nbCredits,
     return val;
 }
 
+/**
+* Utilise la fonction de recherche de nombre dans un tableau pour trouver
+* l'existance et la position d'insertion de l'id de l'adherent dans les tableaux.
+* Met à jour les trois tableau en supprimant les lignes et décalant le reste du
+* tableau. (utilisation de la fonction de suppression)
+* Met à jour la taille logique du tableau.
+*/
 int suppAdhe(int numAdhe, int *tlog,
              int Tnum[], int Tetat[], int TnbPoints[])
 {
@@ -42,6 +60,13 @@ int suppAdhe(int numAdhe, int *tlog,
     return 0;
 }
 
+/**
+* Utilise la fonction de recherche de nombre dans un tableau pour trouver
+* l'existance et la position d'insertion de l'id de l'adherent dans les tableaux.
+* Teste si l'id existe et si la carte est active.
+* Ajoute le nombre de points donnés en paramètre au nombre de points actuel de
+* l'adherent. Ce nombre peut être négatif dans le cas d'un débit de points.
+*/
 int alimCarte(int points, int numAdhe, int nbAdhe,
               int Tnum[], int Tetat[], int TnbPoints[])
 {
@@ -60,6 +85,12 @@ int alimCarte(int points, int numAdhe, int nbAdhe,
     return 0;
 }
 
+/**
+* Utilise la fonction de recherche de nombre dans un tableau pour trouver
+* l'existance et la position d'insertion de l'id de l'adherent dans les tableaux.
+* Teste si l'id existe.
+* Met à jour si besoin l'état de la carte.
+*/
 int activationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
 {
     int presence;
@@ -78,6 +109,12 @@ int activationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
     return 0;
 }
 
+/**
+* Utilise la fonction de recherche de nombre dans un tableau pour trouver
+* l'existance et la position d'insertion de l'id de l'adherent dans les tableaux.
+* Teste si l'id existe.
+* Met à jour si besoin l'état de la carte.
+*/
 int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
 {
     int presence;
