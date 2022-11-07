@@ -16,3 +16,5 @@ int alimCarte(int points, int numAdhe, int nbAdhe,
 int activationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[]);
 
 int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[]);
+
+void EntreeAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[]);

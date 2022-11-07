@@ -68,7 +68,12 @@ int globale(void)
         } else if (commande == 8) {
             printf("\n");
             printf("[gestion] note: commande non implémentée\n");
-        } else if (commande == 9) {
+        } 
+        else if (commande==9){
+            printf("\n");
+            EntreeAdhe(nbAdhe,Tnum,Tetat,TnbPoints);
+        }
+        else if (commande == 10) {
             printf("\n");
             sortie = 1;
             if (!sauvegarde(Tnum, Tetat, TnbPoints, nbAdhe))

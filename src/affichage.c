@@ -20,7 +20,9 @@ void affMenu(void)
     printf("\t6 # Afficher les informations d'un adherent\n");
     printf("\t7 # Afficher les informations de tout les adhérents\n");
     printf("\t8 # Afficher le nombre d'entrées par activité dnas la journée\n");
-    printf("\t9 # Quitter la gestion du centre (fin de journée)\n");
+    printf("\t9 # Saisir entrée d'un adhérent\n");
+    printf("\t10 # Quitter la gestion du centre (fin de journée)\n");
+    
     printf("-------------------------------------------------------------------\n");
     printf("\n");
 }
@@ -51,4 +53,21 @@ void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int nbAdhe)
         printf("\t\t%d\t| %d\t| %d\n", Tnum[i], Tetat[i], TnbPoints[i]);
 
     printf("\t---------------------------------------------\n");
+}
+
+void affInfoAct(void)
+{
+    printf("[SaiseAct] Entrez Le Numéro D'activité Correspondant :\n");
+    printf("------------------------------------------------------\n");
+    printf("\n");
+    printf("\t 1 # Kayak : 25 points\n");
+    printf("\t 2 # Boxe : 15 points\n");
+    printf("\t 3 # Musculation : 15 points\n");
+    printf("\t 4 # Gym : 12 points\n");
+    printf("\t 5 # AquaGym : 15 points\n");
+    printf("\t 6 # Vélo : 20 points\n");
+    printf("\t 7 # Kayak : 25 points\n");
+    printf("\t 8 # Tennis : 10 points\n");
+    printf("\t 9 # Basket : 10 points\n");
+    printf("\t 10 # Foot : 10 points\n");
 }

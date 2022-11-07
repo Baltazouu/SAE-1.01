@@ -17,3 +17,9 @@ void saisieDesactivationCarte(int *numAdhe);
 void saisieAffInfoAdhe(int *numAdhe);
 
 void saisieChoix(int *choix);
+
+void saisieEntrAdhe(int *numadhe);
+
+void saisieAct(int *numAct);
+
+void saisie2ndAct(int *rep);
