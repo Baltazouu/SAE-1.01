@@ -3,6 +3,7 @@
 * \brief fonctions de gestions des adherents
 */
 
+#define NBACT 10 // 10 Activités
 
 int ajoutAdher(int *nbAdher, int nbCredits,
                int Tnum[], int Tetat[], int TnbPoints[], int tmax);
@@ -17,4 +18,4 @@ int activationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[]);
 
 int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[]);
 
-void EntreeAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[]);
+void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[]);

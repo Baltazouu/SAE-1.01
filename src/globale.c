@@ -16,8 +16,7 @@
 int globale(void)
 {
     int commande, sortie = 0;
-    int Tnum[TMAX], Tetat[TMAX], TnbPoints[TMAX];
-
+    int Tnum[TMAX], Tetat[TMAX], TnbPoints[TMAX],TnbEntr[NBACT];
     int numAdhe, nbAdhe, points;
     int val;
 
@@ -56,8 +55,7 @@ int globale(void)
             printf("\n");
             saisieActivationCarte(&numAdhe);
             if (!desactivationCarte(numAdhe, nbAdhe, Tnum, Tetat))
-                printf("[desactivationCarte] succes: Carte n°%d desactivée.\n",
-                       numAdhe);
+                printf("[desactivationCarte] succes: Carte n°%d desactivée.\n",numAdhe);
         } else if (commande == 6) {
             printf("\n");
             saisieAffInfoAdhe(&numAdhe);
@@ -71,15 +69,15 @@ int globale(void)
         } 
         else if (commande==9){
             printf("\n");
-            EntreeAdhe(nbAdhe,Tnum,Tetat,TnbPoints);
+            EntreAdhe(nbAdhe,Tnum,Tetat,TnbPoints,TnbEntr);
         }
         else if (commande == 10) {
             printf("\n");
             sortie = 1;
             if (!sauvegarde(Tnum, Tetat, TnbPoints, nbAdhe))
-                printf("[sauvegarde] succes: %d adherents sauvegardé.\n",
-                       nbAdhe);
-        } else {
+                printf("[sauvegarde] succes: %d adherents sauvegardés.\n\n",nbAdhe);
+        }
+        else {
             printf("[gestion] erreur: commande inconnue\n");
         }
 

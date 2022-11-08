@@ -54,14 +54,17 @@ void saisieEntrAdhe(int *numadhe)
 {
     printf("[EntrAdhe] Saisissez Le Numéro De L'adhérent entrant : ");
     scanf("%d",numadhe);
+    printf("\n");
 }
 void saisieAct(int *numAct)
 {
     printf("[EntrAdhe] Saisissez Le Numéro D'activité : ");
     scanf("%d",numAct);
+    printf("\n");
 }
 void saisie2ndAct(int *rep)
 {  
     printf("[EntrAdhe] Souhaitez Vous Choisir Une Autre Activité ( 1 : Oui | 0 : Non ) : ");
     scanf("%d",rep);
+    printf("\n");
 }
