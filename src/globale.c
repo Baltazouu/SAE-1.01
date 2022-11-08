@@ -16,7 +16,8 @@
 int globale(void)
 {
     int commande, sortie = 0;
-    int Tnum[TMAX], Tetat[TMAX], TnbPoints[TMAX],TnbEntr[NBACT];
+    int Tnum[TMAX], Tetat[TMAX], TnbPoints[TMAX];
+    int TnbEntr[NBACT]={0,0,0,0,0,0,0,0,0,0};
     int numAdhe, nbAdhe, points;
     int val;
 
@@ -65,7 +66,7 @@ int globale(void)
             affInfoTous(Tnum, Tetat, TnbPoints, nbAdhe);
         } else if (commande == 8) {
             printf("\n");
-            printf("[gestion] note: commande non implémentée\n");
+            affichnbEntrAct(TnbEntr,NBACT);
         } 
         else if (commande==9){
             printf("\n");

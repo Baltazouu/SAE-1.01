@@ -11,3 +11,5 @@ void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int nbAd
 void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int nbAdhe);
 
 void affInfoAct(void);
+
+void affichnbEntrAct(int TnbEntr[],int tlog);

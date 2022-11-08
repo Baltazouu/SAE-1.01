@@ -75,7 +75,9 @@ void affInfoAct(void)
 
 void affichnbEntrAct(int TnbEntr[],int tlog)
 {   
+    
     printf("------------------------------------------------------\n\n");
+    printf("[AffichEntrAct] Nombres d'entrées de la journée :\n\n");
     printf("\t 1 # Kayak : %d Entrées\n",TnbEntr[0]);
     printf("\t 2 # Boxe : %d Entrées\n",TnbEntr[1]);
     printf("\t 3 # Musculation : %d Entrées\n",TnbEntr[2]);
