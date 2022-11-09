@@ -75,4 +75,8 @@ int activationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[]);
 */
 int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[]);
 
-void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[]);
+void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],int TnumAdheEntre[],int * nbAdheEntre,int TAdheintdt[],int *nbinterdt)
+;
+void InterdirAdhe(int numAdhe,int TAdheintdt[],int *nbInterdit,int Tnum[],int nbAdhe);
+
+int VerifAdheNonInterdit(int numAdhe,int TAdheInterdt[],int *nbInterdit,int TnumAdheEntre[],int *nbAdheEntre);

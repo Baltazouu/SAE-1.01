@@ -23,3 +23,6 @@ void saisieEntrAdhe(int *numadhe);
 void saisieAct(int *numAct);
 
 void saisie2ndAct(int *rep);
+
+void saisieInterdAdhe(int *numAdhe);
+

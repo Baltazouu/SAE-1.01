@@ -26,7 +26,8 @@ void affMenu(void)
     printf("\t7 # Afficher les informations de tout les adhérents\n");
     printf("\t8 # Afficher le nombre d'entrées par activité dans la journée\n");
     printf("\t9 # Saisir entrée d'un adhérent\n");
-    printf("\t10 # Quitter la gestion du centre (fin de journée)\n");
+    printf("\t10 # Interdir Seconde Entrée D'un Adhérent Dans La Journée\n");
+    printf("\t11 # Quitter la gestion du centre (fin de journée)\n");
     
     printf("-------------------------------------------------------------------\n");
     printf("\n");
