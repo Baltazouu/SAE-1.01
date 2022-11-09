@@ -31,3 +31,7 @@ void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int nbAd
 * \param nbAdhe le nombre d'adherents (la taille logique des tableaux)
 */
 void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int nbAdhe);
+
+void affInfoAct(void);
+
+void affichnbEntrAct(int TnbEntr[],int tlog);

@@ -6,6 +6,8 @@
 */
 
 #include <stdio.h>
+#include "saisie.h"
+#include "utilitaire.h"
 
 
 /**
@@ -72,4 +74,46 @@ void suppressionNombre(int pos, int Table[], int tlog)
     for (i = pos; i < tlog; i++) {
         Table[i] = Table[i+i];
     }
+}
+
+int VerifEntreeAdhe(int nbAdhe,int Tnum[],int Tetat[],int *numAdhe)
+{       
+    int presence,pos;
+    pos=rechercheNombre(*numAdhe,Tnum,&presence,nbAdhe);
+    while (presence==0)
+    {
+        printf("[EntrAdhe] Erreur !! Le Numéro Spécifé N'est Pas Dans La Base !\n");
+        saisieEntrAdhe(numAdhe);// on redemande.
+        rechercheNombre(*numAdhe,Tnum,&presence,nbAdhe);
+    }
+    if (Tetat[pos]==0)
+    {
+        printf("[EntrAdhe] Erreur !! Carte N°%d Désactivée Entrée Impossible\n",Tnum[pos]);
+        return -1;
+    }
+    return pos;
+}
+
+void verifPresenceAct(int numAct,int TnumAct[],int nbAct,int *presence)
+{
+    rechercheNombre(numAct,TnumAct,presence,nbAct);
+    while (*presence==0)
+    {
+        printf("[EntrAdhe] Erreur !! Le Numéro Spécifié N'est Pas Dans La Liste\n");
+        saisieAct(&numAct);
+        rechercheNombre(numAct,TnumAct,presence,nbAct);
+    }
+    return;
+}
+
+int VerifnbPRest(int TCact[],int numAct,int TnbPoints[],int posAdhe,int TnbEntr[])
+{
+    if (TCact[numAct-1]>TnbPoints[posAdhe])
+    {
+        printf("[EntrAdhe] Erreur !! Vous Ne Disposez Pas D'assez De Points Pour Réaliser Cette Activité !\n");
+        return -1;
+    }
+    TnbPoints[posAdhe]-=TCact[numAct-1];
+    TnbEntr[numAct-1]+=1;
+    return 0;
 }

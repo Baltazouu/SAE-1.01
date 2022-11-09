@@ -6,7 +6,10 @@
 */
 
 #include <stdio.h>
+#include"gestion.h"
 #include "utilitaire.h"
+#include "saisie.h"
+#include "affichage.h"
 
 
 /**
@@ -131,4 +134,36 @@ int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
 
     Tetat[ins] = 0;
     return 0;
+}
+
+
+void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[])
+{   
+    // INITIALISATION DES TABLES D'activités
+    int nbAct = NBACT;   // nombre d'activités (10)
+    int TnumAct[10]={1,2,3,4,5,6,7,8,9,10};      // Tnuméros Activités
+    int TCact[10]={25,15,15,12,15,20,25,10,10,10};// TCouts activités
+    int pos,presence,numAct;
+    int numAdhe,rep,coderet;
+    saisieEntrAdhe(&numAdhe);
+    pos=VerifEntreeAdhe(nbAdhe,Tnum,Tetat,&numAdhe);
+
+    if (pos==-1){return;}
+    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
+    affInfoAct();
+    saisieAct(&numAct);
+    verifPresenceAct(numAct,TnumAct,nbAct,&presence);
+    coderet=VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr);
+    if (coderet==-1){return;}
+    saisie2ndAct(&rep);
+    while (rep)
+    {   
+        affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
+        affInfoAct();
+        saisieAct(&numAct);
+        verifPresenceAct(numAct,TnumAct,nbAct,&presence);
+        VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr);
+        saisie2ndAct(&rep);
+    }
+    return;
 }

@@ -5,6 +5,7 @@
 *   SAE 1.01
 */
 
+#define NBACT 10 // 10 Activités
 
 /**
 * \brief Ajout d'un adherent
@@ -73,3 +74,5 @@ int activationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[]);
 * \return 0 si tout se passe bien, -1 si le numéro n'est pas valide
 */
 int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[]);
+
+void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[]);
