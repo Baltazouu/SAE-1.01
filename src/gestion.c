@@ -160,6 +160,7 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
     int TCact[NBACT]= {
         CO_KAYAK, CO_BOXE, CO_MUSCU, CO_GYM, CO_AQUAGYM,
         CO_VELO, CO_SQASH, CO_TENNIS, CO_BASKET, CO_FOOT};
+
     int pos,presence,numAct;
     int numAdhe,rep,coderet;
     saisieEntrAdhe(&numAdhe);
@@ -178,6 +179,7 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
         printf("[EntrAdhe] Erreur !! Vous ne disposez pas d'assez de points pour réaliser une activité\n");
         return;
     }
+    printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
     affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
     affInfoAct();
     saisieAct(&numAct);
@@ -191,6 +193,7 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
     
     while (rep)
     {
+        printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
         affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
         affInfoAct();
         saisieAct(&numAct);
@@ -199,12 +202,15 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
         saisie2ndAct(&rep);
     }
     
-    printf("[EntreAdhe] Succès, Activités Enregistrées !\n");
+    printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
+    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
+    printf("\n[EntreAdhe] Succès, Activités Enregistrées !\n");
     TnumAdheEntre[*nbAdheEntre]=numAdhe;
     *nbAdheEntre+=1;
     
     return;
 }
+
 /**
  * Fonction qui vérifie que l'adhérent n'a pas déjà fréquenté le centre dans la journée
 */
@@ -221,4 +227,7 @@ int VerifAdheNonEntre(int numAdhe,int TnumAdheEntre[],int *nbAdheEntre)
     }
     return 0;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ae7015a236b62c8c29cb30fa797434174581f2dc

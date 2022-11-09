@@ -46,7 +46,7 @@ void saisieAffInfoAdhe(int *numAdhe)
 
 void saisieChoix(int *choix)
 {
-    printf("[gestion] Saisir le choix :\t");
+    printf("\n[gestion] Saisir la commande (#0 -menu):\t");
     scanf("%d", choix);
 }
 

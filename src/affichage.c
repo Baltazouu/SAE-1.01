@@ -1,4 +1,4 @@
-/*
+/**
 * \file affichage.c
 * \brief fonctions d'affichages
 *
@@ -19,6 +19,7 @@ void affMenu(void)
     printf("\n[Gestion d'un complexe sportif]\n\n");
 
     printf("Commande :  -------------------------------------------------------\n");
+    printf("\t0 # Afficher ce menu\n");
     printf("\t1 # Créer un nouvel adhérent\n");
     printf("\t2 # Supprimer un adherent\n");
     printf("\t3 # Alimenter une carte\n");
