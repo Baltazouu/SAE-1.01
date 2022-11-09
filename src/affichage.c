@@ -68,7 +68,9 @@ void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int nbAdhe)
 
     printf("\t---------------------------------------------\n");
 }
-
+/**
+ * Affiche les activités disponibles et leurs coût
+*/
 void affInfoAct(void)
 {   
     printf("\n");
@@ -86,7 +88,9 @@ void affInfoAct(void)
     printf("\t 10 # Foot : 10 points\n");
     printf("\n");
 }
-
+/**
+ * Affiche le nombre par activités sur ce jour 
+*/
 void affichnbEntrAct(int TnbEntr[],int tlog)
 {   
     

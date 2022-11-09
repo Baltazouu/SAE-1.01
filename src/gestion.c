@@ -136,7 +136,9 @@ int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
     return 0;
 }
 
-
+/**
+ * Fonction Entrée d'adhérent dans le centre
+*/
 void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],int TnumAdheEntre[],int * nbAdheEntre,int TAdheintdt[],int *nbinterdt)
 {   
     // INITIALISATION DES TABLES D'activités
@@ -177,7 +179,9 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
     return;
 }
 
-
+/**
+ * Fonction Qui Permet L'interdiction à un adhérent de fréquenter plusieurs fois le centre par jour
+*/
 void InterdirAdhe(int numAdhe,int TAdheintdt[],int *nbInterdit,int Tnum[],int nbAdhe)
 {   
     int presence;
@@ -192,7 +196,9 @@ void InterdirAdhe(int numAdhe,int TAdheintdt[],int *nbInterdit,int Tnum[],int nb
     *nbInterdit+=1;
     printf("[InterdAdhe] Succès : L'adhérent N°%d à un accès unique au centre pour la journée\n",numAdhe);    
 }
-
+/**
+ * Fonction qui vérifie que l'adhérent peut fréquenter le centre si il est déjà entré une fois
+*/
 int VerifAdheNonInterdit(int numAdhe,int TAdheInterdt[],int *nbInterdit,int TnumAdheEntre[],int *nbAdheEntre)
 {
     int i,x;
