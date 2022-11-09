@@ -227,7 +227,3 @@ int VerifAdheNonEntre(int numAdhe,int TnumAdheEntre[],int *nbAdheEntre)
     }
     return 0;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> ae7015a236b62c8c29cb30fa797434174581f2dc
