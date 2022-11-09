@@ -18,20 +18,20 @@ void affMenu(void)
 {
     printf("\n[Gestion d'un complexe sportif]\n\n");
 
-    printf("Commande :  -------------------------------------------------------\n");
-    printf("\t0 # Afficher ce menu\n");
-    printf("\t1 # Créer un nouvel adhérent\n");
-    printf("\t2 # Supprimer un adherent\n");
-    printf("\t3 # Alimenter une carte\n");
-    printf("\t4 # Activer une carte\n");
-    printf("\t5 # Désactiver une carte\n");
-    printf("\t6 # Afficher les informations d'un adherent\n");
-    printf("\t7 # Afficher les informations de tout les adhérents\n");
-    printf("\t8 # Afficher le nombre d'entrées par activité dans la journée\n");
-    printf("\t9 # Saisir entrée d'un adhérent\n");
-    printf("\t10 # Quitter la gestion du centre (fin de journée)\n");
+    printf("Commande :  "); for (int i = 0; i < 60; i++) printf("%s", BOX_HORI); printf("%s\n", BOX_TOPR);
+    printf("%s\t0 # Afficher ce menu\t\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t1 # Créer un nouvel adhérent\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t2 # Supprimer un adherent\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t3 # Alimenter une carte\t\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t4 # Activer une carte\t\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t5 # Désactiver une carte\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t6 # Afficher les informations d'un adherent\t\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t7 # Afficher les informations de tout les adhérents\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t8 # Afficher le nombre d'entrées par activité dans la journée\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t9 # Saisir entrée d'un adhérent\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t10 # Quitter la gestion du centre (fin de journée)\t\t%s\n", BOX_VERT, BOX_VERT);
     
-    printf("-------------------------------------------------------------------\n");
+    printf("%s", BOX_BOTL); for (int i = 0; i < 71; i++) printf("%s", BOX_HORI); printf("%s\n", BOX_BOTR);
     printf("\n");
 }
 
