@@ -73,6 +73,23 @@ int activationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[]);
 */
 int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[]);
 
+/**
+ * \brief Gère L'entrée d'un adhérent dans le centre
+ * \param nbAdhe Nombre D'adhérents dans le centre (taille logique des trois tableaux suivants)
+ * \param Tnum Tableau des numéros d'adhérents
+ * \param Tetat Tableau de l'état des cartes des adhérents
+ * \param TnbPoints Tableau du nombre de points des adhérents
+ * \param TnbEntr Tableau du nombre d'entrés par activité
+ * \param TnumAdheEntre Tavbleau du numéros des adhérents qui sont déjà rentrés dans la journée
+ * \param nbAdheEntre nombre d'adhérents entrés dans la journé (taille logique TnumAdheEntre)
+*/
 void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],int TnumAdheEntre[],int * nbAdheEntre);
 
+/**
+ * \brief Vérifie que l'adhérent n'est pas déjà entré dans le centre ajd
+ * \param numAdhe Numéro d'adhérent en question
+ * \param TnumAdheEntre Tableau des numéros d'adhérents entrés ajd
+ * \param nbAdheEntre Nombre D'adhérents entrés ajd (tlog TnumAdheEntre)
+ * \return 0 si pas d'erreur -1 si adhérent déjà entré
+*/
 int VerifAdheNonEntre(int numAdhe,int TnumAdheEntre[],int *nbAdheEntre);
