@@ -18,7 +18,6 @@ int globale(void)
     int commande, sortie = 0;
     int Tnum[TMAX], Tetat[TMAX], TnbPoints[TMAX];
     int TnbEntr[NBACT]={0,0,0,0,0,0,0,0,0,0};
-    int TAdheintdt[TMAX],nbinterdit=0;
     int TnumAdheEntre[TMAX],nbAdheEntre=0;
     int numAdhe, nbAdhe, points;
     int val;
@@ -76,15 +75,10 @@ int globale(void)
         } 
         else if (commande==9){
             printf("\n");
-            EntreAdhe(nbAdhe,Tnum,Tetat,TnbPoints,TnbEntr,TnumAdheEntre,&nbAdheEntre,TAdheintdt,&nbinterdit);
+            EntreAdhe(nbAdhe,Tnum,Tetat,TnbPoints,TnbEntr,TnumAdheEntre,&nbAdheEntre);
         }
         else if (commande == 10)
         {
-            printf("\n");
-            saisieInterdAdhe(&numAdhe);
-            InterdirAdhe(numAdhe,TAdheintdt,&nbinterdit,Tnum,nbAdhe);
-        }
-        else if (commande == 11) {
             printf("\n");
             sortie = 1;
             if (!sauvegarde(Tnum, Tetat, TnbPoints, nbAdhe))

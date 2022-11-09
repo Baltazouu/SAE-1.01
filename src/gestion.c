@@ -139,7 +139,7 @@ int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
 /**
  * Fonction Entrée d'adhérent dans le centre
 */
-void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],int TnumAdheEntre[],int * nbAdheEntre,int TAdheintdt[],int *nbinterdt)
+void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],int TnumAdheEntre[],int * nbAdheEntre)
 {   
     // INITIALISATION DES TABLES D'activités
     int nbAct = NBACT;   // nombre d'activités (10)
@@ -151,9 +151,16 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
     pos=VerifEntreeAdhe(nbAdhe,Tnum,Tetat,&numAdhe);
 
     if (pos==-1){return;}
-    coderet=VerifAdheNonInterdit(numAdhe,TAdheintdt,nbinterdt,TnumAdheEntre,nbAdheEntre);
+    
+    coderet=VerifAdheNonEntre(numAdhe,TnumAdheEntre,nbAdheEntre);
+    
     if(coderet==-1)
     {
+        return;
+    }
+    if (TnbPoints[pos]<CMINACT)
+    {
+        printf("[EntrAdhe] Erreur !! Vous ne disposez pas d'assez de points pour réaliser une activité\n");
         return;
     }
     affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
@@ -161,8 +168,11 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
     saisieAct(&numAct);
     verifPresenceAct(numAct,TnumAct,nbAct,&presence);
     coderet=VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr);
+    
     if (coderet==-1){return;}
+    
     saisie2ndAct(&rep);
+    
     while (rep)
     {   
         affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
@@ -172,6 +182,7 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
         VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr);
         saisie2ndAct(&rep);
     }
+    
     printf("[EntreAdhe] Succès, Activités Enregistrées !\n");
     TnumAdheEntre[*nbAdheEntre]=numAdhe;
     *nbAdheEntre+=1;
@@ -179,38 +190,19 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
     return;
 }
 
+
 /**
- * Fonction Qui Permet L'interdiction à un adhérent de fréquenter plusieurs fois le centre par jour
+ * Fonction qui vérifie que l'adhérent n'a pas déjà fréquenté le centre dans la journée
 */
-void InterdirAdhe(int numAdhe,int TAdheintdt[],int *nbInterdit,int Tnum[],int nbAdhe)
-{   
-    int presence;
-    rechercheNombre(numAdhe,Tnum,&presence,nbAdhe);
-    while(!presence)
-    {   
-        printf("[InterdAdhe] Erreur !! Le Numéro Spécifié N'est Pas Dans La Base, Retaper\n");
-        saisieInterdAdhe(&numAdhe);
-        rechercheNombre(numAdhe,Tnum,&presence,nbAdhe);
-    }
-    TAdheintdt[*nbInterdit]=numAdhe;
-    *nbInterdit+=1;
-    printf("[InterdAdhe] Succès : L'adhérent N°%d à un accès unique au centre pour la journée\n",numAdhe);    
-}
-/**
- * Fonction qui vérifie que l'adhérent peut fréquenter le centre si il est déjà entré une fois
-*/
-int VerifAdheNonInterdit(int numAdhe,int TAdheInterdt[],int *nbInterdit,int TnumAdheEntre[],int *nbAdheEntre)
+int VerifAdheNonEntre(int numAdhe,int TnumAdheEntre[],int *nbAdheEntre)
 {
-    int i,x;
-    for (i=0;i<*nbInterdit;i++)
+    int i;
+    for (i=0;i<*nbAdheEntre;i++)
     {
-        for (x=0;x<*nbAdheEntre;x++)
+        if (TnumAdheEntre[i]==numAdhe)
         {
-            if (TAdheInterdt[i]==TnumAdheEntre[x])
-            {
-                printf("[EntreAdhe] Erreur, Vous Ne Pouvez Pas Accéder Deux Fois Au Centre Ajourd'hui !!\n");
-                return -1;
-            }
+            printf("[EntreAdhe] Erreur !! L'adhérent à déjà fréquenté le centre Ajourd'hui !\n");
+            return -1;
         }
     }
     return 0;

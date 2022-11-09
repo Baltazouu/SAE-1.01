@@ -6,7 +6,7 @@
 */
 
 #define NBACT 10 // 10 Activités
-
+#define CMINACT 10 // cout minimum d'une activité
 /**
 * \brief Ajout d'un adherent
 *
@@ -75,8 +75,6 @@ int activationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[]);
 */
 int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[]);
 
-void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],int TnumAdheEntre[],int * nbAdheEntre,int TAdheintdt[],int *nbinterdt)
-;
-void InterdirAdhe(int numAdhe,int TAdheintdt[],int *nbInterdit,int Tnum[],int nbAdhe);
+void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],int TnumAdheEntre[],int * nbAdheEntre);
 
-int VerifAdheNonInterdit(int numAdhe,int TAdheInterdt[],int *nbInterdit,int TnumAdheEntre[],int *nbAdheEntre);
+int VerifAdheNonEntre(int numAdhe,int TnumAdheEntre[],int *nbAdheEntre);
