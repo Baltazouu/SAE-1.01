@@ -104,8 +104,8 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
 {   
     // INITIALISATION DES TABLES D'activités
     int nbAct = NBACT;   // nombre d'activités (10)
-    int TnumAct[10]={1,2,3,4,5,6,7,8,9,10};      // Tnuméros Activités
-    int TCact[10]={25,15,15,12,15,20,25,10,10,10};// TCouts activités
+    int TnumAct[NBACT]={1,2,3,4,5,6,7,8,9,10};      // Tnuméros Activités
+    int TCact[NBACT]={25,15,15,12,15,20,25,10,10,10};// TCouts activités
     int pos,presence,numAct;
     int numAdhe,rep,coderet;
     saisieEntrAdhe(&numAdhe);
