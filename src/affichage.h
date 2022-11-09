@@ -1,4 +1,4 @@
-/*
+/**
 * \file affichage.h
 * \brief fonctions d'affichages
 *

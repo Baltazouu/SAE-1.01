@@ -8,7 +8,8 @@
 
 //! Taille maximal des tableaux Tnum Tetat TnbPoints
 #define TMAX 100
-#define CMINACT 10 // cout minimum d'une activité
+//! cout minimum d'une activité
+#define CMINACT 10
 //! Nombre d'activités
 #define NBACT 10
 
@@ -23,3 +24,5 @@
 #define CO_TENNIS   25
 #define CO_BASKET   10
 #define CO_FOOT     10
+
+// Bordures d'affichage

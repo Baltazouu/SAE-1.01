@@ -169,6 +169,7 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
         printf("[EntrAdhe] Erreur !! Vous ne disposez pas d'assez de points pour réaliser une activité\n");
         return;
     }
+    printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
     affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
     affInfoAct();
     saisieAct(&numAct);
@@ -181,6 +182,7 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
     
     while (rep)
     {
+        printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
         affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
         affInfoAct();
         saisieAct(&numAct);
@@ -189,7 +191,9 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
         saisie2ndAct(&rep);
     }
     
-    printf("[EntreAdhe] Succès, Activités Enregistrées !\n");
+    printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
+    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
+    printf("\n[EntreAdhe] Succès, Activités Enregistrées !\n");
     TnumAdheEntre[*nbAdheEntre]=numAdhe;
     *nbAdheEntre+=1;
     
