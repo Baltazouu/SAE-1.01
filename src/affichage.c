@@ -16,20 +16,23 @@
 */
 void affMenu(void)
 {
-    printf("\n[Gestion d'un complexe sportif]\n\n");
+    printf("\n\e[1,36m[Gestion d'un complexe sportif]\e[0m\n\n");
 
-    printf("Commande :  "); for (int i = 0; i < 60; i++) printf("%s", BOX_HORI); printf("%s\n", BOX_TOPR);
-    printf("%s\t0 # Afficher ce menu\t\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t1 # Créer un nouvel adhérent\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t2 # Supprimer un adherent\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t3 # Alimenter une carte\t\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t4 # Activer une carte\t\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t5 # Désactiver une carte\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t6 # Afficher les informations d'un adherent\t\t\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t7 # Afficher les informations de tout les adhérents\t\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t8 # Afficher le nombre d'entrées par activité dans la journée\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t9 # Saisir entrée d'un adhérent\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t10 # Quitter la gestion du centre (fin de journée)\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("Commande :\e[0m  ");
+    for (int i = 0; i < 60; i++) printf("%s", BOX_HORI);
+    printf("%s\n", BOX_TOPR);
+
+    printf("%s\t\e[1m0\e[0m # Afficher ce menu\t\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t\e[1m1\e[0m # Créer un nouvel adhérent\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t\e[1m2\e[0m # Supprimer un adherent\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t\e[1m3\e[0m # Alimenter une carte\t\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t\e[1m4\e[0m # Activer une carte\t\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t\e[1m5\e[0m # Désactiver une carte\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t\e[1m6\e[0m # Afficher les informations d'un adherent\t\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t\e[1m7\e[0m # Afficher les informations de tout les adhérents\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t\e[1m8\e[0m # Afficher le nombre d'entrées par activité dans la journée\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t\e[1m9\e[0m # Saisir entrée d'un adhérent\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%s\t\e[1m10\e[0m # Quitter la gestion du centre (fin de journée)\t\t%s\n", BOX_VERT, BOX_VERT);
     
     printf("%s", BOX_BOTL); for (int i = 0; i < 71; i++) printf("%s", BOX_HORI); printf("%s\n", BOX_BOTR);
     printf("\n");

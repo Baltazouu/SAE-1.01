@@ -25,10 +25,15 @@
 #define CO_BASKET   10
 #define CO_FOOT     10
 
-// Bordures d'affichage
+//: Bordures d'affichage
 #define BOX_HORI    "\u2501"
 #define BOX_VERT    "\u2503"
 #define BOX_TOPL    "\u250f"
 #define BOX_TOPR    "\u2513"
 #define BOX_BOTL    "\u2517"
 #define BOX_BOTR    "\u251b"
+
+//! Styles
+#define STY_FCYAN   "\e[1,36m"
+#define STY_FGREEN  "\e[1,32m"
+#define STY_FRED    "\e[1,31m"
