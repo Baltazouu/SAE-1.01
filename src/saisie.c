@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 
+#include "config.h"
 
 void saisieAjoutAdher(int *nbCredits)
 {
@@ -46,8 +47,11 @@ void saisieAffInfoAdhe(int *numAdhe)
 
 void saisieChoix(int *choix)
 {
-    printf("\n[gestion] Saisir la commande (#0 -menu):\t");
+    printf("\n[gestion] Saisir la commande (#0 -menu):\n");
+    for (int i = 0; i < 73; i++) printf("%s", BOX_HORI);
+    printf("\e[1A\e[25D");
     scanf("%d", choix);
+    printf("\n");
 }
 
 void saisieEntrAdhe(int *numadhe)
