@@ -5,7 +5,6 @@
 *   SAE 1.01
 */
 
-#define NBACT 10 // 10 Activités
 
 /**
 * \brief Ajout d'un adherent

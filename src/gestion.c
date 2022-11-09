@@ -6,10 +6,12 @@
 */
 
 #include <stdio.h>
-#include"gestion.h"
+#include "gestion.h"
 #include "utilitaire.h"
 #include "saisie.h"
 #include "affichage.h"
+
+#include "config.h"
 
 
 /**
@@ -60,6 +62,7 @@ int suppAdhe(int numAdhe, int *tlog,
     suppressionNombre(ins, TnbPoints, *tlog);
 
     *tlog -= 1;
+    printf("tlog after = %d", *tlog);
     return 0;
 }
 
@@ -157,7 +160,7 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[])
     if (coderet==-1){return;}
     saisie2ndAct(&rep);
     while (rep)
-    {   
+    {
         affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
         affInfoAct();
         saisieAct(&numAct);
