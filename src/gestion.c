@@ -10,7 +10,6 @@
 #include "utilitaire.h"
 #include "saisie.h"
 #include "affichage.h"
-
 #include "config.h"
 
 
@@ -140,7 +139,18 @@ int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
 }
 
 /**
- * Fonction Entrée d'adhérent dans le centre
+ * Fonction Entrée d'adhérent dans le centre : 
+ * - saisie d'un adhérent via fonction adaptée.
+ * -vérifie la présence de l'adhérent saisie via fonction verification d'entrée "VerifEntreAdhe" :
+ *      cette fonction vérifie que la carte d'adhérent est dans la base et qu'elle
+ *      n'est pas désactivée et renvoie, elle renvoie également la position 
+ *      du numéro d'adhérent dans les tableaux.
+ * - Vérifie que l'adhérent n'est pas déjà rentré dans la journée via fonction "VerifAdheNonEntre"
+ * - Vérifie Que L'adhérent Dispose D'un minimum de points (cout de l'activité la moins chère.)
+ * - Puis via "verifNbPRest" Vérifie qu'il reste assez de points pour l'activité saisie
+ *          et retire les points à l'adhérent
+ * 
+ *  
 */
 void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],int TnumAdheEntre[],int * nbAdheEntre)
 {   
@@ -149,10 +159,7 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
     int TnumAct[NBACT]={1,2,3,4,5,6,7,8,9,10};      // Tnuméros Activités
     int TCact[NBACT]= {
         CO_KAYAK, CO_BOXE, CO_MUSCU, CO_GYM, CO_AQUAGYM,
-        CO_VELO, CO_SQASH, CO_TENNIS, CO_BASKET, CO_FOOT
-    };
-    int TnumAct[NBACT]={1,2,3,4,5,6,7,8,9,10};      // Tnuméros Activités
-    int TCact[NBACT]={25,15,15,12,15,20,25,10,10,10};// TCouts activités
+        CO_VELO, CO_SQASH, CO_TENNIS, CO_BASKET, CO_FOOT};
     int pos,presence,numAct;
     int numAdhe,rep,coderet;
     saisieEntrAdhe(&numAdhe);
@@ -175,9 +182,10 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
     affInfoAct();
     saisieAct(&numAct);
     verifPresenceAct(numAct,TnumAct,nbAct,&presence);
-    coderet=VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr);
+    //vérifie que l'adhérent dispose d'assez de points et les encaisse. 
+    VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr);
     
-    if (coderet==-1){return;}
+    
     
     saisie2ndAct(&rep);
     
@@ -197,10 +205,6 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
     
     return;
 }
-<<<<<<< HEAD
-=======
-
-
 /**
  * Fonction qui vérifie que l'adhérent n'a pas déjà fréquenté le centre dans la journée
 */
@@ -217,4 +221,4 @@ int VerifAdheNonEntre(int numAdhe,int TnumAdheEntre[],int *nbAdheEntre)
     }
     return 0;
 }
->>>>>>> dev
+
