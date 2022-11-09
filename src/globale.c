@@ -26,6 +26,7 @@ int globale(void)
 
     affMenu();
     saisieChoix(&commande);
+    printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
     while (!sortie) {
 
         if (commande == 1) {
@@ -91,6 +92,7 @@ int globale(void)
         if (!sortie) {
             affMenu();
             saisieChoix(&commande);
+            printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
         }
     }
 
