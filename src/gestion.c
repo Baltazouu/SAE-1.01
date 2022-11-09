@@ -140,21 +140,28 @@ int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
 }
 
 
-void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[])
+void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],int TnumAdheEntre[],int * nbAdheEntre,int TAdheintdt[],int *nbinterdt)
 {   
     // INITIALISATION DES TABLES D'activités
     int nbAct = NBACT;   // nombre d'activités (10)
-    int TnumAct[10]={1,2,3,4,5,6,7,8,9,10};      // Tnuméros Activités
-    int TCact[10]= {
+    int TnumAct[NBACT]={1,2,3,4,5,6,7,8,9,10};      // Tnuméros Activités
+    int TCact[NBACT]= {
         CO_KAYAK, CO_BOXE, CO_MUSCU, CO_GYM, CO_AQUAGYM,
         CO_VELO, CO_SQASH, CO_TENNIS, CO_BASKET, CO_FOOT
     };
+    int TnumAct[NBACT]={1,2,3,4,5,6,7,8,9,10};      // Tnuméros Activités
+    int TCact[NBACT]={25,15,15,12,15,20,25,10,10,10};// TCouts activités
     int pos,presence,numAct;
     int numAdhe,rep,coderet;
     saisieEntrAdhe(&numAdhe);
     pos=VerifEntreeAdhe(nbAdhe,Tnum,Tetat,&numAdhe);
 
     if (pos==-1){return;}
+    coderet=VerifAdheNonInterdit(numAdhe,TAdheintdt,nbinterdt,TnumAdheEntre,nbAdheEntre);
+    if(coderet==-1)
+    {
+        return;
+    }
     affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
     affInfoAct();
     saisieAct(&numAct);
@@ -171,5 +178,45 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[])
         VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr);
         saisie2ndAct(&rep);
     }
+    printf("[EntreAdhe] Succès, Activités Enregistrées !\n");
+    TnumAdheEntre[*nbAdheEntre]=numAdhe;
+    *nbAdheEntre+=1;
+    
     return;
 }
+<<<<<<< HEAD
+=======
+
+
+void InterdirAdhe(int numAdhe,int TAdheintdt[],int *nbInterdit,int Tnum[],int nbAdhe)
+{   
+    int presence;
+    rechercheNombre(numAdhe,Tnum,&presence,nbAdhe);
+    while(!presence)
+    {   
+        printf("[InterdAdhe] Erreur !! Le Numéro Spécifié N'est Pas Dans La Base, Retaper\n");
+        saisieInterdAdhe(&numAdhe);
+        rechercheNombre(numAdhe,Tnum,&presence,nbAdhe);
+    }
+    TAdheintdt[*nbInterdit]=numAdhe;
+    *nbInterdit+=1;
+    printf("[InterdAdhe] Succès : L'adhérent N°%d à un accès unique au centre pour la journée\n",numAdhe);    
+}
+
+int VerifAdheNonInterdit(int numAdhe,int TAdheInterdt[],int *nbInterdit,int TnumAdheEntre[],int *nbAdheEntre)
+{
+    int i,x;
+    for (i=0;i<*nbInterdit;i++)
+    {
+        for (x=0;x<*nbAdheEntre;x++)
+        {
+            if (TAdheInterdt[i]==TnumAdheEntre[x])
+            {
+                printf("[EntreAdhe] Erreur, Vous Ne Pouvez Pas Accéder Deux Fois Au Centre Ajourd'hui !!\n");
+                return -1;
+            }
+        }
+    }
+    return 0;
+}
+>>>>>>> dev

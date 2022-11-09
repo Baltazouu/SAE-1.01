@@ -68,3 +68,10 @@ void saisie2ndAct(int *rep)
     scanf("%d",rep);
     printf("\n");
 }
+
+void saisieInterdAdhe(int *numAdhe)
+{
+    printf("[InterdAdhe] Entrez Le Numéro D'adhérent : ");
+    scanf("%d",numAdhe);
+    printf("\n");
+}
