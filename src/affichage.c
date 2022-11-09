@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include "utilitaire.h"
 
+#include "config.h"
+
 
 /**
 * Affiche les numéros des fonctions.
@@ -75,16 +77,16 @@ void affInfoAct(void)
     printf("\n");
     printf("[SaiseAct] Entrez Le Numéro D'activité Correspondant :\n");
     printf("------------------------------------------------------\n\n");
-    printf("\t 1 # Kayak : 25 points\n");
-    printf("\t 2 # Boxe : 15 points\n");
-    printf("\t 3 # Musculation : 15 points\n");
-    printf("\t 4 # Gym : 12 points\n");
-    printf("\t 5 # AquaGym : 15 points\n");
-    printf("\t 6 # Vélo : 20 points\n");
-    printf("\t 7 # Kayak : 25 points\n");
-    printf("\t 8 # Tennis : 10 points\n");
-    printf("\t 9 # Basket : 10 points\n");
-    printf("\t 10 # Foot : 10 points\n");
+    printf("\t 1 # Kayak : %d points\n", CO_KAYAK);
+    printf("\t 2 # Boxe : %d points\n", CO_BOXE);
+    printf("\t 3 # Musculation : %d points\n", CO_MUSCU);
+    printf("\t 4 # Gym : %d points\n", CO_GYM);
+    printf("\t 5 # AquaGym : %d points\n", CO_AQUAGYM);
+    printf("\t 6 # Vélo : %d points\n", CO_VELO);
+    printf("\t 7 # Sqash : %d points\n", CO_SQASH);
+    printf("\t 8 # Tennis : %d points\n", CO_TENNIS);
+    printf("\t 9 # Basket : %d points\n", CO_BASKET);
+    printf("\t 10 # Foot : %d points\n", CO_FOOT);
     printf("\n");
 }
 /**
@@ -101,7 +103,7 @@ void affichnbEntrAct(int TnbEntr[],int tlog)
     printf("\t 4 # Gym : %d Entrées\n",TnbEntr[3]);
     printf("\t 5 # AquaGym : %d Entrées\n",TnbEntr[4]);
     printf("\t 6 # Vélo : %d Entrées\n",TnbEntr[5]);
-    printf("\t 7 # Kayak : %d Entrées\n",TnbEntr[6]);
+    printf("\t 7 # Sqash : %d Entrées\n",TnbEntr[6]);
     printf("\t 8 # Tennis : %d Entrées\n",TnbEntr[7]);
     printf("\t 9 # Basket : %d Entrées\n",TnbEntr[8]);
     printf("\t 10 # Foot : %d Entrées\n",TnbEntr[9]);

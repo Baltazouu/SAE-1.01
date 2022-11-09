@@ -6,10 +6,12 @@
 */
 
 #include <stdio.h>
-#include"gestion.h"
+#include "gestion.h"
 #include "utilitaire.h"
 #include "saisie.h"
 #include "affichage.h"
+
+#include "config.h"
 
 
 /**
@@ -60,6 +62,7 @@ int suppAdhe(int numAdhe, int *tlog,
     suppressionNombre(ins, TnbPoints, *tlog);
 
     *tlog -= 1;
+    printf("tlog after = %d", *tlog);
     return 0;
 }
 
@@ -144,6 +147,11 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
     // INITIALISATION DES TABLES D'activités
     int nbAct = NBACT;   // nombre d'activités (10)
     int TnumAct[NBACT]={1,2,3,4,5,6,7,8,9,10};      // Tnuméros Activités
+    int TCact[NBACT]= {
+        CO_KAYAK, CO_BOXE, CO_MUSCU, CO_GYM, CO_AQUAGYM,
+        CO_VELO, CO_SQASH, CO_TENNIS, CO_BASKET, CO_FOOT
+    };
+    int TnumAct[NBACT]={1,2,3,4,5,6,7,8,9,10};      // Tnuméros Activités
     int TCact[NBACT]={25,15,15,12,15,20,25,10,10,10};// TCouts activités
     int pos,presence,numAct;
     int numAdhe,rep,coderet;
@@ -174,7 +182,7 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
     saisie2ndAct(&rep);
     
     while (rep)
-    {   
+    {
         affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
         affInfoAct();
         saisieAct(&numAct);
@@ -189,6 +197,8 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
     
     return;
 }
+<<<<<<< HEAD
+=======
 
 
 /**
@@ -207,3 +217,4 @@ int VerifAdheNonEntre(int numAdhe,int TnumAdheEntre[],int *nbAdheEntre)
     }
     return 0;
 }
+>>>>>>> dev

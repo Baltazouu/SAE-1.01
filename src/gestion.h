@@ -5,8 +5,6 @@
 *   SAE 1.01
 */
 
-#define NBACT 10 // 10 Activités
-#define CMINACT 10 // cout minimum d'une activité
 /**
 * \brief Ajout d'un adherent
 *

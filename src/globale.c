@@ -10,7 +10,7 @@
 #include "affichage.h"
 #include "saisie.h"
 
-#define TMAX 100
+#include "config.h"
 
 
 int globale(void)
