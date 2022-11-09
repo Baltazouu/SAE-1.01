@@ -58,9 +58,9 @@ int globale(void)
         } 
         else if (commande == 5) {
             printf("\n");
-            saisieActivationCarte(&numAdhe);
+            saisieDesactivationCarte(&numAdhe);
             if (!desactivationCarte(numAdhe, nbAdhe, Tnum, Tetat))
-                printf("\n[desactivationCarte] succesnbAdhe,Tnum,Tetat,TnbPoints,TnbEntr: Carte n°%d desactivée.\n",numAdhe);
+                printf("\n[desactivationCarte] succes: Carte n°%d desactivée.\n",numAdhe);
         } 
         else if (commande == 6) {
             printf("\n");

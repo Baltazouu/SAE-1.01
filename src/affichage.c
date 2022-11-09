@@ -76,7 +76,7 @@ void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int nbAdhe)
 void affInfoAct(void)
 {   
     printf("\n");
-    printf("[SaiseAct] Entrez Le Numéro D'activité Correspondant :\n");
+    printf("[EntrAdhe] Entrez Le Numéro D'activité Correspondant :\n");
     printf("------------------------------------------------------\n\n");
     printf("\t 1 # Kayak : %d points\n", CO_KAYAK);
     printf("\t 2 # Boxe : %d points\n", CO_BOXE);

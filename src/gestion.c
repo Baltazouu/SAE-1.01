@@ -125,12 +125,12 @@ int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
     int presence;
     int ins = rechercheNombre(numAdhe, Tnum, &presence, nbAdhe);
     if (!presence) {
-        printf("[activationCarte] erreur: numéro adherent non valide.\n");
+        printf("[désactivationCarte] erreur: numéro adherent non valide.\n");
         return -1;
     }
 
     if (Tetat[ins] == 0) {
-        printf("[activationCarte] note: carte déjà desactivée.\n");
+        printf("[désactivationCarte] note: carte déjà desactivée.\n");
         return 0;
     }
 
