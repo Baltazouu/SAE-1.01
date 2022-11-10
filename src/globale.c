@@ -16,11 +16,12 @@
 int globale(void)
 {
     int commande, sortie = 0;
-    int Tnum[TMAX], Tetat[TMAX], TnbPoints[TMAX], Tcat[TMAX];
+    int Tnum[TMAX], Tetat[TMAX], TnbPoints[TMAX], Tcat[TMAX],tPtUtils[TMAX];
     int TnbEntr[NBACT]={0,0,0,0,0,0,0,0,0,0};
     int TnumAdheEntre[TMAX],nbAdheEntre=0;
     int numAdhe, nbAdhe, points, cat;
     int val,coderet;
+
 
     nbAdhe = chargement(Tnum, Tetat, TnbPoints, Tcat, TMAX);
 
@@ -40,12 +41,13 @@ int globale(void)
                 if (val > 0)
                     printf("\n%s[ajoutAdher] succes:%s Adhérent n°%d, de cat %d, créé avec %d points.\n",
                            STY_FGREEN, STY_NULL, val, cat, points);
+                           tPtUtils[nbAdhe]=0;
             }
         } 
         else if (commande == 2) {
             printf("\n");
             saisieSuppAdhe(&numAdhe);
-            if (!suppAdhe(numAdhe, &nbAdhe, Tnum, Tetat, TnbPoints, Tcat))
+            if (!suppAdhe(numAdhe, &nbAdhe, Tnum, Tetat, TnbPoints, Tcat,tPtUtils))
                 printf("\n%s[suppAdhe] succes:%s Adhérent n°%d supprimé.\n",STY_FGREEN, STY_NULL,numAdhe);
         } 
         else if (commande == 3) {
@@ -82,7 +84,7 @@ int globale(void)
         } 
         else if (commande==9){
             printf("\n");
-            EntreAdhe(nbAdhe,Tnum,Tetat,TnbPoints,Tcat,TnbEntr,TnumAdheEntre,&nbAdheEntre);
+            EntreAdhe(nbAdhe,Tnum,Tetat,TnbPoints,Tcat,TnbEntr,TnumAdheEntre,&nbAdheEntre,tPtUtils);
         }
         else if (commande == 10)
         {

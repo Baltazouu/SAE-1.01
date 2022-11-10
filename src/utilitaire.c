@@ -109,14 +109,45 @@ void verifPresenceAct(int numAct,int TnumAct[],int nbAct,int *presence)
     return;
 }
 
-void VerifnbPRest(int TCact[],int numAct,int TnbPoints[],int posAdhe,int TnbEntr[], int cat)
-{
+void VerifnbPRest(int TCact[],int numAct,int TnbPoints[],int posAdhe,int TnbEntr[], int cat,int tPtUtils[])
+{   
+    
+    if (TnbPoints[posAdhe]<CMINACT){printf("[EntrAdhe] Erreur !! Vous Ne Disposez Plus D'assez de points !\n"); return;}
     if (TCact[numAct-1]>TnbPoints[posAdhe])
     {
         printf("%s[EntrAdhe] Erreur !!%s Vous Ne Disposez Pas D'assez De Points Pour Réaliser Cette Activité !\n", STY_FRED, STY_NULL);
         return;
     }
-    TnbPoints[posAdhe]-=(TCact[numAct-1]-cat);
+    TnbPoints[posAdhe]-=(TCact[numAct-1]);
     TnbEntr[numAct-1]+=1;
+    tPtUtils[posAdhe]+=TCact[numAct-1];
+    if (tPtUtils[posAdhe]>RecurPtsBonus)
+    {   
+        if (cat==1)
+        {
+            TnbPoints[posAdhe]+=BonEtu;
+            printf("[EntrAdhe] Fidélité, Vous Avez Dépensé %d Points, Le Centre Vous Offre %d Points :)\n",RecurPtsBonus,BonEtu);
+        }
+        if(cat==2){
+            TnbPoints[posAdhe]+=BonMineur;
+            printf("[EntrAdhe] Fidélité, Vous Avez Dépensé %d Points, Le Centre Vous Offre %d Points :)\n",RecurPtsBonus,BonMineur);
+        }
+        if (cat==3)
+        {
+            TnbPoints[posAdhe]+=BonRetraite;
+            printf("[EntrAdhe] Fidélité, Vous Avez Dépensé %d Points, Le Centre Vous Offre %d Points :)\n",RecurPtsBonus,BonRetraite);
+        }
+        if (cat==4)
+        {
+            TnbPoints[posAdhe]+=BonMaj;
+            printf("[EntrAdhe] Fidélité, Vous Avez Dépensé %d Points, Le Centre Vous Offre %d Points :)\n",RecurPtsBonus,BonMaj);
+        }
+        else
+        {
+            printf("[EntrAdhe] : Erreur, Pas de Catégorie détéctée\n");
+            return;
+        }
+        tPtUtils[posAdhe]-=80;
+    }
     return;
 }

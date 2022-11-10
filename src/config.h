@@ -12,10 +12,16 @@
 #define CMINACT 10
 //! Nombre d'activités
 #define NBACT 10
-//! Catégories
+//Catégories d'adhérents
 #define NBCATEADHE 4
 //! Ajout de point au chargement (fidélité)
 #define AJT_PTS_CHARG   3
+
+#define RecurPtsBonus 80
+#define BonEtu 20
+#define BonMineur 15
+#define BonRetraite 12
+#define BonMaj 10
 
 //! Prix en points des activitées
 #define CO_KAYAK    25
