@@ -140,6 +140,7 @@ int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
     }
 
     Tetat[ins] = 0;
+    printf("\n%s[desactivationCarte] succes:%s Carte n°%d desactivée.\n",STY_FGREEN, STY_NULL,numAdhe);
     return 0;
 }
 
