@@ -12,7 +12,6 @@
 #include "affichage.h"
 #include "config.h"
 
-
 /**
 * Utilise la fonction de recherche de la première occurence d'un nombre pas ou
 * plus utilisé et l'utilise comme nouvel id.
@@ -22,7 +21,7 @@
 * Met à jour la taille logique du tableau.
 */
 int ajoutAdher(int *nbAdher, int nbCredits, int nCat,
-               int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int tmax)
+               int Tnum[], int Tetat[], int TnbPoints[], int Tcat[],int tmax)
 {
     int val = 1001;
     int ins = recherche1ereOccu(Tnum, *nbAdher, &val);
@@ -51,7 +50,7 @@ int ajoutAdher(int *nbAdher, int nbCredits, int nCat,
 * Met à jour la taille logique du tableau.
 */
 int suppAdhe(int numAdhe, int *tlog,
-             int Tnum[], int Tetat[], int TnbPoints[], int Tcat[])
+             int Tnum[], int Tetat[], int TnbPoints[], int Tcat[],int tPtUtils [])
 {
     int presence;
     int ins = rechercheNombre(numAdhe, Tnum, &presence, *tlog);
@@ -64,6 +63,7 @@ int suppAdhe(int numAdhe, int *tlog,
     suppressionNombre(ins, Tetat, *tlog);
     suppressionNombre(ins, TnbPoints, *tlog);
     suppressionNombre(ins, Tcat, *tlog);
+    suppressionNombre(ins,tPtUtils,*tlog);
 
     *tlog -= 1;
     return 0;
@@ -156,7 +156,7 @@ int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
  * 
  *  
 */
-void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int TnbEntr[],int TnumAdheEntre[],int * nbAdheEntre)
+void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int TnbEntr[],int TnumAdheEntre[],int * nbAdheEntre,int tPtUtils[])
 {   
     // INITIALISATION DES TABLES D'activités
     int nbAct = NBACT;   // nombre d'activités (10)
@@ -189,7 +189,7 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int 
     saisieAct(&numAct);
     verifPresenceAct(numAct,TnumAct,nbAct,&presence);
     //vérifie que l'adhérent dispose d'assez de points et les encaisse. 
-    VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr,Tcat[pos]);
+    VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr,Tcat[pos],tPtUtils);
     
     saisie2ndAct(&rep);
     
@@ -200,7 +200,7 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int 
         affInfoAct();
         saisieAct(&numAct);
         verifPresenceAct(numAct,TnumAct,nbAct,&presence);
-        VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr,Tcat[pos]);
+        VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr,Tcat[pos],tPtUtils);
         saisie2ndAct(&rep);
     }
     
