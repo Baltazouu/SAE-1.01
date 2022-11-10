@@ -6,6 +6,9 @@ doc
 # vscode config
 .vscode
 
+# tags
+tags
+
 # Prerequisites
 *.d
 
