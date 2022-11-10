@@ -80,6 +80,7 @@ int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[]);
  * \param Tnum Tableau des numéros d'adhérents
  * \param Tetat Tableau de l'état des cartes des adhérents
  * \param TnbPoints Tableau du nombre de points des adhérents
+ * \param Tcat Tableau des catégories
  * \param TnbEntr Tableau du nombre d'entrés par activité
  * \param TnumAdheEntre Tavbleau du numéros des adhérents qui sont déjà rentrés dans la journée
  * \param nbAdheEntre nombre d'adhérents entrés dans la journé (taille logique TnumAdheEntre)

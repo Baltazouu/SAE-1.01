@@ -12,8 +12,10 @@
 #define CMINACT 10
 //! Nombre d'activités
 #define NBACT 10
-//Catégories
+//! Catégories
 #define NBCATEADHE 4
+//! Ajout de point au chargement (fidélité)
+#define AJT_PTS_CHARG   3
 
 //! Prix en points des activitées
 #define CO_KAYAK    25
@@ -27,7 +29,7 @@
 #define CO_BASKET   10
 #define CO_FOOT     10
 
-//: Bordures d'affichage
+//! Bordures d'affichage
 #define BOX_HORI    "\u2501"
 #define BOX_VERT    "\u2503"
 #define BOX_TOPL    "\u250f"

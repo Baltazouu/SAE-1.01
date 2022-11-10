@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 
+#include "config.h"
 
 /**
 * Ouvre le fichier "adherents.txt" en lecture et test si tout c'est bien passé.
@@ -29,7 +30,7 @@ int chargement(int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int tmax)
 
         Tnum[i] = num;
         Tetat[i] = etat;
-        TnbPoints[i] = nbPoints + 5;
+        TnbPoints[i] = nbPoints + AJT_PTS_CHARG;
         Tcat[i] = cat;
 
         fscanf(fl,"%d %d %d %d",&num,&etat,&nbPoints,&cat);
