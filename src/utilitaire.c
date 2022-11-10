@@ -108,14 +108,14 @@ void verifPresenceAct(int numAct,int TnumAct[],int nbAct,int *presence)
     return;
 }
 
-int VerifnbPRest(int TCact[],int numAct,int TnbPoints[],int posAdhe,int TnbEntr[])
+int VerifnbPRest(int TCact[],int numAct,int TnbPoints[],int posAdhe,int TnbEntr[], int cat)
 {
     if (TCact[numAct-1]>TnbPoints[posAdhe])
     {
         printf("[EntrAdhe] Erreur !! Vous Ne Disposez Pas D'assez De Points Pour Réaliser Cette Activité !\n");
         return -1;
     }
-    TnbPoints[posAdhe]-=TCact[numAct-1];
+    TnbPoints[posAdhe]-=(TCact[numAct-1]-cat);
     TnbEntr[numAct-1]+=1;
     return 0;
 }

@@ -7,10 +7,12 @@
 
 #include "config.h"
 
-void saisieAjoutAdher(int *nbCredits)
+void saisieAjoutAdher(int *nbCredits, int *cat)
 {
     printf("[ajoutAdher] Saisir le nombre de crédit :\t");
     scanf("%d", nbCredits);
+    printf("[ajoutAdher] Saisir la catégorie :\t");
+    scanf("%d", cat);
 }
 
 void saisieSuppAdhe(int *numAdhe)

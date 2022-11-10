@@ -22,8 +22,8 @@
 * fonction d'insertion)
 * Met à jour la taille logique du tableau.
 */
-int ajoutAdher(int *nbAdher, int nbCredits,
-               int Tnum[], int Tetat[], int TnbPoints[], int tmax)
+int ajoutAdher(int *nbAdher, int nbCredits, int nCat,
+               int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int tmax)
 {
     int val = 1001;
     int ins = recherche1ereOccu(Tnum, *nbAdher, &val);
@@ -35,6 +35,7 @@ int ajoutAdher(int *nbAdher, int nbCredits,
 
     insertionNombre(1, ins, Tetat, *nbAdher, tmax);
     insertionNombre(nbCredits, ins, TnbPoints, *nbAdher, tmax);
+    insertionNombre(nCat, ins, Tcat, *nbAdher, tmax);
 
     *nbAdher += 1;
     return val;
@@ -48,7 +49,7 @@ int ajoutAdher(int *nbAdher, int nbCredits,
 * Met à jour la taille logique du tableau.
 */
 int suppAdhe(int numAdhe, int *tlog,
-             int Tnum[], int Tetat[], int TnbPoints[])
+             int Tnum[], int Tetat[], int TnbPoints[], int Tcat[])
 {
     int presence;
     int ins = rechercheNombre(numAdhe, Tnum, &presence, *tlog);
@@ -60,6 +61,7 @@ int suppAdhe(int numAdhe, int *tlog,
     suppressionNombre(ins, Tnum, *tlog);
     suppressionNombre(ins, Tetat, *tlog);
     suppressionNombre(ins, TnbPoints, *tlog);
+    suppressionNombre(ins, Tcat, *tlog);
 
     *tlog -= 1;
     printf("tlog after = %d", *tlog);
@@ -142,7 +144,7 @@ int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
 /**
  * Fonction Entrée d'adhérent dans le centre
 */
-void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],int TnumAdheEntre[],int * nbAdheEntre)
+void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int TnbEntr[],int TnumAdheEntre[],int * nbAdheEntre)
 {   
     // INITIALISATION DES TABLES D'activités
     int nbAct = NBACT;   // nombre d'activités (10)
@@ -170,11 +172,11 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
         return;
     }
     printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
-    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
+    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,nbAdhe);
     affInfoAct();
     saisieAct(&numAct);
     verifPresenceAct(numAct,TnumAct,nbAct,&presence);
-    coderet=VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr);
+    coderet=VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr,Tcat[pos]);
     
     if (coderet==-1){return;}
     
@@ -183,16 +185,16 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
     while (rep)
     {
         printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
-        affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
+        affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,nbAdhe);
         affInfoAct();
         saisieAct(&numAct);
         verifPresenceAct(numAct,TnumAct,nbAct,&presence);
-        VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr);
+        VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr,Tcat[pos]);
         saisie2ndAct(&rep);
     }
     
     printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
-    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
+    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,nbAdhe);
     printf("\n[EntreAdhe] Succès, Activités Enregistrées !\n");
     TnumAdheEntre[*nbAdheEntre]=numAdhe;
     *nbAdheEntre+=1;

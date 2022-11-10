@@ -77,4 +77,4 @@ void verifPresenceAct(int numAct,int TnumAct[],int nbAct,int *presence);
  * \param posAdhe position de l'adhérent dans le tableau
  * \param TnbEntr nombre d'entrées d'activités par jour
 */
-int VerifnbPRest(int TCact[],int numAct,int TnbPoints[],int posAdhe,int TnbEntr[]);
+int VerifnbPRest(int TCact[],int numAct,int TnbPoints[],int posAdhe,int TnbEntr[], int cat);

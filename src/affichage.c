@@ -42,7 +42,7 @@ void affMenu(void)
 * Recherche l'adherent grace à la fonciton recherche, test si il existe et si
 * c'est le cas, affiche les information le concernant.
 */
-void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int nbAdhe)
+void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int nbAdhe)
 {
     int presence;
     int ins = rechercheNombre(numAdhe, Tnum, &presence, nbAdhe);
@@ -55,23 +55,24 @@ void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int nbAd
     printf("[affInfoAdhe] N° adherent :\t\t%d\n", Tnum[ins]);
     printf("[affInfoAdhe] Etat de la carte :\t%d\n", Tetat[ins]);
     printf("[affInfoAdhe] Nombre de points :\t%d\n", TnbPoints[ins]);
+    printf("[affInfoAdhe] N° catégorie :\t%d\n", Tcat[ins]);
 }
 
 /**
 * Affiche sous forme de tableau tous les adhérents du club et les information
 * les concernants.
 */
-void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int nbAdhe)
+void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int nbAdhe)
 {
     printf("[affInfoTous] informations générales : ----------------------------\n\n");
 
-    printf("\tN°adhérent\t| Etat\t| Nb de points\n");
-    printf("\t---------------------------------------------\n");
+    printf("\tN°adhérent\t| Etat\t| Nb de pts\t| N°catégorie\n");
+    printf("\t------------------------------------------------\n");
 
     for (int i = 0; i < nbAdhe; i++)
-        printf("\t\t%d\t| %d\t| %d\n", Tnum[i], Tetat[i], TnbPoints[i]);
+        printf("\t\t%d\t| %d\t| %d\t | %d\n", Tnum[i], Tetat[i], TnbPoints[i], Tcat[i]);
 
-    printf("\t---------------------------------------------\n");
+    printf("\t------------------------------------------------\n");
 }
 /**
  * Affiche les activités disponibles et leurs coût
