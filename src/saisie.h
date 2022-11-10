@@ -7,7 +7,7 @@
  * \brief Fonction Saisie Nombre de Crédits Lors de l'ajout d'un adhérent
  * \param nbCredits Nombre de Crédits à allouer à un adhérent
 */
-void saisieAjoutAdher(int *nbCredits, int *cat);
+int saisieAjoutAdher(int *nbCredits, int *cat);
 
 /**
  * \brief Fonction Saisie Pour La Suppression d'un adhérent

@@ -4,16 +4,24 @@
 */
 
 #include <stdio.h>
-
+#include "affichage.h"
 #include "config.h"
 
-void saisieAjoutAdher(int *nbCredits, int *cat)
+int saisieAjoutAdher(int *nbCredits, int *cat)
 {
     printf("%s[ajoutAdher]%s Saisir le nombre de crédit :\t", STY_FBLUE, STY_NULL);
     scanf("%d", nbCredits);
+    affInfoCate();
     printf("%s[ajoutAdher]%s Saisir la catégorie :\t", STY_FBLUE, STY_NULL);
     scanf("%d", cat);
+    if (*cat > 4 || *cat < 1)
+            {
+                printf("%s[ajoutAdher]Erreur !!%s Catégorie inconnue !!",STY_FRED,STY_NULL);
+                return -1;
+            }
+    return 0;
 }
+
 
 void saisieSuppAdhe(int *numAdhe)
 {

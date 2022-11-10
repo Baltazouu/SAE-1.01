@@ -43,3 +43,5 @@ void affInfoAct(void);
  * \param tlog taille logique du tableau
 */
 void affichnbEntrAct(int TnbEntr[],int tlog);
+
+void affInfoCate(void);

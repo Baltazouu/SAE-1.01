@@ -20,7 +20,7 @@ int globale(void)
     int TnbEntr[NBACT]={0,0,0,0,0,0,0,0,0,0};
     int TnumAdheEntre[TMAX],nbAdheEntre=0;
     int numAdhe, nbAdhe, points, cat;
-    int val;
+    int val,coderet;
 
     nbAdhe = chargement(Tnum, Tetat, TnbPoints, Tcat, TMAX);
 
@@ -33,11 +33,16 @@ int globale(void)
 
         if (commande == 1) {
             printf("\n");
-            saisieAjoutAdher(&points, &cat);
+            coderet = saisieAjoutAdher(&points, &cat);
+            if (coderet!=-1)
+            {
+                
+            
             val = ajoutAdher(&nbAdhe, points, cat, Tnum, Tetat, TnbPoints, Tcat, TMAX);
             if (val > 0)
                 printf("\n%s[ajoutAdher] succes:%s Adhérent n°%d, de cat %d, créé avec %d points.\n",
                        STY_FGREEN, STY_NULL, val, cat, points);
+            }
         } 
         else if (commande == 2) {
             printf("\n");
