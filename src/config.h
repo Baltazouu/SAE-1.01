@@ -34,6 +34,9 @@
 #define BOX_BOTR    "\u251b"
 
 //! Styles
-#define STY_FCYAN   "\e[1,36m"
-#define STY_FGREEN  "\e[1,32m"
-#define STY_FRED    "\e[1,31m"
+#define STY_NULL    "\e[0m"
+#define STY_FCYAN   "\e[1;36m"
+#define STY_FGREEN  "\e[1;32m"
+#define STY_FRED    "\e[1;31m"
+#define STY_FMAGEN  "\e[1;35m"
+#define STY_BWHITE  "\e[1;30;47m"

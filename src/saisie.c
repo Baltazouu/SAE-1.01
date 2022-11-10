@@ -23,9 +23,9 @@ void saisieSuppAdhe(int *numAdhe)
 
 void saisieAlimCarte(int *numAdhe, int *points)
 {
-    printf("[alimCarte] Saisir le numéro Adherent :\t\t");
+    printf("%s[alimCarte]%s Saisir le numéro Adherent :\t\t", STY_FMAGEN, STY_NULL);
     scanf("%d", numAdhe);
-    printf("[alimCarte] Saisir le nombre de points :\t");
+    printf("%s[alimCarte]%s Saisir le nombre de points :\t", STY_FMAGEN, STY_NULL);
     scanf("%d", points);
 }
 
@@ -43,17 +43,17 @@ void saisieDesactivationCarte(int *numAdhe)
 
 void saisieAffInfoAdhe(int *numAdhe)
 {
-    printf("[affInfoAdhe] Saisir le numéro Adherent :\t");
+    printf("%s[affInfoAdhe]%s Saisir le numéro Adherent :\t", STY_FMAGEN, STY_NULL);
     scanf("%d", numAdhe);
 }
 
 void saisieChoix(int *choix)
 {
-    printf("\n[gestion] Saisir la commande (#0 -menu):\n");
+    printf("\n%s[gestion]%s Saisir la commande (#0 -menu):       \e[1;23;30;47m[  ]\e[0m\n", STY_FMAGEN, STY_NULL);
     for (int i = 0; i < 73; i++) printf("%s", BOX_HORI);
-    printf("\e[1A\e[25D");
+    printf("\e[1A\e[25D\e[?25l");
     scanf("%d", choix);
-    printf("\n");
+    printf("\n\e[?25h");
 }
 
 void saisieEntrAdhe(int *numadhe)

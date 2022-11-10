@@ -16,9 +16,9 @@
 */
 void affMenu(void)
 {
-    printf("\n\e[1,36m[Gestion d'un complexe sportif]\e[0m\n\n");
+    printf("\n%s[Gestion d'un complexe sportif]\e[0m\n\n", STY_FCYAN);
 
-    printf("Commande :\e[0m  ");
+    printf("%sCommande :  \e[0m", STY_BWHITE);
     for (int i = 0; i < 60; i++) printf("%s", BOX_HORI);
     printf("%s\n", BOX_TOPR);
 
@@ -52,10 +52,10 @@ void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat
     }
 
     printf("\n");
-    printf("[affInfoAdhe] N° adherent :\t\t%d\n", Tnum[ins]);
-    printf("[affInfoAdhe] Etat de la carte :\t%d\n", Tetat[ins]);
-    printf("[affInfoAdhe] Nombre de points :\t%d\n", TnbPoints[ins]);
-    printf("[affInfoAdhe] N° catégorie :\t%d\n", Tcat[ins]);
+    printf("%s[affInfoAdhe]%s N° adherent :\t\t%d\n", STY_FMAGEN, STY_NULL, Tnum[ins]);
+    printf("%s[affInfoAdhe]%s Etat de la carte :\t%d\n", STY_FMAGEN, STY_NULL, Tetat[ins]);
+    printf("%s[affInfoAdhe]%s Nombre de points :\t%d\n", STY_FMAGEN, STY_NULL, TnbPoints[ins]);
+    printf("%s[affInfoAdhe]%s N° catégorie :\t%d\n", STY_FMAGEN, STY_NULL, Tcat[ins]);
 }
 
 /**
@@ -64,15 +64,17 @@ void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat
 */
 void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int nbAdhe)
 {
-    printf("[affInfoTous] informations générales : ----------------------------\n\n");
+    printf("%s[affInfoTous]%s %sinformations générales : %s", STY_FMAGEN, STY_NULL, STY_BWHITE, STY_NULL);
+    for (int i = 0; i < 27; i++) printf("%s", BOX_HORI);
+    printf("\n\n");
 
-    printf("\tN°adhérent\t| Etat\t| Nb de pts\t| N°catégorie\n");
-    printf("\t------------------------------------------------\n");
+    printf("%sN°adhérent\t%s Etat\t%s Nb de pts\t%s N°catégorie%s\n", BOX_VERT, BOX_VERT, BOX_VERT, BOX_VERT, BOX_VERT);
+    for (int i = 0; i < 48; i++) printf("%s", BOX_HORI);
 
     for (int i = 0; i < nbAdhe; i++)
-        printf("\t\t%d\t| %d\t| %d\t | %d\n", Tnum[i], Tetat[i], TnbPoints[i], Tcat[i]);
+        printf("%s\t%d\t%s %d\t%s %d\t\t%s %d\t%s\n", BOX_VERT, Tnum[i], BOX_VERT, Tetat[i], BOX_VERT, TnbPoints[i], BOX_VERT, Tcat[i], BOX_VERT);
 
-    printf("\t------------------------------------------------\n");
+    printf("\n"); for (int i = 0; i < 48; i++) printf("%s", BOX_HORI); printf("\n");
 }
 /**
  * Affiche les activités disponibles et leurs coût
