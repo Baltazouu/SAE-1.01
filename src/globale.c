@@ -23,7 +23,7 @@ int globale(void)
     int val,coderet;
 
 
-    nbAdhe = chargement(Tnum, Tetat, TnbPoints, Tcat, TMAX);
+    nbAdhe = chargement(Tnum, Tetat, TnbPoints, Tcat,tPtUtils, TMAX);
 
     printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
     affMenu();
@@ -39,11 +39,10 @@ int globale(void)
             {
                 
             
-            val = ajoutAdher(&nbAdhe, points, cat, Tnum, Tetat, TnbPoints, Tcat, TMAX);
+            val = ajoutAdher(&nbAdhe, points, cat, Tnum, Tetat, TnbPoints, Tcat,tPtUtils, TMAX);
             if (val > 0)
                 printf("\n%s[ajoutAdher] succes:%s Adhérent n°%d, de cat %d, créé avec %d points.\n",
                        STY_FGREEN, STY_NULL, val, cat, points);
-                       tPtUtils[nbAdhe]=0;
             }
         } 
         else if (commande == 2) {
@@ -92,7 +91,7 @@ int globale(void)
         {
             printf("\n");
             sortie = 1;
-            if (!sauvegarde(Tnum, Tetat, TnbPoints, Tcat, nbAdhe))
+            if (!sauvegarde(Tnum, Tetat, TnbPoints, Tcat,tPtUtils,nbAdhe))
                 printf("\n%s[sauvegarde] succes:%s %d adherents sauvegardés.\n\n",STY_FGREEN, STY_NULL,nbAdhe);
         } else if (commande == 0) {
             affMenu();
