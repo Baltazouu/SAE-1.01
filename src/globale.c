@@ -73,11 +73,11 @@ int globale(void)
         else if (commande == 6) {
             printf("\n");
             saisieAffInfoAdhe(&numAdhe);
-            affInfoAdhe(numAdhe, Tnum, Tetat, TnbPoints, Tcat, TnumAdheEntre, nbAdhe);
+            affInfoAdhe(numAdhe, Tnum, Tetat, TnbPoints, Tcat, TnumAdheEntre, tPtUtils, nbAdhe);
         } 
         else if (commande == 7) {
             printf("\n");
-            affInfoTous(Tnum, Tetat, TnbPoints, Tcat, nbAdhe);
+            affInfoTous(Tnum, Tetat, TnbPoints, Tcat, tPtUtils, nbAdhe);
         } 
         else if (commande == 8) {
             printf("\n");

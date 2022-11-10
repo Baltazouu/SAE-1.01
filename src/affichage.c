@@ -42,7 +42,7 @@ void affMenu(void)
 * Recherche l'adherent grace à la fonciton recherche, test si il existe et si
 * c'est le cas, affiche les information le concernant.
 */
-void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int TnumAdheEntre[], int nbAdhe)
+void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int TnumAdheEntre[], int tPtUtils[], int nbAdhe)
 {
     int presence, entree;
     int ins = rechercheNombre(numAdhe, Tnum, &presence, nbAdhe);
@@ -54,9 +54,10 @@ void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat
 
     printf("\n");
     printf("%s[affInfoAdhe]%s N° adherent :\t\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, Tnum[ins], STY_NULL);
-    printf("%s[affInfoAdhe]%s Etat de la carte :\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, Tetat[ins], STY_NULL);
-    printf("%s[affInfoAdhe]%s Nombre de points :\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, TnbPoints[ins], STY_NULL);
+    printf("%s[affInfoAdhe]%s Etat de la carte :\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_FCYAN, Tetat[ins], STY_NULL);
+    printf("%s[affInfoAdhe]%s Nombre de points :\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_FGREEN, TnbPoints[ins], STY_NULL);
     printf("%s[affInfoAdhe]%s N° catégorie :\t\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, Tcat[ins], STY_NULL);
+    printf("%s[affInfoAdhe]%s PTS de Fidelité:\t\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_FYELLOW, tPtUtils[ins], STY_NULL);
     printf("%s[affInfoAdhe]%s Est déjà rentré :\t\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, entree, STY_NULL);
 }
 
@@ -64,7 +65,7 @@ void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat
 * Affiche sous forme de tableau tous les adhérents du club et les information
 * les concernants.
 */
-void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int nbAdhe)
+void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int tPtUtils[], int nbAdhe)
 {
     printf("%s[affInfoTous]%s %sinformations générales : %s", STY_FBLUE, STY_NULL, STY_BWHITE, STY_NULL);
     for (int i = 0; i < 27; i++) printf("%s", BOX_HORI);
@@ -78,9 +79,11 @@ void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int nbAdh
     for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
     printf("%s", BOX_DOWH);
     for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_DOWH);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
     printf("%s\n", BOX_TOPR);
 
-    printf("\t%s%s N°adhérent%s\t%s %sEtat%s\t%s %sNb de pts%s\t%s %sN°catégorie%s\t%s\n", BOX_VERT, STY_FYELLOW, STY_NULL, BOX_VERT, STY_FYELLOW, STY_NULL, BOX_VERT, STY_FYELLOW, STY_NULL, BOX_VERT, STY_FYELLOW, STY_NULL, BOX_VERT);
+    printf("\t%s%s N°adhérent%s\t%s %sEtat%s\t%s %sNb de pts%s\t%s %sN°catégorie%s\t%s %sPts Fidelité%s  %s\n", BOX_VERT, STY_FYELLOW, STY_NULL, BOX_VERT, STY_FYELLOW, STY_NULL, BOX_VERT, STY_FYELLOW, STY_NULL, BOX_VERT, STY_FYELLOW, STY_NULL, BOX_VERT, STY_FYELLOW, STY_NULL, BOX_VERT);
     printf("\t%s", BOX_VERR);
     for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
     printf("%s", BOX_VERH);
@@ -89,15 +92,19 @@ void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int nbAdh
     for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
     printf("%s", BOX_VERH);
     for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_VERH);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
     printf("%s\n", BOX_VERL);
 
     for (int i = 0; i < nbAdhe; i++)
-        printf("\t%s   %d\t%s   %d\t%s   %d\t\t%s     %d\t\t%s\n", BOX_VERT, Tnum[i], BOX_VERT, Tetat[i], BOX_VERT, TnbPoints[i], BOX_VERT, Tcat[i], BOX_VERT);
+        printf("\t%s     %d\t%s   %d\t%s\t%d\t%s\t%d\t%s\t%d\t%s\n", BOX_VERT, Tnum[i], BOX_VERT, Tetat[i], BOX_VERT, TnbPoints[i], BOX_VERT, Tcat[i], BOX_VERT, tPtUtils[i], BOX_VERT);
 
     printf("\t%s", BOX_BOTL);
     for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
     printf("%s", BOX_UPHO);
     for (int i = 0; i < 7; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_UPHO);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
     printf("%s", BOX_UPHO);
     for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
     printf("%s", BOX_UPHO);

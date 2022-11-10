@@ -126,25 +126,25 @@ void VerifnbPRest(int TCact[],int numAct,int TnbPoints[],int posAdhe,int TnbEntr
         if (cat==1)
         {
             TnbPoints[posAdhe]+=BonEtu;
-            printf("[EntrAdhe] Fidélité, Vous Avez Dépensé %d Points, Le Centre Vous Offre %d Points :)\n",RecurPtsBonus,BonEtu);
+            printf("%s[EntrAdhe] Fidélité,%s Vous Avez Dépensé %d Points, Le Centre Vous Offre %d Points :)\n",STY_FYELLOW,STY_NULL,RecurPtsBonus,BonEtu);
         }
         if(cat==2){
             TnbPoints[posAdhe]+=BonMineur;
-            printf("[EntrAdhe] Fidélité, Vous Avez Dépensé %d Points, Le Centre Vous Offre %d Points :)\n",RecurPtsBonus,BonMineur);
+            printf("%s[EntrAdhe] Fidélité,%s Vous Avez Dépensé %d Points, Le Centre Vous Offre %d Points :)\n",STY_FYELLOW,STY_NULL,RecurPtsBonus,BonMineur);
         }
         if (cat==3)
         {
             TnbPoints[posAdhe]+=BonRetraite;
-            printf("[EntrAdhe] Fidélité, Vous Avez Dépensé %d Points, Le Centre Vous Offre %d Points :)\n",RecurPtsBonus,BonRetraite);
+            printf("%s[EntrAdhe] Fidélité,%s Vous Avez Dépensé %d Points, Le Centre Vous Offre %d Points :)\n",STY_FYELLOW,STY_NULL,RecurPtsBonus,BonRetraite);
         }
         if (cat==4)
         {
             TnbPoints[posAdhe]+=BonMaj;
-            printf("[EntrAdhe] Fidélité, Vous Avez Dépensé %d Points, Le Centre Vous Offre %d Points :)\n",RecurPtsBonus,BonMaj);
+            printf("%s[EntrAdhe] Fidélité,%s Vous Avez Dépensé %d Points, Le Centre Vous Offre %d Points :)\n",STY_FYELLOW,STY_NULL,RecurPtsBonus,BonMaj);
         }
         else
         {
-            printf("[EntrAdhe] : Erreur, Pas de Catégorie détéctée\n");
+            printf("%s[EntrAdhe] : Erreur,%s Pas de Catégorie détéctée\n", STY_FRED, STY_NULL);
             return;
         }
         tPtUtils[posAdhe]-=80;
