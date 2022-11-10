@@ -153,7 +153,9 @@ void affichnbEntrAct(int TnbEntr[],int tlog)
     printf("\t%s\t\t\t\t\t%s\n\n", BOX_BOTL, BOX_BOTR);
 }
 
-
+/**
+ * affiche les catégories d'utilisateur disponible
+*/
 void affInfoCate(void)
 {   
     int Tcat[NBCATEADHE]={1,2,3,4};

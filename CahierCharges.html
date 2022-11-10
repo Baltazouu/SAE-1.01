@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CahierCharges.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="sae-101-receuil-de-besoins">SAE-1.01 Receuil de Besoins</h1>
+<h2 id="cahier-des-charges"><strong>Cahier Des Charges</strong></h2>
+<h2 id="d%C3%A9veloppeurs">Développeurs :</h2>
+<ul>
+<li><strong>Agostihno Alexandre (TP1)</strong></li>
+<li><strong>Dudonné Baptiste (TP1)</strong></li>
+</ul>
+<p><strong>Logiciel de gestion d'un centre sportif</strong></p>
+<p>Ce logiciel permet d'administrer un centre sportif à l'aide d'une structure fonctionnele. Lors du démarrage du programme, la fonction globale est lancée, celle-ci se déroule dans l'ordre suiviant :</p>
+<ul>
+<li>chargement des données du fichier &quot;adherent.txt&quot; dans des tableaux (<strong>TnumAdhe,Tactive,TnbPoints,Tcategorie,tPtUtils</strong>)</li>
+<li>Ensuite, la fonction globale affiche les commandes disponibles et permet de  saisir le choix de l'utilisateur.</li>
+<li>Une fois la saisie effectuée, le programme execute la fonction correspodante</li>
+<li>Après chaque commande, la fonction globale est relancée.</li>
+</ul>
+<h2 id="fonctions">Fonctions :</h2>
+<p><strong>Liste des fonctions utilisateurs disponibles</strong> :</p>
+<ul>
+<li>0 : Afficher le Menu</li>
+<li>1 : Créer un nouvel adhérent</li>
+<li>2 : Supprimer un Adhérent</li>
+<li>3 : Alimenter une carte d'adhérent</li>
+<li>4 : Activer Une Carte d'adhérent</li>
+<li>5 : Désactiver une Carte D'adhérent (mauvais comportement, ...)</li>
+<li>6 : Afficher les informations d'un adhérent</li>
+<li>7 : Afficher les information de tous les adhérents</li>
+<li>8 : Afficher Nombre d'entrées par activité dans la journée</li>
+<li>9 : Saisir une entrée d'un adhérent dans le centre</li>
+<li>10 : Quitter la gestion du centre (fin de journée)</li>
+</ul>
+<h2 id="fonction-globale">Fonction Globale :</h2>
+<p>La fonction Globale Permet d'affichier tout les choix disponibles au lancement de l'application et de saisir le choix  de l'utilisateur :</p>
+<pre class="hljs"><code><div>[Gestion d'un complexe sportif]
+
+Commande :  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃       0 # Afficher ce menu                                            ┃
+┃       1 # Créer un nouvel adhérent                                    ┃
+┃       2 # Supprimer un adherent                                       ┃
+┃       3 # Alimenter une carte                                         ┃
+┃       4 # Activer une carte                                           ┃
+┃       5 # Désactiver une carte                                        ┃
+┃       6 # Afficher les informations d'un adherent                     ┃
+┃       7 # Afficher les informations de tout les adhérents             ┃
+┃       8 # Afficher le nombre d'entrées par activité dans la journée   ┃
+┃       9 # Saisir entrée d'un adhérent                                 ┃
+┃       10 # Quitter la gestion du centre (fin de journée)              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+
+
+[gestion] Saisir la commande (#0 -menu):       
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</div></code></pre>
+<h2 id="a-noter">A noter  :</h2>
+<ul>
+<li>Après toutes commandes excepté 10 (Quitter), la commande gestion sera executée pour entrer le nouveau choix et continuer l'administration du centre</li>
+</ul>
+<h2 id="commande-0--r%C3%A9afficher-le-menu">Commande 0 : Réafficher le menu :</h2>
+<ul>
+<li>Cette Commande Réaffiche La Liste des commandes (Fonction globale)</li>
+</ul>
+<pre class="hljs"><code><div>
+[gestion] Saisir la commande (#0 -menu):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</div></code></pre>
+<h2 id="commande-1--cr%C3%A9er-un-nouvel-adh%C3%A9rent">Commande 1 : Créer Un Nouvel Adhérent</h2>
+<p>Dans cette fonction, le Premier Adhérent de La Base est initialisé à 1000. Le Suiviant 1001 etc..</p>
+<ul>
+<li>Saisie du nombre de crédits</li>
+<li>Saisie de la catégorie d'adhérent</li>
+<li>Création de l'adhérent (ajout des données dans les tableaux)</li>
+</ul>
+<pre class="hljs"><code><div>[ajoutAdher] Saisir le nombre de crédit :       80
+
+[affInfoTous] Catégories  D'utilisateurs : 
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+        ┏━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+        ┃ Numéro  ┃     Catégorie               ┃
+        ┣━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+        ┃  1      ┃   Etudiant                  ┃
+        ┃  2      ┃   Mineur                    ┃
+        ┃  3      ┃   Majeur Salarié            ┃
+        ┃  4      ┃   Retraité                  ┃
+        ┗━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+[ajoutAdher] Saisir la catégorie :      1
+
+[ajoutAdher] succes: Adhérent n°1005, de cat 1, créé avec 80 points.
+</div></code></pre>
+<h2 id="commande-2--supprimer-un-adh%C3%A9rent">Commande 2 : Supprimer un adhérent</h2>
+<ul>
+<li>saisie du numéro d'adhérent à supprimer</li>
+<li>suppression de l'adhérent (suppression adhérent de tous tableaux)</li>
+</ul>
+<pre class="hljs"><code><div>[suppAdhe] Saisir le numéro Adherent :  1001
+[suppAdhe] succes: Adhérent n°1001 supprimé.
+</div></code></pre>
+<h2 id="commande-3--alimenter-une-carte">Commande 3 : Alimenter une carte</h2>
+<ul>
+<li>Saisie du numéro d'adhérent (~ de carte) à alimenter</li>
+<li>Saisie du numéros de points à ajouter</li>
+<li>Alimentation de la carte (alimentation dans le tableau (<strong>TnbPoints</strong>))</li>
+</ul>
+<pre class="hljs"><code><div>[alimCarte] Saisir le numéro Adherent :         1001
+[alimCarte] Saisir le nombre de points :        80
+
+[alimCarte] succes: 80 point(s) ajouté à l'adhérent n°1001.
+</div></code></pre>
+<h2 id="commande-4--activer-une-carte">Commande 4 : Activer une carte</h2>
+<ul>
+<li>Saisie du numéro d'adhérent (~ de carte)</li>
+<li>Activation Carte (modification <strong>Tactive</strong> à 1)</li>
+</ul>
+<pre class="hljs"><code><div>[activationCarte] Saisir le numéro Adherent :   1001
+[activationCarte] note: carte déjà activée.
+
+[activationCarte] succes: Carte n°1001 activée.
+</div></code></pre>
+<h2 id="commande-5--d%C3%A9sactiver-une-carte">Commande 5 : Désactiver une carte</h2>
+<ul>
+<li>Saisie du numéro d'adhérent (~ de carte)</li>
+<li>Désactivation de la carte (modification <strong>Tactive</strong> à 0)</li>
+</ul>
+<pre class="hljs"><code><div>[desactivationCarte] Saisir le numéro Adherent :        1003
+
+[desactivationCarte] succes: Carte n°1003 desactivée.
+</div></code></pre>
+<h2 id="commande-6--afficher-les-informations-dun-adh%C3%A9rent">Commande 6 : Afficher les informations d'un adhérent</h2>
+<ul>
+<li>Saisie du numéro d'adhérent</li>
+<li>Affichange numéro adhérent (<strong>TnumAdhe</strong>)</li>
+<li>Affichage état carte (<strong>Tetat</strong>)</li>
+<li>Affichage nombre de points restants (<strong>TnbPoints</strong>)</li>
+<li>Affichage N° Catégorie Adhérent (<strong>Tcat</strong>)</li>
+<li>Affichage nombre de passages de l'adhérent dans la centre sur la journée(<strong>TnumAdheEntre</strong>)</li>
+<li>Affichage nombre de points dépensés avant suppresion (tout les 80 points) <strong>tPtUtils</strong></li>
+</ul>
+<pre class="hljs"><code><div>[affInfoAdhe] Saisir le numéro Adherent :       1001
+
+[affInfoAdhe] N° adherent :             1001
+[affInfoAdhe] Etat de la carte :        1
+[affInfoAdhe] Nombre de points :        108
+[affInfoAdhe] N° catégorie :            1
+[affInfoAdhe] Nb de passage :           0
+[affInfoAdhe] Nb de points utilisés     0
+</div></code></pre>
+<h2 id="commande-7--affichage-information-de-tous-les-adh%C3%A9rents">Commande 7 : Affichage information de tous les adhérents</h2>
+<ul>
+<li>affichage des informations de tous es adhérents (Affichage Tous Tableaux)</li>
+</ul>
+<pre class="hljs"><code><div>[affInfoTous] informations générales : ----------------------------
+
+        N°adhérent      | Etat  | Nb de points
+        ---------------------------------------------
+                1001    | 1     | 57
+                1002    | 1     | 40
+                1003    | 1     | 10
+                1004    | 1     | 17
+                1005    | 1     | 16
+                1006    | 1     | 24
+                1007    | 1     | 23
+                1008    | 1     | 234
+        ---------------------------------------------
+</div></code></pre>
+<h2 id="commande-8--afficher-le-nombre-dentr%C3%A9es-par-activit%C3%A9s-dans-la-journ%C3%A9e">Commande 8 : Afficher le nombre d'entrées par activités dans la journée</h2>
+<ul>
+<li>Affichage nombre entrées par activité dans la journée (<strong>TnbEntr</strong>)</li>
+</ul>
+<pre class="hljs"><code><div>[AffichEntrAct] Nombres d'entrées de la journée :
+
+         1 # Kayak : 3 Entrées
+         2 # Boxe : 1 Entrées
+         3 # Musculation : 0 Entrées
+         4 # Gym : 1 Entrées
+         5 # AquaGym : 2 Entrées
+         6 # Vélo : 2 Entrées
+         7 # Sqash : 1 Entrées
+         8 # Tennis : 4 Entrées
+         9 # Basket : 2 Entrées
+         10 # Foot : 2 Entrées
+</div></code></pre>
+<h2 id="commande-9--saisir-entr%C3%A9e-dun-adh%C3%A9rent">Commande 9 : Saisir entrée d'un adhérent</h2>
+<ul>
+<li>Saisie numéro adhérent entrant</li>
+<li>Affichage information adhérent (<strong>Tnum,Tactive,TnbPoints,TcatAdhe</strong>)</li>
+<li>Affichage Infos Activités (<strong>TnumAct</strong>, noms,<strong>TcAct</strong>)</li>
+<li>Saisie numéro d'activité</li>
+<li>Soustraction des points (<strong>TnbPoint</strong>)</li>
+<li>Saisie Autre Activité (Boucle Affichage,saisie activité)</li>
+</ul>
+<pre class="hljs"><code><div>[EntrAdhe] Saisissez Le Numéro De l'adhérent entrant : 1008
+[affInfoAdhe] N° adherent :             1008
+[affInfoAdhe] Etat de la carte :        1
+[affInfoAdhe] Nombre de points :        234
+
+[EntrAdhe] Entrez Le Numéro D'activité Correspondant :
+------------------------------------------------------
+
+         1 # Kayak : 25 points
+         2 # Boxe : 15 points
+         3 # Musculation : 15 points
+         4 # Gym : 12 points
+         5 # AquaGym : 15 points
+         6 # Vélo : 20 points
+         7 # Sqash : 22 points
+         8 # Tennis : 25 points
+         9 # Basket : 10 points
+         10 # Foot : 10 points
+
+[EntrAdhe] Saisissez Le Numéro D'activité : 4
+
+[EntrAdhe] Souhaitez Vous Choisir Une Autre Activité ( 1 : Oui | 0 : Non ) : 
+</div></code></pre>
+<h2 id="commande-10--quitter-la-gestion-du-centre">Commande 10 : Quitter la gestion du centre</h2>
+<ul>
+<li>sauvegarde des tableaux d'entiers Tnum[]
+, Tetat[ ], TnbPoints []
+dans le fichier adherents.txt</li>
+<li>Affichage du nombre d'adhérents sauvegardés</li>
+<li>Fin du programme.</li>
+</ul>
+<pre class="hljs"><code><div>[sauvegarde] succes: 8 adherents sauvegardés.
+</div></code></pre>
+<h2 id="fonction-bonus">Fonction Bonus :</h2>
+<p>Cette fonction s'execute automatiquement au cours du programme.</p>
+<ul>
+<li>Ajoute 3 Points Bonus à Chaque Démarrage du logiciel.</li>
+<li>Ajoute un nombre de points en bonus tout les 80 points utilisés selon la catégorie de l'utilisateur</li>
+</ul>
+<p>Points Ajoutés selon les catégories
+Ces Paramètres sont réglables au sein du fichier <code>config.h</code></p>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> AJT_PTS_CHARG   3</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> RecurPtsBonus 80 <span class="hljs-comment">//Récurrence du don de points </span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BonEtu 20 <span class="hljs-comment">// Points Bonus Pour Les étudiants</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BonMineur 15 <span class="hljs-comment">// Points Bonus Pour Les Mineurs</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BonRetraite 12 <span class="hljs-comment">//Points Bonus Pour Les Retraités</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BonMaj 10 <span class="hljs-comment">// Points Bonus Pour Les Majeurs</span></span>
+</div></code></pre>
+<h2 id="fichiers--adherentstxt">Fichiers : adherents.txt</h2>
+<p>Ce fichier content 4 Données :</p>
+<ul>
+<li>Numéro D'adhérent (<code>1001,1002,..</code>)</li>
+<li>Etat Carte (<code>1</code> :Activée / <code>0</code> : Désactivée)</li>
+<li>Nombre de points (ex : <code>75</code>)</li>
+<li>Catégorie Adhérent : (<code>1</code> : Etudiant / <code>2</code> : Mineur / <code>3</code> : Majeur Salarié / <code>4</code> : Retraité )</li>
+</ul>
+<h2 id="fichiers--configh">Fichiers : config.h</h2>
+<p>C'est dans ce fichier que l'on peut modifier les paramètres de notre programme de gestion, celui-ci contient :</p>
+<p><strong>données relatives aux adhérents :</strong></p>
+<ul>
+<li>TMAX (Nombre maximal d'adhérents dans le centre)</li>
+</ul>
+<p><strong>Données relatives aux activités :</strong></p>
+<ul>
+<li>NBACT (Nombre d'activités proposées)</li>
+<li>CO_KAYAK    : Coût activité Kayak</li>
+<li>CO_BOXE     : Coût activité Boxe</li>
+<li>CO_MUSCU    : Coût activité Muscu</li>
+<li>CO_GYM      : Coût activité GYM</li>
+<li>CO_AQUAGYM  : Coût activité Aquagym</li>
+<li>CO_VELO     : Coût activité vélo</li>
+<li>CO_SQASH    : Coût activité Sqash</li>
+<li>CO_TENNIS   : Coût activité Tennis</li>
+<li>CO_BASKET   : Coût activité Basket</li>
+<li>CO_FOOT     : Coût activité Foot</li>
+</ul>
+<p><strong>Données relatives aux catégories d'adhérents :</strong></p>
+<ul>
+<li>BonEtu : Points Bonus Pour Les étudiants</li>
+<li>BonMineur : Points Bonus Pour Les Mineurs</li>
+<li>BonRetraite : Points Bonus Pour Les Retraités</li>
+<li>BonMaj 10 : Points Bonus Pour Les Majeurs</li>
+</ul>
+<h1 id="compilation-du-projet">Compilation du projet :</h1>
+<p>Comment Complier et executer le projet :</p>
+<ul>
+<li>Depuis la racine du projet : lancer un <code>make</code>, le make va alors créer répertoire bin dans lequel seront placés tous les binaires.</li>
+<li>Un Lien vers un executable sera alors crée dans la racine du projet sous le nom de <code>sae-1.01</code></li>
+<li>Contenu de votre dossier après le make :</li>
+</ul>
+<pre class="hljs"><code><div>bin  CahierCharges.md  data  Doxyfile  makefile  README.md  sae1-01   src
+</div></code></pre>
+<ul>
+<li>Executez le lien : <code>./sae-1.01</code></li>
+<li>Le logiciel se lance alors..</li>
+</ul>
+<h2 id="vous-pouvez-d%C3%A9sormais-administrer-le-centre">Vous pouvez désormais administrer le centre !</h2>
+<h3 id="probl%C3%A8mes-rencontr%C3%A9s--contactez-nous">Problèmes rencontrés : Contactez nous !</h3>
+<p>contact : <em>baptiste.dudonne@etu.uca.fr</em> / <em>alexandre.agostinho@etu.uca.fr</em></p>
+
+</body>
+</html>
