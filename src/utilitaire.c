@@ -97,14 +97,14 @@ int VerifEntreeAdhe(int nbAdhe,int Tnum[],int Tetat[],int *numAdhe)
     return pos;
 }
 
-void verifPresenceAct(int numAct,int TnumAct[],int nbAct,int *presence)
+void verifPresenceAct(int *numAct,int TnumAct[],int nbAct,int *presence)
 {
-    rechercheNombre(numAct,TnumAct,presence,nbAct);
-    while (*presence==0)
+    rechercheNombre(*numAct,TnumAct,presence,nbAct);
+    if (*presence==0)
     {
         printf("%s[EntrAdhe] Erreur !!%s Le Numéro Spécifié N'est Pas Dans La Liste\n", STY_FRED, STY_NULL);
-        saisieAct(&numAct);
-        rechercheNombre(numAct,TnumAct,presence,nbAct);
+        saisieAct(numAct);
+        rechercheNombre(*numAct,TnumAct,presence,nbAct);
     }
     return;
 }

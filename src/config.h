@@ -12,7 +12,7 @@
 #define CMINACT 10
 //! Nombre d'activités
 #define NBACT 10
-//Catégories d'adhérents
+//! Catégories
 #define NBCATEADHE 4
 //! Ajout de point au chargement (fidélité)
 #define AJT_PTS_CHARG   3

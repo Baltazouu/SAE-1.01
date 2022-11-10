@@ -19,7 +19,7 @@
 * \return le nouvel id du nouvel adherent; -1 si erreur
 */
 int ajoutAdher(int *nbAdher, int nbCredits, int nCat,
-               int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int tmax);
+               int Tnum[], int Tetat[], int TnbPoints[], int Tcat[],int tPtUtils [], int tmax);
 
 /**
 * \brief Suppression d'un adherent
