@@ -50,7 +50,7 @@ Ce logiciel permet d'administrer un centre sportif à l'aide d'une structure fon
 
 * 1 : Créer un nouvel adhérent
 * 2 : Supprimer un Adhérent
-* 3: Alimenter une carte d'adhérent
+* 3 : Alimenter une carte d'adhérent
 * 4 : Activer Une Carte d'adhérent 
 * 5 : Désactiver une Carte D'adhérent (mauvais comportement, ...)
 * 6 : Afficher les informations d'un adhérent
