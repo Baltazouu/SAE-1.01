@@ -31,7 +31,10 @@ int ajoutAdher(int *nbAdher, int nbCredits,
         printf("[ajoutAdher] erreur: insertion.\n");
         return -1;
     }
-
+    if (nbCredits<1){
+        printf("[AjoutAdher] Erreur !! Impossible de créditer des points négatifs !!\n");
+        return -1;;
+    }
     insertionNombre(1, ins, Tetat, *nbAdher, tmax);
     insertionNombre(nbCredits, ins, TnbPoints, *nbAdher, tmax);
 
@@ -61,7 +64,6 @@ int suppAdhe(int numAdhe, int *tlog,
     suppressionNombre(ins, TnbPoints, *tlog);
 
     *tlog -= 1;
-    printf("tlog after = %d", *tlog);
     return 0;
 }
 
@@ -109,8 +111,8 @@ int activationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
         printf("[activationCarte] note: carte déjà activée.\n");
         return 0;
     }
-
     Tetat[ins] = 1;
+    printf("\n[activationCarte] succes: Carte n°%d activée.\n",numAdhe);
     return 0;
 }
 

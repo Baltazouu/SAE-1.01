@@ -53,8 +53,9 @@ int globale(void)
         else if (commande == 4) {
             printf("\n");
             saisieActivationCarte(&numAdhe);
-            if (!activationCarte(numAdhe, nbAdhe, Tnum, Tetat))
-                printf("\n[activationCarte] succes: Carte n°%d activée.\n",numAdhe);
+            activationCarte(numAdhe, nbAdhe, Tnum, Tetat);
+            /*    printf("\n[activationCarte] succes: Carte n°%d activée.\n",numAdhe);
+                */
         } 
         else if (commande == 5) {
             printf("\n");

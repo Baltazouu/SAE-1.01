@@ -72,9 +72,9 @@ void suppressionNombre(int pos, int Table[], int tlog)
 {
     int i;
     for (i = pos; i < tlog-1; i++) {
-        //printf("{before} i = %d, Table[i] = %d, Table[i+1] = %d\n", i, Table[i], Table[i+1]);
+        
         Table[i] = Table[i+1];
-        //printf("{after} i = %d, Table[i] = %d, Table[i+1] = %d\n", i, Table[i], Table[i+1]);
+        
     }
 }
 
