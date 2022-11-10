@@ -68,7 +68,7 @@ void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat
 void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int tPtUtils[], int nbAdhe)
 {
     printf("%s[affInfoTous]%s %sinformations générales : %s", STY_FBLUE, STY_NULL, STY_BWHITE, STY_NULL);
-    for (int i = 0; i < 27; i++) printf("%s", BOX_HORI);
+    for (int i = 0; i < 42; i++) printf("%s", BOX_HORI);
     printf("\n\n");
 
     printf("\t%s", BOX_TOPL);
@@ -118,38 +118,39 @@ void affInfoAct(void)
 {   
     printf("\n");
     printf("%s[SaiseAct]%s Entrez Le Numéro D'activité Correspondant :\n", STY_FBLUE, STY_NULL);
-    printf("------------------------------------------------------\n\n");
-    printf("\t 1 # Kayak : %d points\n", CO_KAYAK);
-    printf("\t 2 # Boxe : %d points\n", CO_BOXE);
-    printf("\t 3 # Musculation : %d points\n", CO_MUSCU);
-    printf("\t 4 # Gym : %d points\n", CO_GYM);
-    printf("\t 5 # AquaGym : %d points\n", CO_AQUAGYM);
-    printf("\t 6 # Vélo : %d points\n", CO_VELO);
-    printf("\t 7 # Sqash : %d points\n", CO_SQASH);
-    printf("\t 8 # Tennis : %d points\n", CO_TENNIS);
-    printf("\t 9 # Basket : %d points\n", CO_BASKET);
-    printf("\t 10 # Foot : %d points\n", CO_FOOT);
-    printf("\n");
+    for (int i = 0; i < 54; i++) printf("%s", BOX_HORI);
+    printf("\n\n\t%s\t\t\t\t\t%s\n", BOX_TOPL, BOX_TOPR);
+    printf("\t%s\t 1 # Kayak : %s%d%s points\t\t%s\n",BOX_VERT,STY_FCYAN,CO_KAYAK,STY_NULL,BOX_VERT);
+    printf("\t%s\t 2 # Boxe : %s%d%s points\t\t%s\n",BOX_VERT,STY_FCYAN,CO_BOXE,STY_NULL,BOX_VERT);
+    printf("\t%s\t 3 # Musculation : %s%d%s points\t%s\n",BOX_VERT,STY_FCYAN,CO_MUSCU,STY_NULL,BOX_VERT);
+    printf("\t%s\t 4 # Gym : %s%d%s points\t\t%s\n",BOX_VERT,STY_FCYAN,CO_GYM,STY_NULL,BOX_VERT);
+    printf("\t%s\t 5 # AquaGym : %s%d%s points\t%s\n",BOX_VERT,STY_FCYAN,CO_AQUAGYM,STY_NULL,BOX_VERT);
+    printf("\t%s\t 6 # Vélo : %s%d%s points\t\t%s\n",BOX_VERT,STY_FCYAN,CO_VELO,STY_NULL,BOX_VERT);
+    printf("\t%s\t 7 # Sqash : %s%d%s points\t\t%s\n",BOX_VERT,STY_FCYAN,CO_SQASH,STY_NULL,BOX_VERT);
+    printf("\t%s\t 8 # Tennis : %s%d%s points\t\t%s\n",BOX_VERT,STY_FCYAN,CO_TENNIS,STY_NULL,BOX_VERT);
+    printf("\t%s\t 9 # Basket : %s%d%s points\t\t%s\n",BOX_VERT,STY_FCYAN,CO_BASKET,STY_NULL,BOX_VERT);
+    printf("\t%s\t 10 # Foot : %s%d%s points\t\t%s\n",BOX_VERT,STY_FCYAN,CO_FOOT,STY_NULL,BOX_VERT);
+    printf("\t%s\t\t\t\t\t%s\n\n", BOX_BOTL, BOX_BOTR);
 }
 /**
  * Affiche le nombre par activités sur ce jour 
 */
 void affichnbEntrAct(int TnbEntr[],int tlog)
 {   
-    
     printf("%s[AffichEntrAct]%s Nombres d'entrées de la journée :\n", STY_FBLUE, STY_NULL);
-    printf("------------------------------------------------------\n\n");
-    printf("\t 1 # Kayak : %d Entrées\n",TnbEntr[0]);
-    printf("\t 2 # Boxe : %d Entrées\n",TnbEntr[1]);
-    printf("\t 3 # Musculation : %d Entrées\n",TnbEntr[2]);
-    printf("\t 4 # Gym : %d Entrées\n",TnbEntr[3]);
-    printf("\t 5 # AquaGym : %d Entrées\n",TnbEntr[4]);
-    printf("\t 6 # Vélo : %d Entrées\n",TnbEntr[5]);
-    printf("\t 7 # Sqash : %d Entrées\n",TnbEntr[6]);
-    printf("\t 8 # Tennis : %d Entrées\n",TnbEntr[7]);
-    printf("\t 9 # Basket : %d Entrées\n",TnbEntr[8]);
-    printf("\t 10 # Foot : %d Entrées\n",TnbEntr[9]);
-    printf("\n");
+    for (int i = 0; i < 50; i++) printf("%s", BOX_HORI);
+    printf("\n\n\t%s\t\t\t\t\t%s\n", BOX_TOPL, BOX_TOPR);
+    printf("\t%s\t 1 # Kayak : %s%d%s Entrées\t\t%s\n",BOX_VERT,STY_FCYAN,TnbEntr[0],STY_NULL,BOX_VERT);
+    printf("\t%s\t 2 # Boxe : %s%d%s Entrées\t\t%s\n",BOX_VERT,STY_FCYAN,TnbEntr[1],STY_NULL,BOX_VERT);
+    printf("\t%s\t 3 # Musculation : %s%d%s Entrées\t%s\n",BOX_VERT,STY_FCYAN,TnbEntr[2],STY_NULL,BOX_VERT);
+    printf("\t%s\t 4 # Gym : %s%d%s Entrées\t\t%s\n",BOX_VERT,STY_FCYAN,TnbEntr[3],STY_NULL,BOX_VERT);
+    printf("\t%s\t 5 # AquaGym : %s%d%s Entrées\t%s\n",BOX_VERT,STY_FCYAN,TnbEntr[4],STY_NULL,BOX_VERT);
+    printf("\t%s\t 6 # Vélo : %s%d%s Entrées\t\t%s\n",BOX_VERT,STY_FCYAN,TnbEntr[5],STY_NULL,BOX_VERT);
+    printf("\t%s\t 7 # Sqash : %s%d%s Entrées\t\t%s\n",BOX_VERT,STY_FCYAN,TnbEntr[6],STY_NULL,BOX_VERT);
+    printf("\t%s\t 8 # Tennis : %s%d%s Entrées\t\t%s\n",BOX_VERT,STY_FCYAN,TnbEntr[7],STY_NULL,BOX_VERT);
+    printf("\t%s\t 9 # Basket : %s%d%s Entrées\t\t%s\n",BOX_VERT,STY_FCYAN,TnbEntr[8],STY_NULL,BOX_VERT);
+    printf("\t%s\t 10 # Foot : %s%d%s Entrées\t\t%s\n",BOX_VERT,STY_FCYAN,TnbEntr[9],STY_NULL,BOX_VERT);
+    printf("\t%s\t\t\t\t\t%s\n\n", BOX_BOTL, BOX_BOTR);
 }
 
 
