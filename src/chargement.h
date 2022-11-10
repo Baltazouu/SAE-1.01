@@ -16,7 +16,7 @@
 *
 * \return la taille logique des tableaux, -1 si il y a un problème d'ouverture de fichier
 */
-int chargement(int Tnum[], int Tetat[], int TnbPoints[], int tmax);
+int chargement(int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int tmax);
 
 /**
 * \brief Sauvegarde le fichier "adherents.txt" depuis les tableaux
@@ -28,4 +28,4 @@ int chargement(int Tnum[], int Tetat[], int TnbPoints[], int tmax);
 *
 * \return 0 si tout va bien, -1 si il y a un problème d'ouverture de fichier
 */
-int sauvegarde(int Tnum[], int Tetat[], int TnbPoints[], int nbAdhe);
+int sauvegarde(int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int nbAdhe);

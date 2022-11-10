@@ -16,20 +16,23 @@
 */
 void affMenu(void)
 {
-    printf("\n[Gestion d'un complexe sportif]\n\n");
+    printf("\n%s[Gestion d'un complexe sportif]%s\n\n", STY_FCYAN, STY_NULL);
 
-    printf("Commande :  "); for (int i = 0; i < 60; i++) printf("%s", BOX_HORI); printf("%s\n", BOX_TOPR);
-    printf("%s\t0 # Afficher ce menu\t\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t1 # Créer un nouvel adhérent\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t2 # Supprimer un adherent\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t3 # Alimenter une carte\t\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t4 # Activer une carte\t\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t5 # Désactiver une carte\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t6 # Afficher les informations d'un adherent\t\t\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t7 # Afficher les informations de tout les adhérents\t\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t8 # Afficher le nombre d'entrées par activité dans la journée\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t9 # Saisir entrée d'un adhérent\t\t\t\t\t%s\n", BOX_VERT, BOX_VERT);
-    printf("%s\t10 # Quitter la gestion du centre (fin de journée)\t\t%s\n", BOX_VERT, BOX_VERT);
+    printf("%sCommande :  \e[0m", STY_BWHITE);
+    for (int i = 0; i < 60; i++) printf("%s", BOX_HORI);
+    printf("%s\n", BOX_TOPR);
+
+    printf("%s\t%s0%s # Afficher ce menu\t\t\t\t\t\t%s\n", BOX_VERT, STY_BOLD, STY_NULL, BOX_VERT);
+    printf("%s\t%s1%s # Créer un nouvel adhérent\t\t\t\t\t%s\n", BOX_VERT, STY_BOLD, STY_NULL, BOX_VERT);
+    printf("%s\t%s2%s # Supprimer un adherent\t\t\t\t\t%s\n", BOX_VERT, STY_BOLD, STY_NULL, BOX_VERT);
+    printf("%s\t%s3%s # Alimenter une carte\t\t\t\t\t\t%s\n", BOX_VERT, STY_BOLD, STY_NULL, BOX_VERT);
+    printf("%s\t%s4%s # Activer une carte\t\t\t\t\t\t%s\n", BOX_VERT, STY_BOLD, STY_NULL, BOX_VERT);
+    printf("%s\t%s5%s # Désactiver une carte\t\t\t\t\t%s\n", BOX_VERT, STY_BOLD, STY_NULL, BOX_VERT);
+    printf("%s\t%s6%s # Afficher les informations d'un adherent\t\t\t%s\n", BOX_VERT, STY_BOLD, STY_NULL, BOX_VERT);
+    printf("%s\t%s7%s # Afficher les informations de tout les adhérents\t\t%s\n", BOX_VERT, STY_BOLD, STY_NULL, BOX_VERT);
+    printf("%s\t%s8%s # Afficher le nombre d'entrées par activité dans la journée\t%s\n", BOX_VERT, STY_BOLD, STY_NULL, BOX_VERT);
+    printf("%s\t%s9%s # Saisir entrée d'un adhérent\t\t\t\t\t%s\n", BOX_VERT, STY_BOLD, STY_NULL, BOX_VERT);
+    printf("%s\t%s10%s # Quitter la gestion du centre (fin de journée)\t\t%s\n", BOX_VERT, STY_BOLD, STY_NULL, BOX_VERT);
     
     printf("%s", BOX_BOTL); for (int i = 0; i < 71; i++) printf("%s", BOX_HORI); printf("%s\n", BOX_BOTR);
     printf("\n");
@@ -39,36 +42,66 @@ void affMenu(void)
 * Recherche l'adherent grace à la fonciton recherche, test si il existe et si
 * c'est le cas, affiche les information le concernant.
 */
-void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int nbAdhe)
+void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int TnbEntr[], int nbAdhe)
 {
     int presence;
     int ins = rechercheNombre(numAdhe, Tnum, &presence, nbAdhe);
     if (!presence) {
-        printf("[affInfoAdhe] erreur: numéro adherent non valide.\n");
+        printf("%s[affInfoAdhe] erreur:%s numéro adherent non valide.\n", STY_FRED, STY_NULL);
         return;
     }
 
     printf("\n");
-    printf("[affInfoAdhe] N° adherent :\t\t%d\n", Tnum[ins]);
-    printf("[affInfoAdhe] Etat de la carte :\t%d\n", Tetat[ins]);
-    printf("[affInfoAdhe] Nombre de points :\t%d\n", TnbPoints[ins]);
+    printf("%s[affInfoAdhe]%s N° adherent :\t\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, Tnum[ins], STY_NULL);
+    printf("%s[affInfoAdhe]%s Etat de la carte :\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, Tetat[ins], STY_NULL);
+    printf("%s[affInfoAdhe]%s Nombre de points :\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, TnbPoints[ins], STY_NULL);
+    printf("%s[affInfoAdhe]%s N° catégorie :\t\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, Tcat[ins], STY_NULL);
+    printf("%s[affInfoAdhe]%s Nb de passage :\t\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, TnbEntr[ins], STY_NULL);
 }
 
 /**
 * Affiche sous forme de tableau tous les adhérents du club et les information
 * les concernants.
 */
-void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int nbAdhe)
+void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int nbAdhe)
 {
-    printf("[affInfoTous] informations générales : ----------------------------\n\n");
+    printf("%s[affInfoTous]%s %sinformations générales : %s", STY_FBLUE, STY_NULL, STY_BWHITE, STY_NULL);
+    for (int i = 0; i < 27; i++) printf("%s", BOX_HORI);
+    printf("\n\n");
 
-    printf("\tN°adhérent\t| Etat\t| Nb de points\n");
-    printf("\t---------------------------------------------\n");
+    printf("\t%s", BOX_TOPL);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_DOWH);
+    for (int i = 0; i < 7; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_DOWH);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_DOWH);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s\n", BOX_TOPR);
+
+    printf("\t%s%s N°adhérent%s\t%s %sEtat%s\t%s %sNb de pts%s\t%s %sN°catégorie%s\t%s\n", BOX_VERT, STY_FYELLOW, STY_NULL, BOX_VERT, STY_FYELLOW, STY_NULL, BOX_VERT, STY_FYELLOW, STY_NULL, BOX_VERT, STY_FYELLOW, STY_NULL, BOX_VERT);
+    printf("\t%s", BOX_VERR);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_VERH);
+    for (int i = 0; i < 7; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_VERH);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_VERH);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s\n", BOX_VERL);
 
     for (int i = 0; i < nbAdhe; i++)
-        printf("\t\t%d\t| %d\t| %d\n", Tnum[i], Tetat[i], TnbPoints[i]);
+        printf("\t%s   %d\t%s   %d\t%s   %d\t\t%s     %d\t\t%s\n", BOX_VERT, Tnum[i], BOX_VERT, Tetat[i], BOX_VERT, TnbPoints[i], BOX_VERT, Tcat[i], BOX_VERT);
 
-    printf("\t---------------------------------------------\n");
+    printf("\t%s", BOX_BOTL);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_UPHO);
+    for (int i = 0; i < 7; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_UPHO);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_UPHO);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s\n", BOX_BOTR);
 }
 /**
  * Affiche les activités disponibles et leurs coût
@@ -76,7 +109,7 @@ void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int nbAdhe)
 void affInfoAct(void)
 {   
     printf("\n");
-    printf("[EntrAdhe] Entrez Le Numéro D'activité Correspondant :\n");
+    printf("%s[SaiseAct]%s Entrez Le Numéro D'activité Correspondant :\n", STY_FBLUE, STY_NULL);
     printf("------------------------------------------------------\n\n");
     printf("\t 1 # Kayak : %d points\n", CO_KAYAK);
     printf("\t 2 # Boxe : %d points\n", CO_BOXE);
@@ -96,8 +129,8 @@ void affInfoAct(void)
 void affichnbEntrAct(int TnbEntr[],int tlog)
 {   
     
+    printf("%s[AffichEntrAct]%s Nombres d'entrées de la journée :\n", STY_FBLUE, STY_NULL);
     printf("------------------------------------------------------\n\n");
-    printf("[AffichEntrAct] Nombres d'entrées de la journée :\n\n");
     printf("\t 1 # Kayak : %d Entrées\n",TnbEntr[0]);
     printf("\t 2 # Boxe : %d Entrées\n",TnbEntr[1]);
     printf("\t 3 # Musculation : %d Entrées\n",TnbEntr[2]);

@@ -21,19 +21,20 @@
 * fonction d'insertion)
 * Met à jour la taille logique du tableau.
 */
-int ajoutAdher(int *nbAdher, int nbCredits,
-               int Tnum[], int Tetat[], int TnbPoints[], int tmax)
+int ajoutAdher(int *nbAdher, int nbCredits, int nCat,
+               int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int tmax)
 {
     int val = 1001;
     int ins = recherche1ereOccu(Tnum, *nbAdher, &val);
 
     if (insertionNombre(val, ins, Tnum, *nbAdher, tmax)) {
-        printf("[ajoutAdher] erreur: insertion.\n");
+        printf("%s[ajoutAdher] erreur%s: insertion.\n", STY_FRED, STY_NULL);
         return -1;
     }
 
     insertionNombre(1, ins, Tetat, *nbAdher, tmax);
     insertionNombre(nbCredits, ins, TnbPoints, *nbAdher, tmax);
+    insertionNombre(nCat, ins, Tcat, *nbAdher, tmax);
 
     *nbAdher += 1;
     return val;
@@ -47,18 +48,19 @@ int ajoutAdher(int *nbAdher, int nbCredits,
 * Met à jour la taille logique du tableau.
 */
 int suppAdhe(int numAdhe, int *tlog,
-             int Tnum[], int Tetat[], int TnbPoints[])
+             int Tnum[], int Tetat[], int TnbPoints[], int Tcat[])
 {
     int presence;
     int ins = rechercheNombre(numAdhe, Tnum, &presence, *tlog);
     if (!presence) {
-        printf("[suppAdhe] erreur: numéro adherent non valide.\n");
+        printf("%s[suppAdhe] erreur%s: numéro adherent non valide.\n", STY_FRED, STY_NULL);
         return -1;
     }
 
     suppressionNombre(ins, Tnum, *tlog);
     suppressionNombre(ins, Tetat, *tlog);
     suppressionNombre(ins, TnbPoints, *tlog);
+    suppressionNombre(ins, Tcat, *tlog);
 
     *tlog -= 1;
     printf("tlog after = %d", *tlog);
@@ -78,11 +80,11 @@ int alimCarte(int points, int numAdhe, int nbAdhe,
     int presence;
     int ins = rechercheNombre(numAdhe, Tnum, &presence, nbAdhe);
     if (!presence) {
-        printf("[alimCarte] erreur: numéro adherent non valide.\n");
+        printf("%s[alimCarte] erreur:%s numéro adherent non valide.\n", STY_FRED, STY_NULL);
         return -1;
     }
     if (Tetat[ins] == 0) {
-        printf("[alimCarte] erreur: carte désactivée.\n");
+        printf("%s[alimCarte] erreur:%s carte désactivée.\n", STY_FRED, STY_NULL);
         return -2;
     }
 
@@ -101,12 +103,12 @@ int activationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
     int presence;
     int ins = rechercheNombre(numAdhe, Tnum, &presence, nbAdhe);
     if (!presence) {
-        printf("[activationCarte] erreur: numéro adherent non valide.\n");
+        printf("%s[activationCarte] erreur:%s numéro adherent non valide.\n", STY_FRED, STY_NULL);
         return -1;
     }
 
     if (Tetat[ins] == 1) {
-        printf("[activationCarte] note: carte déjà activée.\n");
+        printf("%s[activationCarte] note:%s carte déjà activée.\n", STY_FYELLOW, STY_NULL);
         return 0;
     }
 
@@ -125,12 +127,12 @@ int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
     int presence;
     int ins = rechercheNombre(numAdhe, Tnum, &presence, nbAdhe);
     if (!presence) {
-        printf("[désactivationCarte] erreur: numéro adherent non valide.\n");
+        printf("%s[desactivationCarte] erreur:%s numéro adherent non valide.\n", STY_FRED, STY_NULL);
         return -1;
     }
 
     if (Tetat[ins] == 0) {
-        printf("[désactivationCarte] note: carte déjà desactivée.\n");
+        printf("%s[desactivationCarte] note:%s carte déjà desactivée.\n", STY_FYELLOW, STY_NULL);
         return 0;
     }
 
@@ -152,7 +154,7 @@ int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
  * 
  *  
 */
-void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],int TnumAdheEntre[],int * nbAdheEntre)
+void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int TnbEntr[],int TnumAdheEntre[],int * nbAdheEntre)
 {   
     // INITIALISATION DES TABLES D'activités
     int nbAct = NBACT;   // nombre d'activités (10)
@@ -176,35 +178,33 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int TnbEntr[],i
     }
     if (TnbPoints[pos]<CMINACT)
     {
-        printf("[EntrAdhe] Erreur !! Vous ne disposez pas d'assez de points pour réaliser une activité\n");
+        printf("%s[EntrAdhe] Erreur !!%s Vous ne disposez pas d'assez de points pour réaliser une activité\n", STY_FRED, STY_NULL);
         return;
     }
     printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
-    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
+    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,TnbEntr,nbAdhe);
     affInfoAct();
     saisieAct(&numAct);
     verifPresenceAct(numAct,TnumAct,nbAct,&presence);
     //vérifie que l'adhérent dispose d'assez de points et les encaisse. 
-    VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr);
-    
-    
+    VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr,Tcat[pos]);
     
     saisie2ndAct(&rep);
     
     while (rep)
     {
         printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
-        affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
+        affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,TnbEntr,nbAdhe);
         affInfoAct();
         saisieAct(&numAct);
         verifPresenceAct(numAct,TnumAct,nbAct,&presence);
-        VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr);
+        VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr,Tcat[pos]);
         saisie2ndAct(&rep);
     }
     
     printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
-    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,nbAdhe);
-    printf("\n[EntreAdhe] Succès, Activités Enregistrées !\n");
+    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,TnbEntr,nbAdhe);
+    printf("\n%s[EntreAdhe] Succès,%s Activités Enregistrées !\n", STY_FGREEN, STY_NULL);
     TnumAdheEntre[*nbAdheEntre]=numAdhe;
     *nbAdheEntre+=1;
     
@@ -221,7 +221,7 @@ int VerifAdheNonEntre(int numAdhe,int TnumAdheEntre[],int *nbAdheEntre)
     {
         if (TnumAdheEntre[i]==numAdhe)
         {
-            printf("[EntreAdhe] Erreur !! L'adhérent à déjà fréquenté le centre Ajourd'hui !\n");
+            printf("%s[EntreAdhe] Erreur !!%s L'adhérent à déjà fréquenté le centre Ajourd'hui !\n", STY_FRED, STY_NULL);
             return -1;
         }
     }
