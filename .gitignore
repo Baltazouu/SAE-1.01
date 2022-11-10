@@ -3,9 +3,13 @@
 # projet
 bin
 doc
+sae1-01
 
 # vscode config
 .vscode
+
+# vim swp
+*.swp
 
 # tags
 tags
