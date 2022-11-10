@@ -20,8 +20,8 @@ void affMenu(void);
 * \param TnbPoints tableau des nombres de points des adherents
 * \param nbAdhe le nombre d'adherents (la taille logique des tableaux)
 */
-void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int TnbEntr[], int nbAdhe);
-
+void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], 
+    int Tcat[], int TnbEntr[],int tPtUtils[], int nbAdhe);
 /**
 * \brief Affiche Toute les infos sur les adherents
 *
@@ -29,6 +29,7 @@ void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat
 * \param Tetat tableau des états des compte adherents
 * \param TnbPoints tableau des nombres de points des adherents
 * \param nbAdhe le nombre d'adherents (la taille logique des tableaux)
+  \param tPtUtils tableau des points utilisés pour points bonus
 */
 void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int nbAdhe);
 

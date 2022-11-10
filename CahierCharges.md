@@ -6,48 +6,21 @@
 * **Agostihno Alexandre (TP1)**
 * **Dudonné Baptiste (TP1)**
 
-## Fichiers : adherents.txt
 
-Ce fichier content 4 Données :
-* Numéro D'adhérent (``1001,1002,..``)
-* Etat Carte (``1`` :Activée / ``0`` : Désactivée)
-* Nombre de points (ex : ``75``)
-* Catégorie Adhérent : (``1`` : Etudiant / ``2`` : Mineur / ``3`` : Majeur Salarié / ``4`` : Retraité )
-
-## Fichiers : config.h
-C'est dans ce fichier que l'on peut modifier les paramètres de notre programme de gestion, celui-ci contient : 
-
-données relatives aux adhérents :
-* TMAX (Nombre maximal d'adhérents dans le centre)
-
-données relatives aux activités : 
-* NBACT (Nombre d'activités proposées)
-* CO_KAYAK    : Coût activité Kayak
-* CO_BOXE     : Coût activité Boxe
-* CO_MUSCU    : Coût activité Muscu
-* CO_GYM      : Coût activité GYM
-* CO_AQUAGYM  : Coût activité Aquagym
-* CO_VELO     : Coût activité vélo
-* CO_SQASH    : Coût activité Sqash
-* CO_TENNIS   : Coût activité Tennis
-* CO_BASKET   : Coût activité Basket
-* CO_FOOT     : Coût activité Foot
-
-
-## Fonctions : 
 **Logiciel de gestion d'un centre sportif** 
 
 Ce logiciel permet d'administrer un centre sportif à l'aide d'une structure fonctionnele. Lors du démarrage du programme, la fonction globale est lancée, celle-ci se déroule dans l'ordre suiviant :
 
-* chargement des données du fichier "adherent.txt" dans des tableaux (**TnumAdhe,Tactive,TnbPoints,Tcategorie**)
+* chargement des données du fichier "adherent.txt" dans des tableaux (**TnumAdhe,Tactive,TnbPoints,Tcategorie,tPtUtils**)
 * Ensuite, la fonction globale affiche les commandes disponibles et permet de  saisir le choix de l'utilisateur.
 * Une fois la saisie effectuée, le programme execute la fonction correspodante
 * Après chaque commande, la fonction globale est relancée.
 
+## Fonctions :
 
+**Liste des fonctions utilisateurs disponibles** :
 
-**Liste des fonctions disponibles** :
-
+* 0 : Afficher le Menu 
 * 1 : Créer un nouvel adhérent
 * 2 : Supprimer un Adhérent
 * 3 : Alimenter une carte d'adhérent
@@ -55,8 +28,9 @@ Ce logiciel permet d'administrer un centre sportif à l'aide d'une structure fon
 * 5 : Désactiver une Carte D'adhérent (mauvais comportement, ...)
 * 6 : Afficher les informations d'un adhérent
 * 7 : Afficher les information de tous les adhérents
-* 8 : Afficher les informations 
+* 8 : Afficher Nombre d'entrées par activité dans la journée 
 * 9 : Saisir une entrée d'un adhérent dans le centre
+* 10 : Quitter la gestion du centre (fin de journée)
 
 
 
@@ -65,18 +39,29 @@ Ce logiciel permet d'administrer un centre sportif à l'aide d'une structure fon
 
 La fonction Globale Permet d'affichier tout les choix disponibles au lancement de l'application et de saisir le choix  de l'utilisateur : 
 ```
-[Gestion d'un complexe sportif] | 1     | 57
-                1002    | 1     | 40
-                1003    | 1     | 10
-                1004    | 1     | 17
-                1005    | 1     | 16
-                1006    | 1     | 24
-                1007    | 1     | 23
-                1008    | 1     | 234
-        ---------------------------------------------
+[Gestion d'un complexe sportif]
+
+Commande :  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃       0 # Afficher ce menu                                            ┃
+┃       1 # Créer un nouvel adhérent                                    ┃
+┃       2 # Supprimer un adherent                                       ┃
+┃       3 # Alimenter une carte                                         ┃
+┃       4 # Activer une carte                                           ┃
+┃       5 # Désactiver une carte                                        ┃
+┃       6 # Afficher les informations d'un adherent                     ┃
+┃       7 # Afficher les informations de tout les adhérents             ┃
+┃       8 # Afficher le nombre d'entrées par activité dans la journée   ┃
+┃       9 # Saisir entrée d'un adhérent                                 ┃
+┃       10 # Quitter la gestion du centre (fin de journée)              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+
+
+[gestion] Saisir la commande (#0 -menu):       
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 ## A noter  :
-* Après toutes commandes excepté 10, la commande gestion sera executée pour entrer le nouveau choix et continuer l'administration du centre 
+* Après toutes commandes excepté 10 (Quitter), la commande gestion sera executée pour entrer le nouveau choix et continuer l'administration du centre 
 
 ## Commande 0 : Réafficher le menu : 
 
@@ -94,18 +79,33 @@ La fonction Globale Permet d'affichier tout les choix disponibles au lancement d
 
 Dans cette fonction, le Premier Adhérent de La Base est initialisé à 1000. Le Suiviant 1001 etc..
 * Saisie du nombre de crédits
+* Saisie de la catégorie d'adhérent 
 * Création de l'adhérent (ajout des données dans les tableaux)
 ```
-[ajoutAdher] Saisir le nombre de crédit :       70
+[ajoutAdher] Saisir le nombre de crédit :       80
 
-[ajoutAdher] succes: Adhérent n°1009 créé avec 70 points.
+[affInfoTous] Catégories  D'utilisateurs : 
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+        ┏━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+        ┃ Numéro  ┃     Catégorie               ┃
+        ┣━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+        ┃  1      ┃   Etudiant                  ┃
+        ┃  2      ┃   Mineur                    ┃
+        ┃  3      ┃   Majeur Salarié            ┃
+        ┃  4      ┃   Retraité                  ┃
+        ┗━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+[ajoutAdher] Saisir la catégorie :      1
+
+[ajoutAdher] succes: Adhérent n°1005, de cat 1, créé avec 80 points.
 ```
 
 ## Commande 2 : Supprimer un adhérent
 
 *  saisie du numéro d'adhérent à supprimer
 * suppression de l'adhérent (suppression adhérent de tous tableaux)
-
 ```
 [suppAdhe] Saisir le numéro Adherent :  1001
 [suppAdhe] succes: Adhérent n°1001 supprimé.
@@ -117,8 +117,10 @@ Dans cette fonction, le Premier Adhérent de La Base est initialisé à 1000. Le
 * Alimentation de la carte (alimentation dans le tableau (**TnbPoints**))
 
 ```
-[suppAdhe] Saisir le numéro Adherent :  1001
-[suppAdhe] succes: Adhérent n°1001 supprimé.
+[alimCarte] Saisir le numéro Adherent :         1001
+[alimCarte] Saisir le nombre de points :        80
+
+[alimCarte] succes: 80 point(s) ajouté à l'adhérent n°1001.
 ```
 ## Commande 4 : Activer une carte 
 * Saisie du numéro d'adhérent (~ de carte)
@@ -142,17 +144,23 @@ Dans cette fonction, le Premier Adhérent de La Base est initialisé à 1000. Le
 
 ## Commande 6 : Afficher les informations d'un adhérent
 
-* saisie du numéro d'adhérent
-* affichange numéro adhérent (**TnumAdhe**)
-* affichage état carte (**Tetat**)
-* affichage nombre de points restants (**TnbPoints**) 
+* Saisie du numéro d'adhérent
+* Affichange numéro adhérent (**TnumAdhe**)
+* Affichage état carte (**Tetat**)
+* Affichage nombre de points restants (**TnbPoints**) 
+* Affichage N° Catégorie Adhérent (**Tcat**)
+* Affichage nombre de passages de l'adhérent dans la centre sur la journée(**TnumAdheEntre**)
+* Affichage nombre de points dépensés avant suppresion (tout les 80 points) **tPtUtils**
 
 ```
-[affInfoAdhe] Saisir le numéro Adherent :       1005
+[affInfoAdhe] Saisir le numéro Adherent :       1001
 
-[affInfoAdhe] N° adherent :             1005
+[affInfoAdhe] N° adherent :             1001
 [affInfoAdhe] Etat de la carte :        1
-[affInfoAdhe] Nombre de points :        16
+[affInfoAdhe] Nombre de points :        108
+[affInfoAdhe] N° catégorie :            1
+[affInfoAdhe] Nb de passage :           0
+[affInfoAdhe] Nb de points utilisés     0
 ```
 
 ## Commande 7 : Affichage information de tous les adhérents
@@ -238,16 +246,77 @@ Dans cette fonction, le Premier Adhérent de La Base est initialisé à 1000. Le
 [sauvegarde] succes: 8 adherents sauvegardés.
 ```
 
+
+
+
+## Fonction Bonus :
+Cette fonction s'execute automatiquement au cours du programme.
+* Ajoute 3 Points Bonus à Chaque Démarrage du logiciel.
+* Ajoute un nombre de points en bonus tout les 80 points utilisés selon la catégorie de l'utilisateur
+
+Points Ajoutés selon les catégories
+Ces Paramètres sont réglables au sein du fichier ``config.h``
+
+```c
+#define AJT_PTS_CHARG   3
+
+#define RecurPtsBonus 80 //Récurrence du don de points 
+
+#define BonEtu 20 // Points Bonus Pour Les étudiants
+#define BonMineur 15 // Points Bonus Pour Les Mineurs
+#define BonRetraite 12 //Points Bonus Pour Les Retraités
+#define BonMaj 10 // Points Bonus Pour Les Majeurs
+```
+
+## Fichiers : adherents.txt
+
+Ce fichier content 4 Données :
+* Numéro D'adhérent (``1001,1002,..``)
+* Etat Carte (``1`` :Activée / ``0`` : Désactivée)
+* Nombre de points (ex : ``75``)
+* Catégorie Adhérent : (``1`` : Etudiant / ``2`` : Mineur / ``3`` : Majeur Salarié / ``4`` : Retraité )
+
+## Fichiers : config.h
+C'est dans ce fichier que l'on peut modifier les paramètres de notre programme de gestion, celui-ci contient : 
+
+**données relatives aux adhérents :**
+* TMAX (Nombre maximal d'adhérents dans le centre)
+
+**Données relatives aux activités :** 
+* NBACT (Nombre d'activités proposées)
+* CO_KAYAK    : Coût activité Kayak
+* CO_BOXE     : Coût activité Boxe
+* CO_MUSCU    : Coût activité Muscu
+* CO_GYM      : Coût activité GYM
+* CO_AQUAGYM  : Coût activité Aquagym
+* CO_VELO     : Coût activité vélo
+* CO_SQASH    : Coût activité Sqash
+* CO_TENNIS   : Coût activité Tennis
+* CO_BASKET   : Coût activité Basket
+* CO_FOOT     : Coût activité Foot
+
+**Données relatives aux catégories d'adhérents :** 
+* BonEtu : Points Bonus Pour Les étudiants
+* BonMineur : Points Bonus Pour Les Mineurs
+* BonRetraite : Points Bonus Pour Les Retraités
+* BonMaj 10 : Points Bonus Pour Les Majeurs
+
 # Compilation du projet : 
 
 Comment Complier et executer le projet : 
 
 * Depuis la racine du projet : lancer un ``make``, le make va alors créer répertoire bin dans lequel seront placés tous les binaires.
-* Un Lien vers un executable sera alors crée dans la racine sous le nom de ``sae-1.01``
+* Un Lien vers un executable sera alors crée dans la racine du projet sous le nom de ``sae-1.01``
 * Contenu de votre dossier après le make :
 ```
 bin  CahierCharges.md  data  Doxyfile  makefile  README.md  sae1-01   src
 ```
 * Executez le lien : ``./sae-1.01``
+* Le logiciel se lance alors..
 
 ## Vous pouvez désormais administrer le centre !
+
+### Problèmes rencontrés : Contactez nous ! 
+
+contact : *baptiste.dudonne@etu.uca.fr* / *alexandre.agostinho@etu.uca.fr*
+

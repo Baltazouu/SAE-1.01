@@ -73,7 +73,7 @@ int globale(void)
         else if (commande == 6) {
             printf("\n");
             saisieAffInfoAdhe(&numAdhe);
-            affInfoAdhe(numAdhe, Tnum, Tetat, TnbPoints, Tcat, TnbEntr, nbAdhe);
+            affInfoAdhe(numAdhe, Tnum, Tetat, TnbPoints, Tcat, TnbEntr,tPtUtils, nbAdhe);
         } 
         else if (commande == 7) {
             printf("\n");

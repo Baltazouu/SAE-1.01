@@ -76,5 +76,7 @@ void verifPresenceAct(int *numAct,int TnumAct[],int nbAct,int *presence);
  * \param TnbPoints Tableau du nombre de points des adhérents
  * \param posAdhe position de l'adhérent dans le tableau
  * \param TnbEntr nombre d'entrées d'activités par jour
+ * \param cat catégorie utilisateur
+ * \param tPtUtils Tableau des points utilisés pour points bonus
 */
 void VerifnbPRest(int TCact[],int numAct,int TnbPoints[],int posAdhe,int TnbEntr[], int cat,int tPtUtils[]);

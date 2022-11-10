@@ -42,7 +42,8 @@ void affMenu(void)
 * Recherche l'adherent grace à la fonciton recherche, test si il existe et si
 * c'est le cas, affiche les information le concernant.
 */
-void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int TnbEntr[], int nbAdhe)
+void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], 
+    int Tcat[], int TnbEntr[],int tPtUtils[], int nbAdhe)
 {
     int presence;
     int ins = rechercheNombre(numAdhe, Tnum, &presence, nbAdhe);
@@ -57,6 +58,7 @@ void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat
     printf("%s[affInfoAdhe]%s Nombre de points :\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, TnbPoints[ins], STY_NULL);
     printf("%s[affInfoAdhe]%s N° catégorie :\t\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, Tcat[ins], STY_NULL);
     printf("%s[affInfoAdhe]%s Nb de passage :\t\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, TnbEntr[ins], STY_NULL);
+    printf("%s[affInfoAdhe]%s Nb de points utilisés\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, tPtUtils[ins], STY_NULL);
 }
 
 /**
@@ -144,7 +146,9 @@ void affichnbEntrAct(int TnbEntr[],int tlog)
     printf("\n");
 }
 
-
+/**
+ * affiche les catégories d'utilisateur disponible
+*/
 void affInfoCate(void)
 {   
     int Tcat[NBCATEADHE]={1,2,3,4};
