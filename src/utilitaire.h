@@ -67,7 +67,7 @@ int VerifEntreeAdhe(int nbAdhe,int Tnum[],int Tetat[],int *numAdhe);
  *  \param nbAct nombre d'activités : taille logique de TnumAct
  *  \param presence est égale à 0 si le numéro d'act n'est pas dans la base 
 */
-void verifPresenceAct(int numAct,int TnumAct[],int nbAct,int *presence);
+void verifPresenceAct(int *numAct,int TnumAct[],int nbAct,int *presence);
 
 /**
  * \brief Vérifie que l'adhérent spécifié dispose d'assez de points pour réaliser l'activité
@@ -77,4 +77,4 @@ void verifPresenceAct(int numAct,int TnumAct[],int nbAct,int *presence);
  * \param posAdhe position de l'adhérent dans le tableau
  * \param TnbEntr nombre d'entrées d'activités par jour
 */
-void VerifnbPRest(int TCact[],int numAct,int TnbPoints[],int posAdhe,int TnbEntr[], int cat);
+void VerifnbPRest(int TCact[],int numAct,int TnbPoints[],int posAdhe,int TnbEntr[], int cat,int tPtUtils[]);

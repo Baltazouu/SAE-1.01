@@ -17,6 +17,12 @@
 //! Ajout de point au chargement (fidélité)
 #define AJT_PTS_CHARG   3
 
+#define RecurPtsBonus 80
+#define BonEtu 20
+#define BonMineur 15
+#define BonRetraite 12
+#define BonMaj 10
+
 //! Prix en points des activitées
 #define CO_KAYAK    25
 #define CO_BOXE     15

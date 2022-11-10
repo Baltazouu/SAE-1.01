@@ -19,7 +19,7 @@
 * \return le nouvel id du nouvel adherent; -1 si erreur
 */
 int ajoutAdher(int *nbAdher, int nbCredits, int nCat,
-               int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int tmax);
+               int Tnum[], int Tetat[], int TnbPoints[], int Tcat[],int tPtUtils [], int tmax);
 
 /**
 * \brief Suppression d'un adherent
@@ -33,7 +33,7 @@ int ajoutAdher(int *nbAdher, int nbCredits, int nCat,
 * \return 0 si tous se passe bien, -1 sinon
 */
 int suppAdhe(int numAdhe, int *tlog,
-             int Tnum[], int Tetat[], int TnbPoints[], int Tcat[]);
+             int Tnum[], int Tetat[], int TnbPoints[], int Tcat[],int tPtUtils []);
 
 /**
 * \brief Alimentation en points de la carte. Permet aussi le débit.
@@ -85,7 +85,7 @@ int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[]);
  * \param TnumAdheEntre Tavbleau du numéros des adhérents qui sont déjà rentrés dans la journée
  * \param nbAdheEntre nombre d'adhérents entrés dans la journé (taille logique TnumAdheEntre)
 */
-void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int TnbEntr[],int TnumAdheEntre[],int * nbAdheEntre);
+void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int TnbEntr[],int TnumAdheEntre[],int * nbAdheEntre,int tPtutils[]);
 
 /**
  * \brief Vérifie que l'adhérent n'est pas déjà entré dans le centre ajd

@@ -16,13 +16,14 @@
 int globale(void)
 {
     int commande, sortie = 0;
-    int Tnum[TMAX], Tetat[TMAX], TnbPoints[TMAX], Tcat[TMAX];
+    int Tnum[TMAX], Tetat[TMAX], TnbPoints[TMAX], Tcat[TMAX],tPtUtils[TMAX];
     int TnbEntr[NBACT]={0,0,0,0,0,0,0,0,0,0};
     int TnumAdheEntre[TMAX],nbAdheEntre=0;
     int numAdhe, nbAdhe, points, cat;
     int val,coderet;
 
-    nbAdhe = chargement(Tnum, Tetat, TnbPoints, Tcat, TMAX);
+
+    nbAdhe = chargement(Tnum, Tetat, TnbPoints, Tcat,tPtUtils, TMAX);
 
     printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
     affMenu();
@@ -38,7 +39,7 @@ int globale(void)
             {
                 
             
-            val = ajoutAdher(&nbAdhe, points, cat, Tnum, Tetat, TnbPoints, Tcat, TMAX);
+            val = ajoutAdher(&nbAdhe, points, cat, Tnum, Tetat, TnbPoints, Tcat,tPtUtils, TMAX);
             if (val > 0)
                 printf("\n%s[ajoutAdher] succes:%s Adhérent n°%d, de cat %d, créé avec %d points.\n",
                        STY_FGREEN, STY_NULL, val, cat, points);
@@ -47,7 +48,7 @@ int globale(void)
         else if (commande == 2) {
             printf("\n");
             saisieSuppAdhe(&numAdhe);
-            if (!suppAdhe(numAdhe, &nbAdhe, Tnum, Tetat, TnbPoints, Tcat))
+            if (!suppAdhe(numAdhe, &nbAdhe, Tnum, Tetat, TnbPoints, Tcat,tPtUtils))
                 printf("\n%s[suppAdhe] succes:%s Adhérent n°%d supprimé.\n",STY_FGREEN, STY_NULL,numAdhe);
         } 
         else if (commande == 3) {
@@ -84,13 +85,13 @@ int globale(void)
         } 
         else if (commande==9){
             printf("\n");
-            EntreAdhe(nbAdhe,Tnum,Tetat,TnbPoints,Tcat,TnbEntr,TnumAdheEntre,&nbAdheEntre);
+            EntreAdhe(nbAdhe,Tnum,Tetat,TnbPoints,Tcat,TnbEntr,TnumAdheEntre,&nbAdheEntre,tPtUtils);
         }
         else if (commande == 10)
         {
             printf("\n");
             sortie = 1;
-            if (!sauvegarde(Tnum, Tetat, TnbPoints, Tcat, nbAdhe))
+            if (!sauvegarde(Tnum, Tetat, TnbPoints, Tcat,tPtUtils,nbAdhe))
                 printf("\n%s[sauvegarde] succes:%s %d adherents sauvegardés.\n\n",STY_FGREEN, STY_NULL,nbAdhe);
         } else if (commande == 0) {
             affMenu();
