@@ -9,6 +9,8 @@
 #include "saisie.h"
 #include "utilitaire.h"
 
+#include "config.h"
+
 
 /**
 * Tant que le nombre est plus petit que le nombre recherché, passe au nombre
@@ -50,7 +52,7 @@ int recherche1ereOccu(int Table[], int tlog, int *val)
 int insertionNombre(int nb, int pos, int Table[], int tlog, int tmax)
 {
     if (tlog == tmax) {
-        printf("[insertionNombre] erreur: taille maximale atteinte.\n");
+        printf("%s[insertionNombre] erreur:%s taille maximale atteinte.\n", STY_FRED, STY_NULL);
         return -1;
     }
 
@@ -71,10 +73,9 @@ int insertionNombre(int nb, int pos, int Table[], int tlog, int tmax)
 void suppressionNombre(int pos, int Table[], int tlog)
 {
     int i;
-    for (i = pos; i < tlog-1; i++) {
-        
+    for (i = pos; i < tlog-1; i++) 
+    {
         Table[i] = Table[i+1];
-        
     }
 }
 
@@ -84,13 +85,13 @@ int VerifEntreeAdhe(int nbAdhe,int Tnum[],int Tetat[],int *numAdhe)
     pos=rechercheNombre(*numAdhe,Tnum,&presence,nbAdhe);
     while (presence==0)
     {
-        printf("[EntrAdhe] Erreur !! Le Numéro Spécifé N'est Pas Dans La Base !\n");
+        printf("%s[EntrAdhe] Erreur !!%s Le Numéro Spécifé N'est Pas Dans La Base !\n", STY_FRED, STY_NULL);
         saisieEntrAdhe(numAdhe);// on redemande.
         rechercheNombre(*numAdhe,Tnum,&presence,nbAdhe);
     }
     if (Tetat[pos]==0)
     {
-        printf("[EntrAdhe] Erreur !! Carte N°%d Désactivée Entrée Impossible\n",Tnum[pos]);
+        printf("%s[EntrAdhe] Erreur !!%s Carte N°%d Désactivée Entrée Impossible\n", STY_FRED, STY_NULL,Tnum[pos]);
         return -1;
     }
     return pos;
@@ -101,22 +102,21 @@ void verifPresenceAct(int numAct,int TnumAct[],int nbAct,int *presence)
     rechercheNombre(numAct,TnumAct,presence,nbAct);
     while (*presence==0)
     {
-        printf("[EntrAdhe] Erreur !! Le Numéro Spécifié N'est Pas Dans La Liste\n");
+        printf("%s[EntrAdhe] Erreur !!%s Le Numéro Spécifié N'est Pas Dans La Liste\n", STY_FRED, STY_NULL);
         saisieAct(&numAct);
         rechercheNombre(numAct,TnumAct,presence,nbAct);
     }
     return;
 }
 
-void VerifnbPRest(int TCact[],int numAct,int TnbPoints[],int posAdhe,int TnbEntr[])
+void VerifnbPRest(int TCact[],int numAct,int TnbPoints[],int posAdhe,int TnbEntr[], int cat)
 {
     if (TCact[numAct-1]>TnbPoints[posAdhe])
     {
-        printf("[EntrAdhe] Erreur !! Vous Ne Disposez Pas D'assez De Points Pour Réaliser Cette Activité !\n");
+        printf("%s[EntrAdhe] Erreur !!%s Vous Ne Disposez Pas D'assez De Points Pour Réaliser Cette Activité !\n", STY_FRED, STY_NULL);
         return;
     }
-    TnbPoints[posAdhe]-=TCact[numAct-1];
+    TnbPoints[posAdhe]-=(TCact[numAct-1]-cat);
     TnbEntr[numAct-1]+=1;
     return;
-    
 }

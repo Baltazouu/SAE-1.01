@@ -7,75 +7,77 @@
 
 #include "config.h"
 
-void saisieAjoutAdher(int *nbCredits)
+void saisieAjoutAdher(int *nbCredits, int *cat)
 {
-    printf("[ajoutAdher] Saisir le nombre de crédit :\t");
+    printf("%s[ajoutAdher]%s Saisir le nombre de crédit :\t", STY_FBLUE, STY_NULL);
     scanf("%d", nbCredits);
+    printf("%s[ajoutAdher]%s Saisir la catégorie :\t", STY_FBLUE, STY_NULL);
+    scanf("%d", cat);
 }
 
 void saisieSuppAdhe(int *numAdhe)
 {
-    printf("[suppAdhe] Saisir le numéro Adherent :\t");
+    printf("%s[suppAdhe]%s Saisir le numéro Adherent :\t", STY_FBLUE, STY_NULL);
     scanf("%d", numAdhe);
 }
 
 void saisieAlimCarte(int *numAdhe, int *points)
 {
-    printf("[alimCarte] Saisir le numéro Adherent :\t\t");
+    printf("%s[alimCarte]%s Saisir le numéro Adherent :\t\t", STY_FBLUE, STY_NULL);
     scanf("%d", numAdhe);
-    printf("[alimCarte] Saisir le nombre de points :\t");
+    printf("%s[alimCarte]%s Saisir le nombre de points :\t", STY_FBLUE, STY_NULL);
     scanf("%d", points);
 }
 
 void saisieActivationCarte(int *numAdhe)
 {
-    printf("[activationCarte] Saisir le numéro Adherent :\t");
+    printf("%s[activationCarte]%s Saisir le numéro Adherent :\t", STY_FBLUE, STY_NULL);
     scanf("%d", numAdhe);
 }
 
 void saisieDesactivationCarte(int *numAdhe)
 {
-    printf("[desactivationCarte] Saisir le numéro Adherent :\t");
+    printf("%s[desactivationCarte]%s Saisir le numéro Adherent :\t", STY_FBLUE, STY_NULL);
     scanf("%d", numAdhe);
 }
 
 void saisieAffInfoAdhe(int *numAdhe)
 {
-    printf("[affInfoAdhe] Saisir le numéro Adherent :\t");
+    printf("%s[affInfoAdhe]%s Saisir le numéro Adherent :\t", STY_FBLUE, STY_NULL);
     scanf("%d", numAdhe);
 }
 
 void saisieChoix(int *choix)
 {
-    printf("\n[gestion] Saisir la commande (#0 -menu):\n");
+    printf("\n%s[gestion]%s Saisir la commande (#0 -menu):       \n", STY_FMAGEN, STY_NULL);
     for (int i = 0; i < 73; i++) printf("%s", BOX_HORI);
-    printf("\e[1A\e[25D");
+    printf("\e[1A\e[5D\e[1,32m");
     scanf("%d", choix);
     printf("\n");
 }
 
 void saisieEntrAdhe(int *numadhe)
 {
-    printf("[EntrAdhe] Saisissez Le Numéro De L'adhérent entrant : ");
+    printf("%s[EntrAdhe]%s Saisissez Le Numéro De L'adhérent entrant : ", STY_FBLUE, STY_NULL);
     scanf("%d",numadhe);
     printf("\n");
 }
 void saisieAct(int *numAct)
 {
-    printf("[EntrAdhe] Saisissez Le Numéro D'activité : ");
+    printf("%s[EntrAdhe]%s Saisissez Le Numéro D'activité : ", STY_FBLUE, STY_NULL);
     scanf("%d",numAct);
     printf("\n");
 }
 void saisie2ndAct(int *rep)
 {  
-    printf("[EntrAdhe] Souhaitez Vous Choisir Une Autre Activité ( 1 : Oui | 0 : Non ) : ");
+    printf("%s[EntrAdhe]%s Souhaitez Vous Choisir Une Autre Activité ( %s1%s : Oui | %s0%s : Non ) : ", STY_FYELLOW, STY_NULL, STY_BOLD, STY_NULL, STY_BOLD, STY_NULL);
     scanf("%d",rep);
     printf("\n");
 }
 
 void saisieInterdAdhe(int *numAdhe)
 {
-    printf("[InterdAdhe] Entrez Le Numéro D'adhérent : ");
+    printf("%s[InterdAdhe]%s Entrez Le Numéro D'adhérent : ", STY_FBLUE, STY_NULL);
     scanf("%d",numAdhe);
     printf("\n");
 }
