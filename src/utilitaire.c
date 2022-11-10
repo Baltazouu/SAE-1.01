@@ -73,7 +73,8 @@ int insertionNombre(int nb, int pos, int Table[], int tlog, int tmax)
 void suppressionNombre(int pos, int Table[], int tlog)
 {
     int i;
-    for (i = pos; i < tlog-1; i++) {
+    for (i = pos; i < tlog-1; i++) 
+    {
         Table[i] = Table[i+1];
     }
 }
@@ -108,14 +109,14 @@ void verifPresenceAct(int numAct,int TnumAct[],int nbAct,int *presence)
     return;
 }
 
-int VerifnbPRest(int TCact[],int numAct,int TnbPoints[],int posAdhe,int TnbEntr[], int cat)
+void VerifnbPRest(int TCact[],int numAct,int TnbPoints[],int posAdhe,int TnbEntr[], int cat)
 {
     if (TCact[numAct-1]>TnbPoints[posAdhe])
     {
         printf("%s[EntrAdhe] Erreur !!%s Vous Ne Disposez Pas D'assez De Points Pour Réaliser Cette Activité !\n", STY_FRED, STY_NULL);
-        return -1;
+        return;
     }
     TnbPoints[posAdhe]-=(TCact[numAct-1]-cat);
     TnbEntr[numAct-1]+=1;
-    return 0;
+    return;
 }

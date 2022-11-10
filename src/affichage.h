@@ -32,6 +32,16 @@ void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat
 */
 void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int nbAdhe);
 
+/**
+ * \brief Affiche Liste Activités Proposés & leur cout
+*/
 void affInfoAct(void);
 
+/**
+ * \brief Affiche Nombre D'entrées par activités dans la journée
+ * \param TnbrEntr Tableau du nombre d'entrées par act
+ * \param tlog taille logique du tableau
+*/
 void affichnbEntrAct(int TnbEntr[],int tlog);
+
+void affInfoCate(void);

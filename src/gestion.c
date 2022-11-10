@@ -10,7 +10,6 @@
 #include "utilitaire.h"
 #include "saisie.h"
 #include "affichage.h"
-
 #include "config.h"
 
 
@@ -32,7 +31,10 @@ int ajoutAdher(int *nbAdher, int nbCredits, int nCat,
         printf("%s[ajoutAdher] erreur%s: insertion.\n", STY_FRED, STY_NULL);
         return -1;
     }
-
+    if (nbCredits<1){
+        printf("[AjoutAdher] Erreur !! Impossible de créditer des points négatifs !!\n");
+        return -1;;
+    }
     insertionNombre(1, ins, Tetat, *nbAdher, tmax);
     insertionNombre(nbCredits, ins, TnbPoints, *nbAdher, tmax);
     insertionNombre(nCat, ins, Tcat, *nbAdher, tmax);
@@ -64,7 +66,6 @@ int suppAdhe(int numAdhe, int *tlog,
     suppressionNombre(ins, Tcat, *tlog);
 
     *tlog -= 1;
-    printf("tlog after = %d", *tlog);
     return 0;
 }
 
@@ -112,8 +113,8 @@ int activationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
         printf("%s[activationCarte] note:%s carte déjà activée.\n", STY_FYELLOW, STY_NULL);
         return 0;
     }
-
     Tetat[ins] = 1;
+    printf("\n%s[activationCarte] succes:%s Carte n°%d activée.\n",STY_FGREEN,STY_NULL,numAdhe);
     return 0;
 }
 
@@ -128,12 +129,12 @@ int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
     int presence;
     int ins = rechercheNombre(numAdhe, Tnum, &presence, nbAdhe);
     if (!presence) {
-        printf("%s[activationCarte] erreur:%s numéro adherent non valide.\n", STY_FRED, STY_NULL);
+        printf("%s[desactivationCarte] erreur:%s numéro adherent non valide.\n", STY_FRED, STY_NULL);
         return -1;
     }
 
     if (Tetat[ins] == 0) {
-        printf("%s[activationCarte] note:%s carte déjà desactivée.\n", STY_FYELLOW, STY_NULL);
+        printf("%s[desactivationCarte] note:%s carte déjà desactivée.\n", STY_FYELLOW, STY_NULL);
         return 0;
     }
 
@@ -142,7 +143,18 @@ int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
 }
 
 /**
- * Fonction Entrée d'adhérent dans le centre
+ * Fonction Entrée d'adhérent dans le centre : 
+ * - saisie d'un adhérent via fonction adaptée.
+ * -vérifie la présence de l'adhérent saisie via fonction verification d'entrée "VerifEntreAdhe" :
+ *      cette fonction vérifie que la carte d'adhérent est dans la base et qu'elle
+ *      n'est pas désactivée et renvoie, elle renvoie également la position 
+ *      du numéro d'adhérent dans les tableaux.
+ * - Vérifie que l'adhérent n'est pas déjà rentré dans la journée via fonction "VerifAdheNonEntre"
+ * - Vérifie Que L'adhérent Dispose D'un minimum de points (cout de l'activité la moins chère.)
+ * - Puis via "verifNbPRest" Vérifie qu'il reste assez de points pour l'activité saisie
+ *          et retire les points à l'adhérent
+ * 
+ *  
 */
 void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int TnbEntr[],int TnumAdheEntre[],int * nbAdheEntre)
 {   
@@ -151,8 +163,8 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int 
     int TnumAct[NBACT]={1,2,3,4,5,6,7,8,9,10};      // Tnuméros Activités
     int TCact[NBACT]= {
         CO_KAYAK, CO_BOXE, CO_MUSCU, CO_GYM, CO_AQUAGYM,
-        CO_VELO, CO_SQASH, CO_TENNIS, CO_BASKET, CO_FOOT
-    };
+        CO_VELO, CO_SQASH, CO_TENNIS, CO_BASKET, CO_FOOT};
+
     int pos,presence,numAct;
     int numAdhe,rep,coderet;
     saisieEntrAdhe(&numAdhe);
@@ -176,9 +188,8 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int 
     affInfoAct();
     saisieAct(&numAct);
     verifPresenceAct(numAct,TnumAct,nbAct,&presence);
-    coderet=VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr,Tcat[pos]);
-    
-    if (coderet==-1){return;}
+    //vérifie que l'adhérent dispose d'assez de points et les encaisse. 
+    VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr,Tcat[pos]);
     
     saisie2ndAct(&rep);
     
@@ -201,7 +212,6 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int 
     
     return;
 }
-
 
 /**
  * Fonction qui vérifie que l'adhérent n'a pas déjà fréquenté le centre dans la journée

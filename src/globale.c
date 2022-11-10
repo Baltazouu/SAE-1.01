@@ -20,7 +20,7 @@ int globale(void)
     int TnbEntr[NBACT]={0,0,0,0,0,0,0,0,0,0};
     int TnumAdheEntre[TMAX],nbAdheEntre=0;
     int numAdhe, nbAdhe, points, cat;
-    int val;
+    int val,coderet;
 
     nbAdhe = chargement(Tnum, Tetat, TnbPoints, Tcat, TMAX);
 
@@ -33,11 +33,16 @@ int globale(void)
 
         if (commande == 1) {
             printf("\n");
-            saisieAjoutAdher(&points, &cat);
+            coderet = saisieAjoutAdher(&points, &cat);
+            if (coderet!=-1)
+            {
+                
+            
             val = ajoutAdher(&nbAdhe, points, cat, Tnum, Tetat, TnbPoints, Tcat, TMAX);
             if (val > 0)
                 printf("\n%s[ajoutAdher] succes:%s Adhérent n°%d, de cat %d, créé avec %d points.\n",
                        STY_FGREEN, STY_NULL, val, cat, points);
+            }
         } 
         else if (commande == 2) {
             printf("\n");
@@ -55,13 +60,13 @@ int globale(void)
         else if (commande == 4) {
             printf("\n");
             saisieActivationCarte(&numAdhe);
-            if (!activationCarte(numAdhe, nbAdhe, Tnum, Tetat))
-                printf("\n%s[activationCarte] succes:%s Carte n°%d activée.\n",STY_FGREEN, STY_NULL,numAdhe);
-        } 
+            activationCarte(numAdhe, nbAdhe, Tnum, Tetat);
+       } 
         else if (commande == 5) {
             printf("\n");
-            saisieActivationCarte(&numAdhe);
+            saisieDesactivationCarte(&numAdhe);
             if (!desactivationCarte(numAdhe, nbAdhe, Tnum, Tetat))
+
                 printf("\n%s[desactivationCarte] succes:%s Carte n°%d desactivée.\n",STY_FGREEN, STY_NULL,numAdhe);
         } 
         else if (commande == 6) {

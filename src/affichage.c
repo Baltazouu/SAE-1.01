@@ -143,3 +143,40 @@ void affichnbEntrAct(int TnbEntr[],int tlog)
     printf("\t 10 # Foot : %d Entrées\n",TnbEntr[9]);
     printf("\n");
 }
+
+
+void affInfoCate(void)
+{   
+    int Tcat[NBCATEADHE]={1,2,3,4};
+    char TcatName[][20]={"Etudiant\t\t\t","Mineur\t\t\t","Majeur Salarié\t\t","Retraité\t\t\t"};
+    int i;
+
+    printf("%s\n[affInfoTous]%s %sCatégories  D'utilisateurs : \n\n%s", STY_FBLUE, STY_NULL, STY_BWHITE, STY_NULL);
+    for ( i = 0; i < 50; i++) printf("%s", BOX_HORI);
+    printf("\n\n");
+
+    printf("\t%s", BOX_TOPL);
+    for ( i = 0; i < 9; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_DOWH);
+    for ( i = 0; i < 29; i++) printf("%s", BOX_HORI);
+    printf("%s\n", BOX_TOPR);
+
+    printf("\t%s%s Numéro%s  %s \t%sCatégorie%s\t\t%s\n", BOX_VERT, STY_FYELLOW, STY_NULL, BOX_VERT, STY_FYELLOW,STY_NULL, BOX_VERT);
+    printf("\t%s", BOX_VERR);
+
+    for ( i = 0; i < 9; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_VERH);
+    for ( i = 0; i < 29; i++) printf("%s", BOX_HORI);
+    printf("%s\n", BOX_VERL);
+
+    for ( i = 0; i < NBCATEADHE; i++)
+        printf("\t%s  %d\t  %s   %s%s\n", BOX_VERT, Tcat[i], BOX_VERT,
+         TcatName[i], BOX_VERT);
+
+    printf("\t%s", BOX_BOTL);
+    for (int i = 0; i < 9; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_UPHO);
+    for (int i = 0; i < 29; i++) printf("%s", BOX_HORI);
+    printf("%s\n", BOX_BOTR);
+    printf("\n");
+}
