@@ -184,7 +184,7 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int 
         return;
     }
     printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
-    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,TnbEntr,nbAdhe);
+    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,TnumAdheEntre,nbAdhe);
     affInfoAct();
     saisieAct(&numAct);
     verifPresenceAct(numAct,TnumAct,nbAct,&presence);
@@ -196,19 +196,20 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int 
     while (rep)
     {
         printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
-        affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,TnbEntr,nbAdhe);
+        affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,TnumAdheEntre,nbAdhe);
         affInfoAct();
         saisieAct(&numAct);
         verifPresenceAct(numAct,TnumAct,nbAct,&presence);
         VerifnbPRest(TCact,numAct,TnbPoints,pos,TnbEntr,Tcat[pos]);
         saisie2ndAct(&rep);
     }
-    
-    printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
-    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,TnbEntr,nbAdhe);
-    printf("\n%s[EntreAdhe] Succès,%s Activités Enregistrées !\n", STY_FGREEN, STY_NULL);
+
     TnumAdheEntre[*nbAdheEntre]=numAdhe;
     *nbAdheEntre+=1;
+    
+    printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
+    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,TnumAdheEntre,nbAdhe);
+    printf("\n%s[EntreAdhe] Succès,%s Activités Enregistrées !\n", STY_FGREEN, STY_NULL);
     
     return;
 }

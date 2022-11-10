@@ -36,12 +36,10 @@ int globale(void)
             coderet = saisieAjoutAdher(&points, &cat);
             if (coderet!=-1)
             {
-                
-            
-            val = ajoutAdher(&nbAdhe, points, cat, Tnum, Tetat, TnbPoints, Tcat, TMAX);
-            if (val > 0)
-                printf("\n%s[ajoutAdher] succes:%s Adhérent n°%d, de cat %d, créé avec %d points.\n",
-                       STY_FGREEN, STY_NULL, val, cat, points);
+                val = ajoutAdher(&nbAdhe, points, cat, Tnum, Tetat, TnbPoints, Tcat, TMAX);
+                if (val > 0)
+                    printf("\n%s[ajoutAdher] succes:%s Adhérent n°%d, de cat %d, créé avec %d points.\n",
+                           STY_FGREEN, STY_NULL, val, cat, points);
             }
         } 
         else if (commande == 2) {
@@ -72,7 +70,7 @@ int globale(void)
         else if (commande == 6) {
             printf("\n");
             saisieAffInfoAdhe(&numAdhe);
-            affInfoAdhe(numAdhe, Tnum, Tetat, TnbPoints, Tcat, TnbEntr, nbAdhe);
+            affInfoAdhe(numAdhe, Tnum, Tetat, TnbPoints, Tcat, TnumAdheEntre, nbAdhe);
         } 
         else if (commande == 7) {
             printf("\n");
