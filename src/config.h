@@ -12,6 +12,8 @@
 #define CMINACT 10
 //! Nombre d'activités
 #define NBACT 10
+//Catégories
+#define NBCATEADHE 4
 
 //! Prix en points des activitées
 #define CO_KAYAK    25

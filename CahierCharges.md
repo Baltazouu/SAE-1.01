@@ -12,7 +12,7 @@ Ce fichier content 4 Données :
 * Numéro D'adhérent (``1001,1002,..``)
 * Etat Carte (``1`` :Activée / ``0`` : Désactivée)
 * Nombre de points (ex : ``75``)
-* Catégorie Adhérent : (``1`` : Etudiant / ``2`` : Mineur / ``3`` : Majeur Non Etudiant / ``4`` : Retraité )
+* Catégorie Adhérent : (``1`` : Etudiant / ``2`` : Mineur / ``3`` : Majeur Salarié / ``4`` : Retraité )
 
 ## Fichiers : config.h
 C'est dans ce fichier que l'on peut modifier les paramètres de notre programme de gestion, celui-ci contient : 
