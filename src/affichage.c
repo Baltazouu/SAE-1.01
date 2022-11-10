@@ -42,20 +42,21 @@ void affMenu(void)
 * Recherche l'adherent grace à la fonciton recherche, test si il existe et si
 * c'est le cas, affiche les information le concernant.
 */
-void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int nbAdhe)
+void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int TnbEntr[], int nbAdhe)
 {
     int presence;
     int ins = rechercheNombre(numAdhe, Tnum, &presence, nbAdhe);
     if (!presence) {
-        printf("[affInfoAdhe] erreur: numéro adherent non valide.\n");
+        printf("%s[affInfoAdhe] erreur:%s numéro adherent non valide.\n", STY_FRED, STY_NULL);
         return;
     }
 
     printf("\n");
-    printf("%s[affInfoAdhe]%s N° adherent :\t\t%d\n", STY_FMAGEN, STY_NULL, Tnum[ins]);
-    printf("%s[affInfoAdhe]%s Etat de la carte :\t%d\n", STY_FMAGEN, STY_NULL, Tetat[ins]);
-    printf("%s[affInfoAdhe]%s Nombre de points :\t%d\n", STY_FMAGEN, STY_NULL, TnbPoints[ins]);
-    printf("%s[affInfoAdhe]%s N° catégorie :\t%d\n", STY_FMAGEN, STY_NULL, Tcat[ins]);
+    printf("%s[affInfoAdhe]%s N° adherent :\t\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, Tnum[ins], STY_NULL);
+    printf("%s[affInfoAdhe]%s Etat de la carte :\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, Tetat[ins], STY_NULL);
+    printf("%s[affInfoAdhe]%s Nombre de points :\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, TnbPoints[ins], STY_NULL);
+    printf("%s[affInfoAdhe]%s N° catégorie :\t\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, Tcat[ins], STY_NULL);
+    printf("%s[affInfoAdhe]%s Nb de passage :\t\t%s%d%s\n", STY_FBLUE, STY_NULL, STY_BOLD, TnbEntr[ins], STY_NULL);
 }
 
 /**
@@ -64,17 +65,43 @@ void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat
 */
 void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int nbAdhe)
 {
-    printf("%s[affInfoTous]%s %sinformations générales : %s", STY_FMAGEN, STY_NULL, STY_BWHITE, STY_NULL);
+    printf("%s[affInfoTous]%s %sinformations générales : %s", STY_FBLUE, STY_NULL, STY_BWHITE, STY_NULL);
     for (int i = 0; i < 27; i++) printf("%s", BOX_HORI);
     printf("\n\n");
 
-    printf("%sN°adhérent\t%s Etat\t%s Nb de pts\t%s N°catégorie%s\n", BOX_VERT, BOX_VERT, BOX_VERT, BOX_VERT, BOX_VERT);
-    for (int i = 0; i < 48; i++) printf("%s", BOX_HORI);
+    printf("\t%s", BOX_TOPL);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_DOWH);
+    for (int i = 0; i < 7; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_DOWH);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_DOWH);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s\n", BOX_TOPR);
+
+    printf("\t%s%s N°adhérent%s\t%s %sEtat%s\t%s %sNb de pts%s\t%s %sN°catégorie%s\t%s\n", BOX_VERT, STY_FYELLOW, STY_NULL, BOX_VERT, STY_FYELLOW, STY_NULL, BOX_VERT, STY_FYELLOW, STY_NULL, BOX_VERT, STY_FYELLOW, STY_NULL, BOX_VERT);
+    printf("\t%s", BOX_VERR);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_VERH);
+    for (int i = 0; i < 7; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_VERH);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_VERH);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s\n", BOX_VERL);
 
     for (int i = 0; i < nbAdhe; i++)
-        printf("%s\t%d\t%s %d\t%s %d\t\t%s %d\t%s\n", BOX_VERT, Tnum[i], BOX_VERT, Tetat[i], BOX_VERT, TnbPoints[i], BOX_VERT, Tcat[i], BOX_VERT);
+        printf("\t%s   %d\t%s   %d\t%s   %d\t\t%s     %d\t\t%s\n", BOX_VERT, Tnum[i], BOX_VERT, Tetat[i], BOX_VERT, TnbPoints[i], BOX_VERT, Tcat[i], BOX_VERT);
 
-    printf("\n"); for (int i = 0; i < 48; i++) printf("%s", BOX_HORI); printf("\n");
+    printf("\t%s", BOX_BOTL);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_UPHO);
+    for (int i = 0; i < 7; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_UPHO);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s", BOX_UPHO);
+    for (int i = 0; i < 15; i++) printf("%s", BOX_HORI);
+    printf("%s\n", BOX_BOTR);
 }
 /**
  * Affiche les activités disponibles et leurs coût
@@ -82,7 +109,7 @@ void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int nbAdh
 void affInfoAct(void)
 {   
     printf("\n");
-    printf("[SaiseAct] Entrez Le Numéro D'activité Correspondant :\n");
+    printf("%s[SaiseAct]%s Entrez Le Numéro D'activité Correspondant :\n", STY_FBLUE, STY_NULL);
     printf("------------------------------------------------------\n\n");
     printf("\t 1 # Kayak : %d points\n", CO_KAYAK);
     printf("\t 2 # Boxe : %d points\n", CO_BOXE);
@@ -102,8 +129,8 @@ void affInfoAct(void)
 void affichnbEntrAct(int TnbEntr[],int tlog)
 {   
     
+    printf("%s[AffichEntrAct]%s Nombres d'entrées de la journée :\n", STY_FBLUE, STY_NULL);
     printf("------------------------------------------------------\n\n");
-    printf("[AffichEntrAct] Nombres d'entrées de la journée :\n\n");
     printf("\t 1 # Kayak : %d Entrées\n",TnbEntr[0]);
     printf("\t 2 # Boxe : %d Entrées\n",TnbEntr[1]);
     printf("\t 3 # Musculation : %d Entrées\n",TnbEntr[2]);

@@ -32,6 +32,11 @@
 #define BOX_TOPR    "\u2513"
 #define BOX_BOTL    "\u2517"
 #define BOX_BOTR    "\u251b"
+#define BOX_VERR    "\u2523"
+#define BOX_VERL    "\u252b"
+#define BOX_UPHO    "\u253b"
+#define BOX_VERH    "\u254b"
+#define BOX_DOWH    "\u2533"
 
 //! Styles
 #define STY_NULL    "\e[0m"
@@ -41,4 +46,5 @@
 #define STY_FRED    "\e[1;31m"
 #define STY_FMAGEN  "\e[1;35m"
 #define STY_FBLUE   "\e[1;34m"
+#define STY_FYELLOW "\e[1;33m"
 #define STY_BWHITE  "\e[1;30;47m"

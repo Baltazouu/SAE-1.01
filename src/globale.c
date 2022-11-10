@@ -26,6 +26,7 @@ int globale(void)
 
     printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
     affMenu();
+    printf("\n");
     saisieChoix(&commande);
     printf("\e[1;1H\e[2J"); // clear console
     while (!sortie) {
@@ -35,38 +36,38 @@ int globale(void)
             saisieAjoutAdher(&points, &cat);
             val = ajoutAdher(&nbAdhe, points, cat, Tnum, Tetat, TnbPoints, Tcat, TMAX);
             if (val > 0)
-                printf("\n%s[ajoutAdher] succes%s: Adhérent n°%d, de cat %d, créé avec %d points.\n",
+                printf("\n%s[ajoutAdher] succes:%s Adhérent n°%d, de cat %d, créé avec %d points.\n",
                        STY_FGREEN, STY_NULL, val, cat, points);
         } 
         else if (commande == 2) {
             printf("\n");
             saisieSuppAdhe(&numAdhe);
             if (!suppAdhe(numAdhe, &nbAdhe, Tnum, Tetat, TnbPoints, Tcat))
-                printf("\n[suppAdhe] succes: Adhérent n°%d supprimé.\n",numAdhe);
+                printf("\n%s[suppAdhe] succes:%s Adhérent n°%d supprimé.\n",STY_FGREEN, STY_NULL,numAdhe);
         } 
         else if (commande == 3) {
             printf("\n");
             saisieAlimCarte(&numAdhe, &points);
             if (!alimCarte(points, numAdhe, nbAdhe, Tnum, Tetat, TnbPoints))
-                printf("\n[alimCarte] succes: %d point(s) ajouté à l'adhérent n°%d.\n",
+                printf("\n%s[alimCarte] succes:%s %d point(s) ajouté à l'adhérent n°%d.\n",STY_FGREEN, STY_NULL,
                        points, numAdhe);
         } 
         else if (commande == 4) {
             printf("\n");
             saisieActivationCarte(&numAdhe);
             if (!activationCarte(numAdhe, nbAdhe, Tnum, Tetat))
-                printf("\n[activationCarte] succes: Carte n°%d activée.\n",numAdhe);
+                printf("\n%s[activationCarte] succes:%s Carte n°%d activée.\n",STY_FGREEN, STY_NULL,numAdhe);
         } 
         else if (commande == 5) {
             printf("\n");
             saisieActivationCarte(&numAdhe);
             if (!desactivationCarte(numAdhe, nbAdhe, Tnum, Tetat))
-                printf("\n[desactivationCarte] succesnbAdhe,Tnum,Tetat,TnbPoints,TnbEntr: Carte n°%d desactivée.\n",numAdhe);
+                printf("\n%s[desactivationCarte] succes:%s Carte n°%d desactivée.\n",STY_FGREEN, STY_NULL,numAdhe);
         } 
         else if (commande == 6) {
             printf("\n");
             saisieAffInfoAdhe(&numAdhe);
-            affInfoAdhe(numAdhe, Tnum, Tetat, TnbPoints, Tcat, nbAdhe);
+            affInfoAdhe(numAdhe, Tnum, Tetat, TnbPoints, Tcat, TnbEntr, nbAdhe);
         } 
         else if (commande == 7) {
             printf("\n");
@@ -85,13 +86,12 @@ int globale(void)
             printf("\n");
             sortie = 1;
             if (!sauvegarde(Tnum, Tetat, TnbPoints, Tcat, nbAdhe))
-                printf("\n[sauvegarde] succes: %d adherents sauvegardés.\n\n",nbAdhe);
+                printf("\n%s[sauvegarde] succes:%s %d adherents sauvegardés.\n\n",STY_FGREEN, STY_NULL,nbAdhe);
         } else if (commande == 0) {
-            printf("\n");
             affMenu();
         }
         else {
-            printf("\n[gestion] erreur: commande inconnue\n");
+            printf("\n%s[gestion] erreur:%s commande inconnue\n", STY_FRED, STY_NULL);
             affMenu();
         }
 

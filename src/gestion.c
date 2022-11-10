@@ -81,11 +81,11 @@ int alimCarte(int points, int numAdhe, int nbAdhe,
     int presence;
     int ins = rechercheNombre(numAdhe, Tnum, &presence, nbAdhe);
     if (!presence) {
-        printf("[alimCarte] erreur: numéro adherent non valide.\n");
+        printf("%s[alimCarte] erreur:%s numéro adherent non valide.\n", STY_FRED, STY_NULL);
         return -1;
     }
     if (Tetat[ins] == 0) {
-        printf("[alimCarte] erreur: carte désactivée.\n");
+        printf("%s[alimCarte] erreur:%s carte désactivée.\n", STY_FRED, STY_NULL);
         return -2;
     }
 
@@ -104,12 +104,12 @@ int activationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
     int presence;
     int ins = rechercheNombre(numAdhe, Tnum, &presence, nbAdhe);
     if (!presence) {
-        printf("[activationCarte] erreur: numéro adherent non valide.\n");
+        printf("%s[activationCarte] erreur:%s numéro adherent non valide.\n", STY_FRED, STY_NULL);
         return -1;
     }
 
     if (Tetat[ins] == 1) {
-        printf("[activationCarte] note: carte déjà activée.\n");
+        printf("%s[activationCarte] note:%s carte déjà activée.\n", STY_FYELLOW, STY_NULL);
         return 0;
     }
 
@@ -128,12 +128,12 @@ int desactivationCarte(int numAdhe, int nbAdhe, int Tnum[], int Tetat[])
     int presence;
     int ins = rechercheNombre(numAdhe, Tnum, &presence, nbAdhe);
     if (!presence) {
-        printf("[activationCarte] erreur: numéro adherent non valide.\n");
+        printf("%s[activationCarte] erreur:%s numéro adherent non valide.\n", STY_FRED, STY_NULL);
         return -1;
     }
 
     if (Tetat[ins] == 0) {
-        printf("[activationCarte] note: carte déjà desactivée.\n");
+        printf("%s[activationCarte] note:%s carte déjà desactivée.\n", STY_FYELLOW, STY_NULL);
         return 0;
     }
 
@@ -168,11 +168,11 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int 
     }
     if (TnbPoints[pos]<CMINACT)
     {
-        printf("[EntrAdhe] Erreur !! Vous ne disposez pas d'assez de points pour réaliser une activité\n");
+        printf("%s[EntrAdhe] Erreur !!%s Vous ne disposez pas d'assez de points pour réaliser une activité\n", STY_FRED, STY_NULL);
         return;
     }
     printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
-    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,nbAdhe);
+    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,TnbEntr,nbAdhe);
     affInfoAct();
     saisieAct(&numAct);
     verifPresenceAct(numAct,TnumAct,nbAct,&presence);
@@ -185,7 +185,7 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int 
     while (rep)
     {
         printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
-        affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,nbAdhe);
+        affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,TnbEntr,nbAdhe);
         affInfoAct();
         saisieAct(&numAct);
         verifPresenceAct(numAct,TnumAct,nbAct,&presence);
@@ -194,8 +194,8 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int 
     }
     
     printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
-    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,nbAdhe);
-    printf("\n[EntreAdhe] Succès, Activités Enregistrées !\n");
+    affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,TnbEntr,nbAdhe);
+    printf("\n%s[EntreAdhe] Succès,%s Activités Enregistrées !\n", STY_FGREEN, STY_NULL);
     TnumAdheEntre[*nbAdheEntre]=numAdhe;
     *nbAdheEntre+=1;
     
@@ -213,7 +213,7 @@ int VerifAdheNonEntre(int numAdhe,int TnumAdheEntre[],int *nbAdheEntre)
     {
         if (TnumAdheEntre[i]==numAdhe)
         {
-            printf("[EntreAdhe] Erreur !! L'adhérent à déjà fréquenté le centre Ajourd'hui !\n");
+            printf("%s[EntreAdhe] Erreur !!%s L'adhérent à déjà fréquenté le centre Ajourd'hui !\n", STY_FRED, STY_NULL);
             return -1;
         }
     }
