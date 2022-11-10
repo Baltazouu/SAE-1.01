@@ -17,10 +17,10 @@
 /**
 * Utilise la fonction de recherche de la première occurence d'un nombre pas ou
 * plus utilisé et l'utilise comme nouvel id.
-* Met à jour les trois tableau en insérant dans l'ordre croissant des numéros
-* d'adherents le nouvel id, état et nombre de points. (utilisation de la
+* Met à jour les quatre tableaux en insérant dans l'ordre croissant des numéros
+* d'adherents le nouvel id, état, nombre de points et catégorie. (utilisation de la
 * fonction d'insertion)
-* Met à jour la taille logique du tableau.
+* Met à jour la taille logique des tableaux.
 */
 int ajoutAdher(int *nbAdher, int nbCredits, int nCat,
                int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int tmax)

@@ -10,6 +10,7 @@
 *
 * \param nbAdher nombre d'adherents
 * \param nbCredits nombre de crédits à la création du compte
+* \param nCat numiéro de la catégorie
 * \param Tnum tableau des numéros d'adherents
 * \param Tetat tableau des états des compte adherents
 * \param TnbPoints tableau des nombres de points des adherents
