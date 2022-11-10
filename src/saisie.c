@@ -9,9 +9,9 @@
 
 void saisieAjoutAdher(int *nbCredits, int *cat)
 {
-    printf("[ajoutAdher] Saisir le nombre de crédit :\t");
+    printf("%s[ajoutAdher]%s Saisir le nombre de crédit :\t", STY_FBLUE, STY_NULL);
     scanf("%d", nbCredits);
-    printf("[ajoutAdher] Saisir la catégorie :\t");
+    printf("%s[ajoutAdher]%s Saisir la catégorie :\t", STY_FBLUE, STY_NULL);
     scanf("%d", cat);
 }
 
@@ -49,11 +49,11 @@ void saisieAffInfoAdhe(int *numAdhe)
 
 void saisieChoix(int *choix)
 {
-    printf("\n%s[gestion]%s Saisir la commande (#0 -menu):       \e[1;23;30;47m[  ]\e[0m\n", STY_FMAGEN, STY_NULL);
+    printf("\n%s[gestion]%s Saisir la commande (#0 -menu):       \n", STY_FMAGEN, STY_NULL);
     for (int i = 0; i < 73; i++) printf("%s", BOX_HORI);
-    printf("\e[1A\e[25D\e[?25l");
+    printf("\e[1A\e[25D\e[1,32m");
     scanf("%d", choix);
-    printf("\n\e[?25h");
+    printf("\n");
 }
 
 void saisieEntrAdhe(int *numadhe)

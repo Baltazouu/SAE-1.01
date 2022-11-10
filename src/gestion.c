@@ -29,7 +29,7 @@ int ajoutAdher(int *nbAdher, int nbCredits, int nCat,
     int ins = recherche1ereOccu(Tnum, *nbAdher, &val);
 
     if (insertionNombre(val, ins, Tnum, *nbAdher, tmax)) {
-        printf("[ajoutAdher] erreur: insertion.\n");
+        printf("%s[ajoutAdher] erreur%s: insertion.\n", STY_FRED, STY_NULL);
         return -1;
     }
 
@@ -54,7 +54,7 @@ int suppAdhe(int numAdhe, int *tlog,
     int presence;
     int ins = rechercheNombre(numAdhe, Tnum, &presence, *tlog);
     if (!presence) {
-        printf("[suppAdhe] erreur: numéro adherent non valide.\n");
+        printf("%s[suppAdhe] erreur%s: numéro adherent non valide.\n", STY_FRED, STY_NULL);
         return -1;
     }
 

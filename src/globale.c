@@ -35,8 +35,8 @@ int globale(void)
             saisieAjoutAdher(&points, &cat);
             val = ajoutAdher(&nbAdhe, points, cat, Tnum, Tetat, TnbPoints, Tcat, TMAX);
             if (val > 0)
-                printf("\n[ajoutAdher] succes: Adhérent n°%d, de cat %d, créé avec %d points.\n",
-                       val, cat, points);
+                printf("\n%s[ajoutAdher] succes%s: Adhérent n°%d, de cat %d, créé avec %d points.\n",
+                       STY_FGREEN, STY_NULL, val, cat, points);
         } 
         else if (commande == 2) {
             printf("\n");
