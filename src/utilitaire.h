@@ -1,4 +1,4 @@
-/*
+/**
 * \file utilitaire.h
 * \brief Fonctions utilitaires
 *
@@ -10,7 +10,7 @@
 * \brief Recherche d'un nombre dans un tableau trié
 *
 * \param nb le nombre recherché
-* \parma Table le tableau trié de recherche
+* \param Table le tableau trié de recherche
 * \param presence booleen vrai si le nombre est présent dans le tableau
 * \param tlog taille logique de Table
 *

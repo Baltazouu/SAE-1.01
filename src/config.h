@@ -1,8 +1,8 @@
 /**
  * \file config.h
  * \brief Configuration du programme
-*
-*   SAE 1.01
+ *
+ *   SAE 1.01
  */
 
 
@@ -45,6 +45,7 @@
 #define CO_FOOT     10
 
 //! Bordures d'affichage
+// UTF-8 char
 #define BOX_HORI    "\u2501"
 #define BOX_VERT    "\u2503"
 #define BOX_TOPL    "\u250f"
@@ -57,7 +58,8 @@
 #define BOX_VERH    "\u254b"
 #define BOX_DOWH    "\u2533"
 
-//! Styles
+//! Styles  
+//  (ANSI Escape Sequances) - https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797
 #define STY_NULL    "\e[0m"
 #define STY_BOLD    "\e[1m"
 #define STY_FCYAN   "\e[1;36m"

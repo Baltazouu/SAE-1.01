@@ -1,4 +1,4 @@
-/*
+/**
 * \file utilitaire.c
 * \brief Fonctions utilitaires
 *

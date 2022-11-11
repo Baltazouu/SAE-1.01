@@ -1,4 +1,4 @@
-/*
+/**
 * \file chargement.c
 * \brief fonctions de chargements
 *
