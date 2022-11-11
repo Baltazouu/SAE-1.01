@@ -198,6 +198,11 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int 
     while (rep)
     {
         printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
+        if (TnbPoints[pos]<CMINACT)
+        {
+            printf("%s[EntrAdhe] Erreur !!%s Vous ne disposez plus d'assez de points pour réaliser une activité\n", STY_FRED, STY_NULL);
+        return;
+        }
         affInfoAdhe(numAdhe,Tnum,Tetat,TnbPoints,Tcat,TnumAdheEntre,tPtUtils, nbAdhe);
         affInfoAct();
         saisieAct(&numAct);
