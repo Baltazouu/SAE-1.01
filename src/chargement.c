@@ -18,7 +18,7 @@ int chargement(int Tnum[], int Tetat[], int TnbPoints[], int Tcat[],int tPtUtils
 {
     FILE *fl;
     fl = fopen("data/adherents.txt","r");
-    if (fl == NULL) { printf("[chargement] Erreur: Ouverture Fichier.\n"); return -1; }
+    if (fl == NULL) { printf("[chargement] Erreur: Ouverture Fichier.\n"); return 0; }
 
     int num, etat, nbPoints, cat,ptutils;
     int i = 0;

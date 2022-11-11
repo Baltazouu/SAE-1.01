@@ -24,6 +24,7 @@ int globale(void)
 
 
     nbAdhe = chargement(Tnum, Tetat, TnbPoints, Tcat,tPtUtils, TMAX);
+    if (nbAdhe < 0) return -1;
 
     printf("\e[1;1H\e[2J"); // escape sequance pour clear la console
     affMenu();
