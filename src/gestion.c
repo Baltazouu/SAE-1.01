@@ -216,6 +216,7 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int 
     return;
 }
 
+
 /**
  * Fonction qui vérifie que l'adhérent n'a pas déjà fréquenté le centre dans la journée
 */

@@ -107,7 +107,7 @@ int VerifEntreeAdhe(int nbAdhe,int Tnum[],int Tetat[],int *numAdhe)
 void verifPresenceAct(int *numAct,int TnumAct[],int nbAct,int *presence)
 {
     rechercheNombre(*numAct,TnumAct,presence,nbAct);
-    if (*presence==0)
+    while(*presence==0)
     {
         printf("%s[EntrAdhe] Erreur !!%s Le Numéro Spécifié N'est Pas Dans La Liste\n", STY_FRED, STY_NULL);
         saisieAct(numAct);

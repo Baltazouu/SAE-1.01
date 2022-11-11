@@ -481,7 +481,6 @@ Commande :  ━━━━━━━━━━━━━━━━━━━━━━�
 <li>Activation Carte (modification <strong>Tactive</strong> à 1)</li>
 </ul>
 <pre class="hljs"><code><div>[activationCarte] Saisir le numéro Adherent :   1001
-[activationCarte] note: carte déjà activée.
 
 [activationCarte] succes: Carte n°1001 activée.
 </div></code></pre>
@@ -501,82 +500,88 @@ Commande :  ━━━━━━━━━━━━━━━━━━━━━━�
 <li>Affichage état carte (<strong>Tetat</strong>)</li>
 <li>Affichage nombre de points restants (<strong>TnbPoints</strong>)</li>
 <li>Affichage N° Catégorie Adhérent (<strong>Tcat</strong>)</li>
+<li>Affichage nombre de points dépensés avant suppresion de 80 Points (tout les 80 points) <strong>tPtUtils</strong>*</li>
 <li>Affichage nombre de passages de l'adhérent dans la centre sur la journée(<strong>TnumAdheEntre</strong>)</li>
-<li>Affichage nombre de points dépensés avant suppresion (tout les 80 points) <strong>tPtUtils</strong></li>
 </ul>
-<pre class="hljs"><code><div>[affInfoAdhe] Saisir le numéro Adherent :       1001
+<pre class="hljs"><code><div>[affInfoAdhe] Saisir le numéro Adherent :       1002
 
-[affInfoAdhe] N° adherent :             1001
+[affInfoAdhe] N° adherent :             1002
 [affInfoAdhe] Etat de la carte :        1
-[affInfoAdhe] Nombre de points :        108
-[affInfoAdhe] N° catégorie :            1
-[affInfoAdhe] Nb de passage :           0
-[affInfoAdhe] Nb de points utilisés     0
+[affInfoAdhe] Nombre de points :        242
+[affInfoAdhe] N° catégorie :            2
+[affInfoAdhe] PTS de Fidelité:          47
+[affInfoAdhe] Est déjà rentré :         0
 </div></code></pre>
 <h2 id="commande-7--affichage-information-de-tous-les-adh%C3%A9rents">Commande 7 : Affichage information de tous les adhérents</h2>
 <ul>
 <li>affichage des informations de tous es adhérents (Affichage Tous Tableaux)</li>
 </ul>
-<pre class="hljs"><code><div>[affInfoTous] informations générales : ----------------------------
+<pre class="hljs"><code><div>[affInfoTous] informations générales : ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-        N°adhérent      | Etat  | Nb de points
-        ---------------------------------------------
-                1001    | 1     | 57
-                1002    | 1     | 40
-                1003    | 1     | 10
-                1004    | 1     | 17
-                1005    | 1     | 16
-                1006    | 1     | 24
-                1007    | 1     | 23
-                1008    | 1     | 234
-        ---------------------------------------------
+        ┏━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+        ┃ N°adhérent    ┃ Etat  ┃ Nb de pts     ┃ N°catégorie   ┃ Pts Fidelité  ┃
+        ┣━━━━━━━━━━━━━━━╋━━━━━━━╋━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━┫
+        ┃     1001      ┃   1   ┃       95      ┃       1       ┃       37      ┃
+        ┃     1002      ┃   1   ┃       242     ┃       2       ┃       47      ┃
+        ┃     1004      ┃   1   ┃       112     ┃       4       ┃       0       ┃
+        ┃     1005      ┃   1   ┃       166     ┃       2       ┃       107     ┃
+        ┗━━━━━━━━━━━━━━━┻━━━━━━━┻━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━┛
+
+
 </div></code></pre>
 <h2 id="commande-8--afficher-le-nombre-dentr%C3%A9es-par-activit%C3%A9s-dans-la-journ%C3%A9e">Commande 8 : Afficher le nombre d'entrées par activités dans la journée</h2>
 <ul>
 <li>Affichage nombre entrées par activité dans la journée (<strong>TnbEntr</strong>)</li>
 </ul>
 <pre class="hljs"><code><div>[AffichEntrAct] Nombres d'entrées de la journée :
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-         1 # Kayak : 3 Entrées
-         2 # Boxe : 1 Entrées
-         3 # Musculation : 0 Entrées
-         4 # Gym : 1 Entrées
-         5 # AquaGym : 2 Entrées
-         6 # Vélo : 2 Entrées
-         7 # Sqash : 1 Entrées
-         8 # Tennis : 4 Entrées
-         9 # Basket : 2 Entrées
-         10 # Foot : 2 Entrées
+        ┏                                       ┓
+        ┃        1 # Kayak : 1 Entrées          ┃
+        ┃        2 # Boxe : 4 Entrées           ┃
+        ┃        3 # Musculation : 0 Entrées    ┃
+        ┃        4 # Gym : 0 Entrées            ┃
+        ┃        5 # AquaGym : 1 Entrées        ┃
+        ┃        6 # Vélo : 0 Entrées           ┃
+        ┃        7 # Sqash : 1 Entrées          ┃
+        ┃        8 # Tennis : 3 Entrées         ┃
+        ┃        9 # Basket : 1 Entrées         ┃
+        ┃        10 # Foot : 1 Entrées          ┃
+        ┗                                       ┛
 </div></code></pre>
 <h2 id="commande-9--saisir-entr%C3%A9e-dun-adh%C3%A9rent">Commande 9 : Saisir entrée d'un adhérent</h2>
 <ul>
 <li>Saisie numéro adhérent entrant</li>
-<li>Affichage information adhérent (<strong>Tnum,Tactive,TnbPoints,TcatAdhe</strong>)</li>
-<li>Affichage Infos Activités (<strong>TnumAct</strong>, noms,<strong>TcAct</strong>)</li>
+<li>Affichage information adhérent (<strong>Tnum,Tactive,TnbPoints,TcatAdhe,tPtUtils</strong>)</li>
+<li>Affichage Infos Activités (<strong>TnumAct</strong>, noms des activités, <strong>TcAct</strong>)</li>
 <li>Saisie numéro d'activité</li>
 <li>Soustraction des points (<strong>TnbPoint</strong>)</li>
 <li>Saisie Autre Activité (Boucle Affichage,saisie activité)</li>
 </ul>
-<pre class="hljs"><code><div>[EntrAdhe] Saisissez Le Numéro De l'adhérent entrant : 1008
-[affInfoAdhe] N° adherent :             1008
+<pre class="hljs"><code><div>[affInfoAdhe] N° adherent :             1002
 [affInfoAdhe] Etat de la carte :        1
-[affInfoAdhe] Nombre de points :        234
+[affInfoAdhe] Nombre de points :        242
+[affInfoAdhe] N° catégorie :            2
+[affInfoAdhe] PTS de Fidelité:          47
+[affInfoAdhe] Est déjà rentré :         0
 
-[EntrAdhe] Entrez Le Numéro D'activité Correspondant :
-------------------------------------------------------
+[SaiseAct] Entrez Le Numéro D'activité Correspondant :
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-         1 # Kayak : 25 points
-         2 # Boxe : 15 points
-         3 # Musculation : 15 points
-         4 # Gym : 12 points
-         5 # AquaGym : 15 points
-         6 # Vélo : 20 points
-         7 # Sqash : 22 points
-         8 # Tennis : 25 points
-         9 # Basket : 10 points
-         10 # Foot : 10 points
+        ┏                                       ┓
+        ┃        1 # Kayak : 25 points          ┃
+        ┃        2 # Boxe : 15 points           ┃
+        ┃        3 # Musculation : 15 points    ┃
+        ┃        4 # Gym : 12 points            ┃
+        ┃        5 # AquaGym : 15 points        ┃
+        ┃        6 # Vélo : 20 points           ┃
+        ┃        7 # Sqash : 22 points          ┃
+        ┃        8 # Tennis : 25 points         ┃
+        ┃        9 # Basket : 10 points         ┃
+        ┃        10 # Foot : 10 points          ┃
+        ┗                                       ┛
 
-[EntrAdhe] Saisissez Le Numéro D'activité : 4
+[EntrAdhe] Saisissez Le Numéro D'activité : 5
 
 [EntrAdhe] Souhaitez Vous Choisir Une Autre Activité ( 1 : Oui | 0 : Non ) : 
 </div></code></pre>

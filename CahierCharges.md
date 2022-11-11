@@ -128,7 +128,6 @@ Dans cette fonction, le Premier Adhérent de La Base est initialisé à 1000. Le
 
 ```
 [activationCarte] Saisir le numéro Adherent :   1001
-[activationCarte] note: carte déjà activée.
 
 [activationCarte] succes: Carte n°1001 activée.
 ```
@@ -149,37 +148,37 @@ Dans cette fonction, le Premier Adhérent de La Base est initialisé à 1000. Le
 * Affichage état carte (**Tetat**)
 * Affichage nombre de points restants (**TnbPoints**) 
 * Affichage N° Catégorie Adhérent (**Tcat**)
+* Affichage nombre de points dépensés avant suppresion de 80 Points (tout les 80 points) **tPtUtils*** 
 * Affichage nombre de passages de l'adhérent dans la centre sur la journée(**TnumAdheEntre**)
-* Affichage nombre de points dépensés avant suppresion (tout les 80 points) **tPtUtils**
+
 
 ```
-[affInfoAdhe] Saisir le numéro Adherent :       1001
+[affInfoAdhe] Saisir le numéro Adherent :       1002
 
-[affInfoAdhe] N° adherent :             1001
+[affInfoAdhe] N° adherent :             1002
 [affInfoAdhe] Etat de la carte :        1
-[affInfoAdhe] Nombre de points :        108
-[affInfoAdhe] N° catégorie :            1
-[affInfoAdhe] Nb de passage :           0
-[affInfoAdhe] Nb de points utilisés     0
+[affInfoAdhe] Nombre de points :        242
+[affInfoAdhe] N° catégorie :            2
+[affInfoAdhe] PTS de Fidelité:          47
+[affInfoAdhe] Est déjà rentré :         0
 ```
 
 ## Commande 7 : Affichage information de tous les adhérents
 * affichage des informations de tous es adhérents (Affichage Tous Tableaux)
 
 ```
-[affInfoTous] informations générales : ----------------------------
+[affInfoTous] informations générales : ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-        N°adhérent      | Etat  | Nb de points
-        ---------------------------------------------
-                1001    | 1     | 57
-                1002    | 1     | 40
-                1003    | 1     | 10
-                1004    | 1     | 17
-                1005    | 1     | 16
-                1006    | 1     | 24
-                1007    | 1     | 23
-                1008    | 1     | 234
-        ---------------------------------------------
+        ┏━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+        ┃ N°adhérent    ┃ Etat  ┃ Nb de pts     ┃ N°catégorie   ┃ Pts Fidelité  ┃
+        ┣━━━━━━━━━━━━━━━╋━━━━━━━╋━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━┫
+        ┃     1001      ┃   1   ┃       95      ┃       1       ┃       37      ┃
+        ┃     1002      ┃   1   ┃       242     ┃       2       ┃       47      ┃
+        ┃     1004      ┃   1   ┃       112     ┃       4       ┃       0       ┃
+        ┃     1005      ┃   1   ┃       166     ┃       2       ┃       107     ┃
+        ┗━━━━━━━━━━━━━━━┻━━━━━━━┻━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━┛
+
+
 ```
 
 
@@ -189,48 +188,55 @@ Dans cette fonction, le Premier Adhérent de La Base est initialisé à 1000. Le
 
 ```
 [AffichEntrAct] Nombres d'entrées de la journée :
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-         1 # Kayak : 3 Entrées
-         2 # Boxe : 1 Entrées
-         3 # Musculation : 0 Entrées
-         4 # Gym : 1 Entrées
-         5 # AquaGym : 2 Entrées
-         6 # Vélo : 2 Entrées
-         7 # Sqash : 1 Entrées
-         8 # Tennis : 4 Entrées
-         9 # Basket : 2 Entrées
-         10 # Foot : 2 Entrées
+        ┏                                       ┓
+        ┃        1 # Kayak : 1 Entrées          ┃
+        ┃        2 # Boxe : 4 Entrées           ┃
+        ┃        3 # Musculation : 0 Entrées    ┃
+        ┃        4 # Gym : 0 Entrées            ┃
+        ┃        5 # AquaGym : 1 Entrées        ┃
+        ┃        6 # Vélo : 0 Entrées           ┃
+        ┃        7 # Sqash : 1 Entrées          ┃
+        ┃        8 # Tennis : 3 Entrées         ┃
+        ┃        9 # Basket : 1 Entrées         ┃
+        ┃        10 # Foot : 1 Entrées          ┃
+        ┗                                       ┛
 ```
 
 ## Commande 9 : Saisir entrée d'un adhérent
 * Saisie numéro adhérent entrant
-* Affichage information adhérent (**Tnum,Tactive,TnbPoints,TcatAdhe**)
-* Affichage Infos Activités (**TnumAct**, noms,**TcAct**)
+* Affichage information adhérent (**Tnum,Tactive,TnbPoints,TcatAdhe,tPtUtils**)
+* Affichage Infos Activités (**TnumAct**, noms des activités, **TcAct**)
 * Saisie numéro d'activité
 * Soustraction des points (**TnbPoint**)
 * Saisie Autre Activité (Boucle Affichage,saisie activité)
 
 ```
-[EntrAdhe] Saisissez Le Numéro De l'adhérent entrant : 1008
-[affInfoAdhe] N° adherent :             1008
+[affInfoAdhe] N° adherent :             1002
 [affInfoAdhe] Etat de la carte :        1
-[affInfoAdhe] Nombre de points :        234
+[affInfoAdhe] Nombre de points :        242
+[affInfoAdhe] N° catégorie :            2
+[affInfoAdhe] PTS de Fidelité:          47
+[affInfoAdhe] Est déjà rentré :         0
 
-[EntrAdhe] Entrez Le Numéro D'activité Correspondant :
-------------------------------------------------------
+[SaiseAct] Entrez Le Numéro D'activité Correspondant :
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-         1 # Kayak : 25 points
-         2 # Boxe : 15 points
-         3 # Musculation : 15 points
-         4 # Gym : 12 points
-         5 # AquaGym : 15 points
-         6 # Vélo : 20 points
-         7 # Sqash : 22 points
-         8 # Tennis : 25 points
-         9 # Basket : 10 points
-         10 # Foot : 10 points
+        ┏                                       ┓
+        ┃        1 # Kayak : 25 points          ┃
+        ┃        2 # Boxe : 15 points           ┃
+        ┃        3 # Musculation : 15 points    ┃
+        ┃        4 # Gym : 12 points            ┃
+        ┃        5 # AquaGym : 15 points        ┃
+        ┃        6 # Vélo : 20 points           ┃
+        ┃        7 # Sqash : 22 points          ┃
+        ┃        8 # Tennis : 25 points         ┃
+        ┃        9 # Basket : 10 points         ┃
+        ┃        10 # Foot : 10 points          ┃
+        ┗                                       ┛
 
-[EntrAdhe] Saisissez Le Numéro D'activité : 4
+[EntrAdhe] Saisissez Le Numéro D'activité : 5
 
 [EntrAdhe] Souhaitez Vous Choisir Une Autre Activité ( 1 : Oui | 0 : Non ) : 
 ```
