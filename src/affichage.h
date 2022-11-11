@@ -18,6 +18,9 @@ void affMenu(void);
 * \param Tnum tableau des numéros d'adherents
 * \param Tetat tableau des états des compte adherents
 * \param TnbPoints tableau des nombres de points des adherents
+* \param Tcat tableau des catégories
+* \param TnumAdheEntre tableau des numéros d'adhérents déjà rentrés
+* \param tPtUtils tableau des points utilisé (ordre des adhérents)
 * \param nbAdhe le nombre d'adherents (la taille logique des tableaux)
 */
 void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int TnumAdheEntre[], int tPtUtils[], int nbAdhe);
@@ -28,8 +31,9 @@ void affInfoAdhe(int numAdhe, int Tnum[], int Tetat[], int TnbPoints[], int Tcat
 * \param Tnum tableau des numéros d'adherents
 * \param Tetat tableau des états des compte adherents
 * \param TnbPoints tableau des nombres de points des adherents
+* \param Tcat tableau des catégories
+* \param tPtUtils tableau des points utilisé (ordre des adhérents)
 * \param nbAdhe le nombre d'adherents (la taille logique des tableaux)
-  \param tPtUtils tableau des points utilisés pour points bonus
 */
 void affInfoTous(int Tnum[], int Tetat[], int TnbPoints[], int Tcat[], int tPtUtils[], int nbAdhe);
 
@@ -45,4 +49,7 @@ void affInfoAct(void);
 */
 void affichnbEntrAct(int TnbEntr[],int tlog);
 
+/**
+ * \brief Affiche les informations par rapport au nom des catégories et leurs identifiants
+ */
 void affInfoCate(void);

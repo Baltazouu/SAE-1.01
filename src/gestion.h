@@ -14,6 +14,8 @@
 * \param Tnum tableau des numéros d'adherents
 * \param Tetat tableau des états des compte adherents
 * \param TnbPoints tableau des nombres de points des adherents
+* \param Tcat tableau des catégories
+* \param tPtUtils tableau des points utilisé (ordre des adhérents)
 * \param tmax taille physiques des tableaux précédent
 *
 * \return le nouvel id du nouvel adherent; -1 si erreur
@@ -29,6 +31,8 @@ int ajoutAdher(int *nbAdher, int nbCredits, int nCat,
 * \param Tnum tableau des numéros d'adherents
 * \param Tetat tableau des états des compte adherents
 * \param TnbPoints tableau des nombres de points des adherents
+* \param Tcat tableau des catégories
+* \param tPtUtils tableau des points utilisé (ordre des adhérents)
 *
 * \return 0 si tous se passe bien, -1 sinon
 */
