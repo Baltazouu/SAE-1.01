@@ -10,7 +10,9 @@ all:
 ifeq (,$(wildcard $(PROOT)$(EXEC)))
 	ln -s $(PBIN)$(EXEC) .
 endif
-
+ifeq (,$(wildcard $(PDATA)))
+	mkdir $(PDATA)
+endif
 
 .PHONY: clall
 clall: clbin cldoc cldata 
