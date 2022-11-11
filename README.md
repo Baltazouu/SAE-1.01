@@ -1,5 +1,11 @@
 # SAE-1.01
 
+*Membre du groupe :*  
+  * Alexandre Agostinho
+  * Baptiste Dudonne
+
+## Instructions/Utilisation des outils
+
 ### MAKE
 
 *Sur la racine du projet:*
