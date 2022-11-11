@@ -219,6 +219,7 @@ void EntreAdhe(int nbAdhe,int Tnum[],int Tetat[],int TnbPoints[],int Tcat[],int 
 
 /**
  * Fonction qui vérifie que l'adhérent n'a pas déjà fréquenté le centre dans la journée
+ * Dans ce cas, elle renvoie un message et un code d'erreur
 */
 int VerifAdheNonEntre(int numAdhe,int TnumAdheEntre[],int *nbAdheEntre)
 {

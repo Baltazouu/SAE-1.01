@@ -6,7 +6,7 @@
  */
 
 
-//! Taille maximal des tableaux Tnum Tetat TnbPoints
+//! Taille maximale des tableaux Tnum Tetat TnbPoints
 #define TMAX 100
 //! cout minimum d'une activité
 #define CMINACT 10

@@ -81,6 +81,7 @@ void suppressionNombre(int pos, int Table[], int tlog)
 
 /** 
  * Vérifie que l'adhérent entré est présent dans les tables
+ * En Cas Contraire, boucle tant que la saisie n'est pas dans la table des numéros d'adhérents
  * Vérifie que l'adhérent entré n'est pas désactivé
 */
 int VerifEntreeAdhe(int nbAdhe,int Tnum[],int Tetat[],int *numAdhe)
@@ -103,6 +104,7 @@ int VerifEntreeAdhe(int nbAdhe,int Tnum[],int Tetat[],int *numAdhe)
 
 /**
  * vérifie que l'activitée saisie est dans la liste des activités proposées
+ * Boucle tant que cette la saisie n'est pas dans la liste
 */
 void verifPresenceAct(int *numAct,int TnumAct[],int nbAct,int *presence)
 {
@@ -120,7 +122,7 @@ void verifPresenceAct(int *numAct,int TnumAct[],int nbAct,int *presence)
  * vérifie que l'adhérent saisit dispose d'assez de points pour réaliser une activité
  * Vérifie que l'adhérent dispose d'assez de points pour réaliser l'activité qu'il souhaite réaliser
  * Encaisse les points de l'adhérent
- * Compte le nombre de points utilisés et offre des points si le nombre dépasse 60.
+ * Compte le nombre de points utilisés et offre des points si le nombre dépasse 80.
 */
 void VerifnbPRest(int TCact[],int numAct,int TnbPoints[],int posAdhe,int TnbEntr[], int cat,int tPtUtils[])
 {   
