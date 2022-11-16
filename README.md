@@ -4,7 +4,7 @@
   * Alexandre Agostinho
   * Baptiste Dudonne
 
-**Cahier des charge disponble [ici](https://github.com/Baltazouu/SAE-1.01/wiki/Cahier-des-Charges).**
+**Cahier des charges disponble [ici](https://github.com/Baltazouu/SAE-1.01/wiki/Cahier-des-Charges).**
 
 ## Instructions/Utilisation des outils
 
