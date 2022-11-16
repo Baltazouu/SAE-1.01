@@ -1,6 +1,6 @@
 # SAE-1.01
 
-*Membre du groupe :*  
+*Membres du groupe :*  
   * Alexandre Agostinho
   * Baptiste Dudonne
 
